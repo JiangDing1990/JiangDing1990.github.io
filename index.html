@@ -132,7 +132,7 @@
 
 
 
-  <title>春风十里 - 一个菜鸟小白的博客</title>
+  <title>春风十里</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,6 +323,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -348,65 +370,17 @@
 
       
         
-          
-            <p>学习markdown的使用方法</p>
+          <p>学习markdown的使用方法</p>
 <h2 id="关于markdown的简介"><a href="#关于markdown的简介" class="headerlink" title="关于markdown的简介"></a>关于markdown的简介</h2><p>这是一种非常方便的记录文档的方式</p>
 <h2 id="markdown语法的使用"><a href="#markdown语法的使用" class="headerlink" title="markdown语法的使用"></a>markdown语法的使用</h2><p>来写一段测试用的文本，这段文字中，<strong>粗体</strong>的部分是 <strong>非常重要</strong> 的；而 <em>斜体</em> 的部分代表有 <em>特殊描述</em> 。</p>
 <p>假如说一段内容是<code>非常非常</code>重要的，那么需要特别醒目的标注方法，这个时候可以使用代码块。</p>
-<h2 id="markdown-语法的优点"><a href="#markdown-语法的优点" class="headerlink" title="markdown 语法的优点"></a>markdown 语法的优点</h2><ol>
-<li>比较快捷<ol>
-<li>只要打字速度<strong>快</strong></li>
-<li><code>完全</code>不需要考虑格式</li>
-</ol>
-</li>
-<li>非常易学<ul>
-<li>语法不算多</li>
-<li>就算记不全也可以使用</li>
-</ul>
-</li>
-<li>格式丰富</li>
-</ol>
-<ul>
-<li>这是一个无序列表</li>
-<li>列表的开头是一个圆点</li>
-<li>但是根据解析器的不同，也可能是一个方块</li>
-</ul>
-<h2 id="markdown-适合开发者"><a href="#markdown-适合开发者" class="headerlink" title="markdown 适合开发者"></a>markdown 适合开发者</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>刚刚开始练习md<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 上面的h1标签是一个块级元素 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>test<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>test<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>test<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>测试一个块级元素<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>一段加粗的<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.img</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="string">'hello word'</span>;</div><div class="line">a.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</div><div class="line"><span class="built_in">console</span>.log(a);</div></pre></td></tr></table></figure>
-<h2 id="markdown-当中的表格"><a href="#markdown-当中的表格" class="headerlink" title="markdown 当中的表格"></a>markdown 当中的表格</h2><table>
-<thead>
-<tr>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>test</td>
-<td>test</td>
-<td>test</td>
-<td>test</td>
-</tr>
-<tr>
-<td>test</td>
-<td>test</td>
-<td>test</td>
-<td>test</td>
-</tr>
-</tbody>
-</table>
-<h2 id="markdown-当中的引用"><a href="#markdown-当中的引用" class="headerlink" title="markdown 当中的引用"></a>markdown 当中的引用</h2><blockquote>
-<p>一切能用JavaScript写就的，最终都会被JavaScript实现</p>
-</blockquote>
-<h2 id="markdown-中引用外部资源"><a href="#markdown-中引用外部资源" class="headerlink" title="markdown 中引用外部资源"></a>markdown 中引用外部资源</h2><h3 id="引用外部链接资源"><a href="#引用外部链接资源" class="headerlink" title="引用外部链接资源"></a>引用外部链接资源</h3><p>本文内容是学习 <a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">markdown 语法手册</a></p>
-<h3 id="引用外部图片资源"><a href="#引用外部图片资源" class="headerlink" title="引用外部图片资源"></a>引用外部图片资源</h3><p><img src="https://www.zybuluo.com/static/img/logo.png" alt=""></p>
-<hr>
-<p>这里是分隔线以下的内容</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/25/markdown语法学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -618,6 +592,15 @@
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
           
 
           
