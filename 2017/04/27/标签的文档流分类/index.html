@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="春风十里">
 <meta property="og:description" content="标签分类按照闭合方式分类双闭合标签如1234&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;a href=&quot;#&quot;&amp;gt;&amp;lt;/a&amp;gt;... 单闭合标签如123&amp;lt;img src=&quot;#&quot;&amp;gt;&amp;lt;input type=&quot;&quot; name=&quot;&quot;&amp;gt;...">
 <meta property="og:image" content="http://jiangding1990.github.io/images/2017-04-27%2013.31.16.png">
-<meta property="og:updated_time" content="2017-04-27T05:37:16.000Z">
+<meta property="og:updated_time" content="2017-04-27T05:42:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标签的文档流分类">
 <meta name="twitter:description" content="标签分类按照闭合方式分类双闭合标签如1234&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;a href=&quot;#&quot;&amp;gt;&amp;lt;/a&amp;gt;... 单闭合标签如123&amp;lt;img src=&quot;#&quot;&amp;gt;&amp;lt;input type=&quot;&quot; name=&quot;&quot;&amp;gt;...">
@@ -372,19 +372,15 @@
 <h4 id="单闭合标签"><a href="#单闭合标签" class="headerlink" title="单闭合标签"></a>单闭合标签</h4><p>如<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">img</span> src=<span class="string">"#"</span>&gt;</div><div class="line">&lt;<span class="selector-tag">input</span> type=<span class="string">""</span> name=<span class="string">""</span>&gt;</div><div class="line">...</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <h3 id="按照文档流分类"><a href="#按照文档流分类" class="headerlink" title="按照文档流分类"></a>按照文档流分类</h3><h4 id="1-块级元素"><a href="#1-块级元素" class="headerlink" title="1. 块级元素"></a>1. 块级元素</h4><p>撑满整行的元素 <strong>占满一整行，导致后面的元素换行显示</strong></p>
-<ul>
-<li><strong>块级元素特点：</strong></li>
-</ul>
+<p><strong>块级元素特点：</strong></p>
 <ol>
 <li>每个块级元素都从新的一行开始，并且其后的元素也另起一行</li>
 <li>元素的高度、宽度、行高以及顶和底边距都可设置</li>
 <li>元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度</li>
 </ol>
+<p><strong>块级元素示例</strong></p>
 <ul>
-<li><p><strong>块级元素示例</strong></p>
-</li>
-<li><p>h标签</p>
-</li>
+<li>h标签</li>
 <li>div标签</li>
 <li>hr标签</li>
 <li>ul标签</li>
@@ -394,19 +390,15 @@
 <li>dd标签</li>
 </ul>
 <h4 id="2-行内元素"><a href="#2-行内元素" class="headerlink" title="2. 行内元素"></a>2. 行内元素</h4><p><strong>内容有多少，尺寸就有多大，不会导致后方元素换行显示</strong>(<code>不能设置尺寸</code>)</p>
-<ul>
-<li><strong>行内元素特点</strong></li>
-</ul>
+<p><strong>行内元素特点</strong></p>
 <ol>
 <li>和其他元素都在一行上</li>
 <li>元素的高度、宽度、行高及顶部和底部边距不可设置</li>
 <li>元素的宽度就是它包含的文字或图片的宽度，不可改变</li>
 </ol>
+<p><strong>行内元素示例</strong></p>
 <ul>
-<li><p><strong>行内元素示例</strong></p>
-</li>
-<li><p>span标签</p>
-</li>
+<li>span标签</li>
 <li>a标签</li>
 <li>strong标签</li>
 <li>em标签</li>
@@ -414,18 +406,14 @@
 <li>textarea标签</li>
 </ul>
 <h4 id="3-行内块级元素"><a href="#3-行内块级元素" class="headerlink" title="3. 行内块级元素"></a>3. 行内块级元素</h4><p><strong>不会换行，同时可以设置尺寸</strong></p>
-<ul>
-<li><strong>行内块级元素特点：</strong></li>
-</ul>
+<p><strong>行内块级元素特点：</strong></p>
 <ol>
 <li>和其他元素都在一行上；</li>
 <li>元素的高度、宽度、行高以及顶和底边距都可设置</li>
 </ol>
+<p><strong>行内块级元素示例：</strong></p>
 <ul>
-<li><p><strong>行内块级元素示例：</strong></p>
-</li>
-<li><p>img标签</p>
-</li>
+<li>img标签</li>
 <li>input标签</li>
 </ul>
 <h2 id="关于文档流"><a href="#关于文档流" class="headerlink" title="关于文档流"></a>关于文档流</h2><p>文档流按照先后顺序依次显示，但是在table标签内部会发生变化，例如无论thead标签放在表格内部哪个位置，最终都会显示在表头位置。</p>
