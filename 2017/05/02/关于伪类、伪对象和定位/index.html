@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,markdown,博客," />
+  <meta name="keywords" content="伪类,伪对象,定位," />
 
 
 
@@ -90,21 +90,17 @@
 
 
 
-<meta name="description" content="缘起最近使用Hexo搭建了自己的博客，使用了简洁而强大的NexT主题。在写博客的过程中发现主页文章显示为全文模式，看起来很不美观。从网络上搜集了几种方法，今天做个总结分享出来。 方法分享这里介绍一下NexT主题下设置在首页只显示文章的摘要的方法。 1. 在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断在写博客的时候在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断,如下图所示：">
-<meta name="keywords" content="Hexo,markdown,博客">
+<meta name="description" content="清除浮动当一个容器中的所有元素都设置浮动后，一定要记得清除浮动。如果不清除浮动，会造成页面坍塌（即某些元素尺寸会消失）。 常用清除浮动代码：123clear:both;  /*清除所有浮动*/clear:left;  /*清除左浮动*/clear:right;  /*清除右浮动*/ 伪类CSS伪类是用来添加一些选择器的特殊效果的。 常用伪类a标签的伪类 a标签伪类在使用时需要注意先后顺序，否则设置">
+<meta name="keywords" content="伪类,伪对象,定位">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo使用NexT主题设置主页显示文章摘要方法">
-<meta property="og:url" content="http://JiangDing1990.github.io/2017/04/25/Hexo使用NexT主题设置主页显示文章摘要方法/index.html">
+<meta property="og:title" content="关于伪类、伪对象和定位">
+<meta property="og:url" content="http://JiangDing1990.github.io/2017/05/02/关于伪类、伪对象和定位/index.html">
 <meta property="og:site_name" content="春风十里">
-<meta property="og:description" content="缘起最近使用Hexo搭建了自己的博客，使用了简洁而强大的NexT主题。在写博客的过程中发现主页文章显示为全文模式，看起来很不美观。从网络上搜集了几种方法，今天做个总结分享出来。 方法分享这里介绍一下NexT主题下设置在首页只显示文章的摘要的方法。 1. 在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断在写博客的时候在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断,如下图所示：">
-<meta property="og:image" content="http://jiangding1990.github.io/images/2017-04-25%2021.18.01.png">
-<meta property="og:image" content="http://jiangding1990.github.io/images/2017-04-25%2021.15.13.png">
-<meta property="og:image" content="http://jiangding1990.github.io/images/front-matter.png">
-<meta property="og:updated_time" content="2017-04-28T08:36:24.000Z">
+<meta property="og:description" content="清除浮动当一个容器中的所有元素都设置浮动后，一定要记得清除浮动。如果不清除浮动，会造成页面坍塌（即某些元素尺寸会消失）。 常用清除浮动代码：123clear:both;  /*清除所有浮动*/clear:left;  /*清除左浮动*/clear:right;  /*清除右浮动*/ 伪类CSS伪类是用来添加一些选择器的特殊效果的。 常用伪类a标签的伪类 a标签伪类在使用时需要注意先后顺序，否则设置">
+<meta property="og:updated_time" content="2017-05-02T13:03:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo使用NexT主题设置主页显示文章摘要方法">
-<meta name="twitter:description" content="缘起最近使用Hexo搭建了自己的博客，使用了简洁而强大的NexT主题。在写博客的过程中发现主页文章显示为全文模式，看起来很不美观。从网络上搜集了几种方法，今天做个总结分享出来。 方法分享这里介绍一下NexT主题下设置在首页只显示文章的摘要的方法。 1. 在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断在写博客的时候在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断,如下图所示：">
-<meta name="twitter:image" content="http://jiangding1990.github.io/images/2017-04-25%2021.18.01.png">
+<meta name="twitter:title" content="关于伪类、伪对象和定位">
+<meta name="twitter:description" content="清除浮动当一个容器中的所有元素都设置浮动后，一定要记得清除浮动。如果不清除浮动，会造成页面坍塌（即某些元素尺寸会消失）。 常用清除浮动代码：123clear:both;  /*清除所有浮动*/clear:left;  /*清除左浮动*/clear:right;  /*清除右浮动*/ 伪类CSS伪类是用来添加一些选择器的特殊效果的。 常用伪类a标签的伪类 a标签伪类在使用时需要注意先后顺序，否则设置">
 
 
 
@@ -132,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://JiangDing1990.github.io/2017/04/25/Hexo使用NexT主题设置主页显示文章摘要方法/"/>
+  <link rel="canonical" href="http://JiangDing1990.github.io/2017/05/02/关于伪类、伪对象和定位/"/>
 
 
 
 
 
-  <title>Hexo使用NexT主题设置主页显示文章摘要方法 | 春风十里</title>
+  <title>关于伪类、伪对象和定位 | 春风十里</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +273,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/04/25/Hexo使用NexT主题设置主页显示文章摘要方法/">
+    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/05/02/关于伪类、伪对象和定位/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -298,7 +294,7 @@
             
             
               
-                Hexo使用NexT主题设置主页显示文章摘要方法
+                关于伪类、伪对象和定位
               
             
           </h1>
@@ -313,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T20:37:46+08:00">
-                2017-04-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T20:53:10+08:00">
+                2017-05-02
               </time>
             
 
@@ -336,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -370,22 +366,54 @@
       
 
       
-        <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>最近使用<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>搭建了自己的博客，使用了简洁而强大的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>主题。在写博客的过程中发现主页文章显示为全文模式，看起来很不美观。从网络上搜集了几种方法，今天做个总结分享出来。</p>
-<h2 id="方法分享"><a href="#方法分享" class="headerlink" title="方法分享"></a>方法分享</h2><p>这里介绍一下<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>主题下设置在首页只显示文章的摘要的方法。</p>
-<h3 id="1-在文章中使用-lt-more-gt-进行手动截断"><a href="#1-在文章中使用-lt-more-gt-进行手动截断" class="headerlink" title="1. 在文章中使用&lt;!--more--&gt;进行手动截断"></a>1. 在文章中使用&lt;!--more--&gt;进行手动截断</h3><p>在写博客的时候在文章中使用&lt;!--more--&gt;进行手动截断,如下图所示：</p>
+        <h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>当一个容器中的所有元素都设置浮动后，一定要记得清除浮动。如果不清除浮动，会造成页面坍塌（即某些元素尺寸会消失）。</p>
+<p>常用清除浮动代码：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">clear</span>:both;  <span class="comment">/*清除所有浮动*/</span></div><div class="line"><span class="attribute">clear</span>:left;  <span class="comment">/*清除左浮动*/</span></div><div class="line"><span class="attribute">clear</span>:right;  <span class="comment">/*清除右浮动*/</span></div></pre></td></tr></table></figure></p>
+<h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><p>CSS伪类是用来添加一些选择器的特殊效果的。</p>
+<h3 id="常用伪类"><a href="#常用伪类" class="headerlink" title="常用伪类"></a>常用伪类</h3><p><strong><code>a</code>标签的伪类</strong></p>
+<p><code>a</code>标签伪类在使用时需要注意先后顺序，否则设置可能不会生效。</p>
 <a id="more"></a>
-<p><img src="/images/2017-04-25 21.18.01.png" alt=""></p>
-<p>这样可以实现只显示摘要的效果，并且在摘要下方生成一个<strong>阅读全文</strong>的链接。</p>
-<p>实现的效果如下图所示：</p>
-<p><img src="/images/2017-04-25 21.15.13.png" alt=""></p>
-<h3 id="2-在文章中的front-matter中添加description，并提供文章摘要"><a href="#2-在文章中的front-matter中添加description，并提供文章摘要" class="headerlink" title="2. 在文章中的front-matter中添加description，并提供文章摘要"></a>2. 在文章中的<code>front-matter</code>中添加<code>description</code>，并提供文章摘要</h3><p>这种方式只会在首页列表中显示文章的摘要内容，进入文章详情后不会再显示。使用这种方法也可以实现首页文章部分显示的效果。</p>
-<p>方法如下图所示：</p>
-<p><img src="/images/front-matter.png" alt=""></p>
-<h3 id="3-自动生成摘要"><a href="#3-自动生成摘要" class="headerlink" title="3. 自动生成摘要"></a>3. 自动生成摘要</h3><p>想要自动生成文章摘要，需在<code>主题配置</code>文件中添加以下代码：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">auto_excerpt:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  length:</span> <span class="number">150</span></div></pre></td></tr></table></figure>
-<p>其中的<code>length</code>值为摘要所截取的字符长度。</p>
-<p>使用这种方法就可以实现自动生成文章摘要。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>Hexo建议使用<code>&lt;!-- more --&gt;</code>(即第一种方式)，这样除了可以<strong>精确控制需要显示的摘要内容</strong>以外，也可以让<strong>Hexo</strong>中的插件更好的识别。</p>
+<ul>
+<li>在CSS定义中，<code>a:hover</code> 必须被置于 <code>a:link</code> 和<code>a:visited</code> 之后，才是有效的。</li>
+<li>在 CSS 定义中，<code>a:active</code> 必须被置于 <code>a:hover</code> 之后，才是有效的。</li>
+<li>伪类的名称不区分大小写。</li>
+</ul>
+<p><em>快速记忆</em> <code>love and hate</code><br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span>:link&#123;&#125; <span class="comment">/* 未访问的链接 */</span></div><div class="line"><span class="selector-tag">a</span>:visited &#123;&#125;  <span class="comment">/* 已访问的链接 */</span></div><div class="line"><span class="selector-tag">a</span>:hover &#123;&#125;  <span class="comment">/* 鼠标移动到链接上 */</span></div><div class="line"><span class="selector-tag">a</span>:active &#123;&#125;  <span class="comment">/* 触发链接 */</span></div></pre></td></tr></table></figure></p>
+<p>代码示例：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>&#123;</div><div class="line">      <span class="attribute">text-decoration</span>: none;</div><div class="line">      <span class="attribute">color</span>:<span class="built_in">rgb</span>(2, 184, 162);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>&#123;</div><div class="line">      <span class="attribute">color</span>:<span class="built_in">rgb</span>(2, 184, 162);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</div><div class="line">      <span class="attribute">color</span>:<span class="number">#fff</span>;</div><div class="line">      <span class="attribute">background</span>:<span class="built_in">rgb</span>(2, 184, 162);</div><div class="line">    &#125;</div><div class="line">    <span class="selector-tag">a</span><span class="selector-pseudo">:active</span>&#123;</div><div class="line">      <span class="attribute">color</span>:<span class="number">#fff</span>;</div><div class="line">      <span class="attribute">color</span>:<span class="built_in">rgb</span>(1, 121, 107);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="伪对象"><a href="#伪对象" class="headerlink" title="伪对象"></a>伪对象</h2><p><code>:before</code>     选择器在被选元素的内容前面插入内容。<br><code>:after</code>     选择器在被选元素的内容后面插入内容。</p>
+<p><strong>注意:before 和after必须和content结合使用，即使没有内容插入也要写content=””</strong></p>
+<p><code>:first-letter</code>   对象内的第一个字符的样式设置<br><code>:first-line</code>      对象内第一行的样式设置</p>
+<h3 id="利用伪对象清除浮动"><a href="#利用伪对象清除浮动" class="headerlink" title="利用伪对象清除浮动"></a>利用伪对象清除浮动</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">.cl:</span>:after&#123;</div><div class="line">	content=<span class="string">" "</span><span class="comment">; </span></div><div class="line">	<span class="keyword">dispaly=block;</span></div><div class="line">	clear=<span class="keyword">both;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>元素定位时使用到的position属性有static、relative、absolute和fixed等几种取值（还包括CSS3中新增的几个取值，这里先不说）。</p>
+<ul>
+<li><p>static</p>
+<p>  默认即为static定位，即没有定位，元素出现在正常的流中。</p>
+</li>
+<li><p>relative</p>
+<p>  相对定位：相对于元素自己原来所在位置的定位。</p>
+<p>  <strong>注意</strong></p>
+<ul>
+<li>相对定位的元素<strong>不会脱离文档流</strong></li>
+<li>相对定位元素经常被用来作为绝对定位元素的容器块</li>
+</ul>
+</li>
+<li><p>absolute</p>
+<p>  绝对定位：相对于<strong>最近的有定位的祖先元素定位.</strong></p>
+<p>  <strong>注意</strong></p>
+<ul>
+<li>对象会脱离常规流，此时偏移属性参照的是离自身最近<strong>有定位属性</strong>的<strong>祖先元素</strong></li>
+<li>如果没有定位的祖先元素，则一直回溯到html元素</li>
+<li>盒子的偏移位置不影响常规流中的任何元素，其margin不与其他任何margin折叠</li>
+</ul>
+</li>
+<li><p>fixed</p>
+<p>  元素的位置相对于浏览器窗口是固定位置,即使窗口是滚动的它也不会移动。</p>
+<ul>
+<li>Fixed定位使元素的位置与文档流无关，因此不占据空间。    </li>
+<li>Fixed定位的元素和其他元素重叠。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -415,11 +443,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/伪类/" rel="tag"># 伪类</a>
           
-            <a href="/tags/markdown/" rel="tag"># markdown</a>
+            <a href="/tags/伪对象/" rel="tag"># 伪对象</a>
           
-            <a href="/tags/博客/" rel="tag"># 博客</a>
+            <a href="/tags/定位/" rel="tag"># 定位</a>
           
         </div>
       
@@ -432,18 +460,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/26/Sublime-Text-3 编辑器学习笔记/" rel="next" title="Sublime Text 3 编辑器学习笔记">
-                <i class="fa fa-chevron-left"></i> Sublime Text 3 编辑器学习笔记
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/25/markdown语法学习/" rel="prev" title="Markdown语法学习">
-                Markdown语法学习 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/28/Font-Awsome-字体图标使用初探/" rel="prev" title="Font Awsome 字体图标使用初探">
+                Font Awsome 字体图标使用初探 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -607,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法分享"><span class="nav-text">方法分享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在文章中使用-lt-more-gt-进行手动截断"><span class="nav-text">1. 在文章中使用<!--more-->进行手动截断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在文章中的front-matter中添加description，并提供文章摘要"><span class="nav-text">2. 在文章中的front-matter中添加description，并提供文章摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-自动生成摘要"><span class="nav-text">3. 自动生成摘要</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#清除浮动"><span class="nav-text">清除浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪类"><span class="nav-text">伪类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用伪类"><span class="nav-text">常用伪类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪对象"><span class="nav-text">伪对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用伪对象清除浮动"><span class="nav-text">利用伪对象清除浮动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-text">定位</span></a></li></ol></div>
             
 
           </div>
