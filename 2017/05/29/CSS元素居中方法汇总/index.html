@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="写在前边在平时写页面布局的时候，我们经常会遇到设置元素水平居中或者垂直居中的情况，这时，我们就需要根据遇到的实际情况选择处相应的更为合适的设置元素居中的方法。经过查阅资料，集合自己的理解，特意把元素居中的内容整理出来，分享给大家。但愿可以对大家有所帮助。 一、水平居中 inline或者inline-*元素 对于父元素是块级元素的内联元素来说，你只需要这么做：  123.center-childre">
+<meta name="description" content="写在前边在平时写页面布局的时候，我们经常会遇到设置元素水平居中或者垂直居中的情况，这时，我们就需要根据遇到的实际情况选择处相应的更为合适的设置元素居中的方法。经过查阅资料，集合自己的理解，特意把元素居中的内容整理出来，分享给大家。但愿可以对大家有所帮助。 一、水平居中 inline或者inline-*元素  对于父元素是块级元素的内联元素来说，你只需要这么做：  123.center-childr">
 <meta name="keywords" content="css,元素居中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS元素居中方法汇总">
 <meta property="og:url" content="http://JiangDing1990.github.io/2017/05/29/CSS元素居中方法汇总/index.html">
 <meta property="og:site_name" content="春风十里">
-<meta property="og:description" content="写在前边在平时写页面布局的时候，我们经常会遇到设置元素水平居中或者垂直居中的情况，这时，我们就需要根据遇到的实际情况选择处相应的更为合适的设置元素居中的方法。经过查阅资料，集合自己的理解，特意把元素居中的内容整理出来，分享给大家。但愿可以对大家有所帮助。 一、水平居中 inline或者inline-*元素 对于父元素是块级元素的内联元素来说，你只需要这么做：  123.center-childre">
-<meta property="og:updated_time" content="2017-05-29T15:44:52.000Z">
+<meta property="og:description" content="写在前边在平时写页面布局的时候，我们经常会遇到设置元素水平居中或者垂直居中的情况，这时，我们就需要根据遇到的实际情况选择处相应的更为合适的设置元素居中的方法。经过查阅资料，集合自己的理解，特意把元素居中的内容整理出来，分享给大家。但愿可以对大家有所帮助。 一、水平居中 inline或者inline-*元素  对于父元素是块级元素的内联元素来说，你只需要这么做：  123.center-childr">
+<meta property="og:updated_time" content="2017-05-29T15:49:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS元素居中方法汇总">
-<meta name="twitter:description" content="写在前边在平时写页面布局的时候，我们经常会遇到设置元素水平居中或者垂直居中的情况，这时，我们就需要根据遇到的实际情况选择处相应的更为合适的设置元素居中的方法。经过查阅资料，集合自己的理解，特意把元素居中的内容整理出来，分享给大家。但愿可以对大家有所帮助。 一、水平居中 inline或者inline-*元素 对于父元素是块级元素的内联元素来说，你只需要这么做：  123.center-childre">
+<meta name="twitter:description" content="写在前边在平时写页面布局的时候，我们经常会遇到设置元素水平居中或者垂直居中的情况，这时，我们就需要根据遇到的实际情况选择处相应的更为合适的设置元素居中的方法。经过查阅资料，集合自己的理解，特意把元素居中的内容整理出来，分享给大家。但愿可以对大家有所帮助。 一、水平居中 inline或者inline-*元素  对于父元素是块级元素的内联元素来说，你只需要这么做：  123.center-childr">
 
 
 
@@ -368,11 +368,13 @@
       
         <h2 id="写在前边"><a href="#写在前边" class="headerlink" title="写在前边"></a>写在前边</h2><p>在平时写页面布局的时候，我们经常会遇到设置元素水平居中或者垂直居中的情况，这时，我们就需要根据遇到的实际情况选择处相应的更为合适的设置元素居中的方法。经过查阅资料，集合自己的理解，特意把元素居中的内容整理出来，分享给大家。但愿可以对大家有所帮助。</p>
 <h2 id="一、水平居中"><a href="#一、水平居中" class="headerlink" title="一、水平居中"></a>一、水平居中</h2><ol>
-<li><p><code>inline</code>或者<code>inline-*</code>元素<br> 对于父元素是块级元素的内联元素来说，你只需要这么做：</p>
+<li><p><code>inline</code>或者<code>inline-*</code>元素</p>
+<p> 对于父元素是块级元素的内联元素来说，你只需要这么做：</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-children</span> &#123;</div><div class="line">	<span class="attribute">text-align</span>:center</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> <strong>这种方法可以让 inline/inline-block/inline-table/inline/flex 等类型的元素实现居中。</strong></p>
 </li>
-<li><p>单个块级元素<br> 当某个块级元素的宽度<code>width</code>已知的时候，可以通过设置其左外边距<code>margin-left</code>和右外边距<code>margin-right</code>值为<code>auto</code>来实现元素的水平居中。例如我们经常会使用的：</p>
+<li><p>单个块级元素</p>
+<p> 当某个块级元素的宽度<code>width</code>已知的时候，可以通过设置其左外边距<code>margin-left</code>和右外边距<code>margin-right</code>值为<code>auto</code>来实现元素的水平居中。例如我们经常会使用的：</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.wrapper</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> 当块级元素宽度未知时，也可以利用定位先让其向右移动其父元素高度的一半，然后再向左移动自身宽度的一半即可。</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translateX</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -381,20 +383,22 @@
 </ol>
 <a id="more"></a>
 <ol>
-<li><p>多个块级元素<br> 如果你想让两个或者两个以上的块级元素在一行上面水平居中，那么最好的办法是改变他们<code>display</code>的类型。下面有两个例子，一个使用<code>inline-block</code>，另一个使用<code>flex</code>。<br> <a href="https://codepen.io/chriscoyier/pen/ebing" target="_blank" rel="external">demo在这里</a></p>
+<li><p>多个块级元素</p>
+<p> 如果你想让两个或者两个以上的块级元素在一行上面水平居中，那么最好的办法是改变他们<code>display</code>的类型。下面有两个例子，一个使用<code>inline-block</code>，另一个使用<code>flex</code>。<br> <a href="https://codepen.io/chriscoyier/pen/ebing" target="_blank" rel="external">demo在这里</a></p>
 <p> 当然，如果你的意思是让多个块级元素堆积叠加显示在一条竖列上，那么设置左右外边距的值为<code>auto</code>这一方法依然有效。</p>
 </li>
 </ol>
 <h2 id="二、垂直居中"><a href="#二、垂直居中" class="headerlink" title="二、垂直居中"></a>二、垂直居中</h2><h3 id="inline或inline-元素"><a href="#inline或inline-元素" class="headerlink" title="inline或inline-*元素"></a><code>inline</code>或<code>inline-*</code>元素</h3><ol>
-<li><p>单行<br> 对于单行行内或者文本元素，只需为它们添加相同的<code>padding-top</code>和 <code>padding-bottom</code> 就可以实现垂直居中，对于存在奇数值的情况，只能上下差一像素了，不过一般也不影响。</p>
+<li><p>单行</p>
+<p> 对于单行行内或者文本元素，只需为它们添加相同的<code>padding-top</code>和 <code>padding-bottom</code> 就可以实现垂直居中，对于存在奇数值的情况，只能上下差一像素了，不过一般也不影响。</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span>&#123;</div><div class="line">	<span class="attribute">padding-top</span>: <span class="number">10px</span>;</div><div class="line">	<span class="attribute">padding-bottom</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p> 当因为某些原因，设置padding成为一个不可选选项，而你又需要居中一些不需要换行的文本时，将<code>line-height</code>和<code>height</code>设为相同的值就是一个不错的选择。例如：</p>
+<p> 当因为某些原因，设置<code>padding</code>成为一个不可选选项，而你又需要居中一些不需要换行的文本时，将<code>line-height</code>和<code>height</code>设为相同的值就是一个不错的选择。例如：</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-text-trick</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">100px</span>;</div><div class="line">	<span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>多行</p>
-<p> 将上下内边距设置为相同大小从而使得单行文本垂直居中，这一方法对多行文本同样有效。但是，如果在某些情况这一方法失效了怎么办？也许，可以通过使用表格元素或者使用CSS，将这些文本元素显示在一个表格单元格内（table cell）。在这种情况下，使用vertical-algin属性处理居中与它通常在一行中处理元素的居中有所不同。（查看更多关于vertical-algin的知识点，看这儿<a href="https://css-tricks.com/what-is-vertical-align/" target="_blank" rel="external">戳这里</a></p>
+<p> 将上下内边距设置为相同大小从而使得单行文本垂直居中，这一方法对多行文本同样有效。但是，如果在某些情况这一方法失效了怎么办？也许，可以通过使用表格元素或者使用CSS，将这些文本元素显示在一个表格单元格内（table cell）。在这种情况下，使用<code>vertical-algin</code>属性处理居中与它通常在一行中处理元素的居中有所不同。（查看更多关于vertical-algin的知识点，看这儿<a href="https://css-tricks.com/what-is-vertical-align/" target="_blank" rel="external">戳这里</a></p>
 <p> demo<a href="https://codepen.io/chriscoyier/pen/ekoFx" target="_blank" rel="external">戳这里</a></p>
-<p> 此外，你还可以使用 flexbox 实现垂直居中，对于父级容器为 display: flex 的元素来说，它的每一个子元素都是垂直居中的：</p>
+<p> 此外，你还可以使用<code>flexbox</code>实现垂直居中，对于父级容器为 <code>display: flex;</code> 的元素来说，它的每一个子元素都是垂直居中的：</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.flex-center-vertically</span> &#123;</div><div class="line">	<span class="attribute">display</span>: flex;</div><div class="line">	<span class="attribute">justify-content</span>: center;</div><div class="line">	<span class="attribute">flex-direction</span>: column;</div><div class="line">	<span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> demo<a href="https://codepen.io/chriscoyier/pen/uHygv" target="_blank" rel="external">戳这里</a></p>
 <p> <strong>注意</strong>上述方法<strong>只适用于父级容器拥有确定高度(<code>px</code>, <code>%</code>, etc)的元素</strong>。</p>
@@ -428,16 +432,18 @@
 
 demo[戳这里](https://codepen.io/chriscoyier/pen/JGofm)
 </code></pre><ol>
-<li><p>元素宽度和高度未知<br> 如果你不知道元素的宽度或者高度，你可以使用<code>transform</code>属性，即<code>translate(-50%, -50%)</code>，在横向、纵向上都偏移自身高度的一半以居中。这一偏移是基于浏览器计算后得到的元素自身的宽度和高度。</p>
+<li><p>元素宽度和高度未知</p>
+<p> 如果你不知道元素的宽度或者高度，你可以使用<code>transform</code>属性，即<code>translate(-50%, -50%)</code>，在横向、纵向上都偏移自身高度的一半以居中。这一偏移是基于浏览器计算后得到的元素自身的宽度和高度。</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> demo<a href="https://codepen.io/chriscoyier/pen/lgFiq" target="_blank" rel="external">戳这里</a></p>
 </li>
-<li><p>使用flexbox<br> 要在flexbox中是的两个方向上都居中，你需要使用两个居中属性:</p>
+<li><p>使用<code>flexbox</code></p>
+<p> 要在<code>flexbox</code>中是的两个方向上都居中，你需要使用两个居中属性:</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> demo<a href="https://codepen.io/chriscoyier/pen/msItD" target="_blank" rel="external">戳这里</a></p>
+<p> 好了，以上就是关于CSS设置元素水平居中和垂直居中的方法汇总，愿所有的元素居中都能够快速而又顺利的实现！</p>
 </li>
 </ol>
-<p>好了，以上就是关于CSS设置元素水平居中和垂直居中的方法汇总，愿所有的元素居中都能够快速而又顺利的实现！</p>
 <p><strong>原文翻译自</strong><a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="external">https://css-tricks.com/centering-css-complete-guide/</a></p>
 
       

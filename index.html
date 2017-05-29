@@ -372,11 +372,13 @@
         
           <h2 id="写在前边"><a href="#写在前边" class="headerlink" title="写在前边"></a>写在前边</h2><p>在平时写页面布局的时候，我们经常会遇到设置元素水平居中或者垂直居中的情况，这时，我们就需要根据遇到的实际情况选择处相应的更为合适的设置元素居中的方法。经过查阅资料，集合自己的理解，特意把元素居中的内容整理出来，分享给大家。但愿可以对大家有所帮助。</p>
 <h2 id="一、水平居中"><a href="#一、水平居中" class="headerlink" title="一、水平居中"></a>一、水平居中</h2><ol>
-<li><p><code>inline</code>或者<code>inline-*</code>元素<br> 对于父元素是块级元素的内联元素来说，你只需要这么做：</p>
+<li><p><code>inline</code>或者<code>inline-*</code>元素</p>
+<p> 对于父元素是块级元素的内联元素来说，你只需要这么做：</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-children</span> &#123;</div><div class="line">	<span class="attribute">text-align</span>:center</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> <strong>这种方法可以让 inline/inline-block/inline-table/inline/flex 等类型的元素实现居中。</strong></p>
 </li>
-<li><p>单个块级元素<br> 当某个块级元素的宽度<code>width</code>已知的时候，可以通过设置其左外边距<code>margin-left</code>和右外边距<code>margin-right</code>值为<code>auto</code>来实现元素的水平居中。例如我们经常会使用的：</p>
+<li><p>单个块级元素</p>
+<p> 当某个块级元素的宽度<code>width</code>已知的时候，可以通过设置其左外边距<code>margin-left</code>和右外边距<code>margin-right</code>值为<code>auto</code>来实现元素的水平居中。例如我们经常会使用的：</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.wrapper</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> 当块级元素宽度未知时，也可以利用定位先让其向右移动其父元素高度的一半，然后再向左移动自身宽度的一半即可。</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translateX</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
