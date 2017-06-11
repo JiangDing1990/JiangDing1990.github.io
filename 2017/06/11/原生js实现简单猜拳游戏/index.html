@@ -1,0 +1,790 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,js游戏," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="缘起学习JavaScript已经有一段时间了，基本上算是入门了，一直寻思着做一个小游戏练练手。可是前一阵子忙于学习，这事儿一拖再拖，直到今天才有时间兑现。 构思我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。">
+<meta name="keywords" content="javascript,js游戏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生js实现简单猜拳游戏">
+<meta property="og:url" content="http://JiangDing1990.github.io/2017/06/11/原生js实现简单猜拳游戏/index.html">
+<meta property="og:site_name" content="春风十里">
+<meta property="og:description" content="缘起学习JavaScript已经有一段时间了，基本上算是入门了，一直寻思着做一个小游戏练练手。可是前一阵子忙于学习，这事儿一拖再拖，直到今天才有时间兑现。 构思我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。">
+<meta property="og:updated_time" content="2017-06-11T13:17:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原生js实现简单猜拳游戏">
+<meta name="twitter:description" content="缘起学习JavaScript已经有一段时间了，基本上算是入门了，一直寻思着做一个小游戏练练手。可是前一阵子忙于学习，这事儿一拖再拖，直到今天才有时间兑现。 构思我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://JiangDing1990.github.io/2017/06/11/原生js实现简单猜拳游戏/"/>
+
+
+
+
+
+  <title>原生js实现简单猜拳游戏 | 春风十里</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">春风十里</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/06/11/原生js实现简单猜拳游戏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiang Ding">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                原生js实现简单猜拳游戏
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-11T20:40:37+08:00">
+                2017-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/原创教程/" itemprop="url" rel="index">
+                    <span itemprop="name">原创教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>学习JavaScript已经有一段时间了，基本上算是入门了，一直寻思着做一个小游戏练练手。可是前一阵子忙于学习，这事儿一拖再拖，直到今天才有时间兑现。</p>
+<h2 id="构思"><a href="#构思" class="headerlink" title="构思"></a>构思</h2><p>我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。</p>
+<p>其实要实现的效果很简单，直接说我的思路吧。</p>
+<pre><code>1. 首先，将三种出拳的图片列出，获取元素到数组；
+2. 然后生成一个随机数，使用随机数作为数组下标，获取电脑出拳结果；
+3. 设置定时器让电脑快速出拳并滚动显示；
+4. 定义函数实现用户点击出拳，并将结果显示在出拳显示区域；
+5. 获取双方出拳结果，定义函数，判定胜负关系；
+6. 统计胜负关系，重置游戏至下一轮。
+</code></pre><a id="more"></a>
+<h2 id="页面结构"><a href="#页面结构" class="headerlink" title="页面结构"></a>页面结构</h2><p>页面结构布局我设计的很简单，最上方显示双方出拳结果，中间区域显示用户成绩，最下方为用户出拳选择区域。</p>
+<p>具体的html代码如下：</p>
+<pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>猜拳游戏<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"css/main.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>猜拳游戏<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"showarea"</span> <span class="attr">class</span>=<span class="string">"clearFix"</span>&gt;</span><span class="comment">&lt;!-- 出拳显示区域开始 --&gt;</span></div><div class="line">	    	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"fl"</span>&gt;</span></div><div class="line">	    		<span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"computer"</span> <span class="attr">src</span>=<span class="string">"images/paper.jpg"</span>&gt;</span></div><div class="line">	    		<span class="tag">&lt;<span class="name">h3</span>&gt;</span>电脑的选择<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">	    	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	    	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"vs fl"</span>&gt;</span></div><div class="line">	    		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>VS<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">	    	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"fl"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"user"</span> <span class="attr">src</span>=<span class="string">""</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h3</span>&gt;</span>你的选择<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- 出拳显示区域结束 --&gt;</span></div><div class="line"></div><div class="line">		<span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"scores"</span>&gt;</span><span class="comment">&lt;!-- 比分结果部分开始 --&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"tit"</span>&gt;</span>你的成绩:<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>胜<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"wincount"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>平<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"evencount"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>负<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"losecount"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">section</span>&gt;</span><span class="comment">&lt;!-- 比分结果部分结束 --&gt;</span></div><div class="line"></div><div class="line">    	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"options"</span>&gt;</span><span class="comment">&lt;!-- 选项部分开始 --&gt;</span></div><div class="line">    		<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    			<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">    				<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/rock.jpg"</span> <span class="attr">alt</span>=<span class="string">"石头"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span></div><div class="line">    			<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    			<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">    				<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/scissor.jpg"</span> <span class="attr">alt</span>=<span class="string">"剪刀"</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span></div><div class="line">    			<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    			<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">    				<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/paper.jpg"</span> <span class="attr">alt</span>=<span class="string">"布"</span> <span class="attr">value</span>=<span class="string">"3"</span>&gt;</span></div><div class="line">    			<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">h3</span>&gt;</span>请点击图片选择你本轮应战的武器<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- 选项部分结束 --&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</code></pre><h2 id="css样式"><a href="#css样式" class="headerlink" title="css样式"></a>css样式</h2><p>整个游戏的css样式也比较简单，只是做了简单的居中。</p>
+<p>具体的html代码如下：</p>
+<pre><code><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">charset</span> <span class="string">"UTF-8"</span>;</div><div class="line"><span class="selector-tag">body</span>,<span class="selector-tag">ul</span>,<span class="selector-tag">li</span>,<span class="selector-tag">h1</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">	<span class="attribute">list-style</span>: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.fl</span>&#123;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.clearFix</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">	<span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line">	<span class="attribute">display</span>: block;</div><div class="line">	<span class="attribute">clear</span>: both;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">ul</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">20px</span> auto;</div><div class="line">	<span class="attribute">height</span>: <span class="number">120px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">li</span>&#123;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line">	<span class="attribute">cursor</span>: pointer;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">img</span>&#123;</div><div class="line">	<span class="attribute">vertical-align</span>: top;</div><div class="line">	<span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">132px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#box</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">800px</span>;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">60px</span> <span class="number">0</span>;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#showarea</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">600px</span>;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">50px</span> auto <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.vs</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">132px</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">132px</span>;</div><div class="line">	<span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">	<span class="attribute">margin-right</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#options</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">520px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">120px</span>;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#options</span> <span class="selector-tag">img</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>: auto;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#scores</span>&#123;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">	<span class="attribute">height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">40px</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">span</span>&#123;</div><div class="line">	<span class="attribute">display</span>: inline-block;</div><div class="line">	<span class="attribute">width</span>: <span class="number">30px</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">24px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">span</span><span class="selector-class">.tit</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">120px</span>;</div><div class="line">	<span class="attribute">padding-right</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#wincount</span>,</div><div class="line"><span class="selector-id">#evencount</span>,</div><div class="line"><span class="selector-id">#losecount</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">60px</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">24px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">margin-right</span>: <span class="number">20px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#f60</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h3</span>&#123;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h2 id="JavaScript部分"><a href="#JavaScript部分" class="headerlink" title="JavaScript部分"></a>JavaScript部分</h2><p>游戏最关键的JavaScript部分，其实总体比较简单。最关键的是解决<strong>如何通过获取双方出拳的图片来判断胜负</strong>。我这里是这样实现的：我在写出拳选项部分的时候，给每张图片都添加了一个<code>value</code>值，相当于给三张图片都添加了一个<code>value</code>属性，双方出拳的时候，都会把<code>value</code>值传递给出拳结果，最后获取出拳结果的<code>value</code>值进行比较，即可判定胜负关系。</p>
+<p>另外一个需要注意的是，在调用判定胜负函数来判定结果时，需要使用<code>setTimeout</code>定时器来适当延迟胜负判定，否则会先显示判定结果，后显示用户出拳结果图片（这个我尝试过）。</p>
+<p>具体的思路上边说过，这里不再重复叙述了。下面是详细的JavaScript代码：</p>
+<pre><code><figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取所需元素</span></div><div class="line"><span class="built_in">var</span> computer = <span class="built_in">document</span>.getElementById(<span class="string">"computer"</span>);</div><div class="line"><span class="built_in">var</span> user = <span class="built_in">document</span>.getElementById(<span class="string">"user"</span>);</div><div class="line"><span class="built_in">var</span> options = <span class="built_in">document</span>.getElementById(<span class="string">"options"</span>);</div><div class="line"><span class="built_in">var</span> <span class="built_in">list</span> = options.getElementsByTagName(<span class="string">"img"</span>);</div><div class="line"><span class="built_in">var</span> wincount = <span class="built_in">document</span>.getElementById(<span class="string">"wincount"</span>);</div><div class="line"><span class="built_in">var</span> evencount = <span class="built_in">document</span>.getElementById(<span class="string">"evencount"</span>);</div><div class="line"><span class="built_in">var</span> losecount = <span class="built_in">document</span>.getElementById(<span class="string">"losecount"</span>);</div><div class="line"><span class="built_in">var</span> win = <span class="number">0</span>, even = <span class="number">0</span>, lose = <span class="number">0</span>;	<span class="comment">//定义三个变量用于存储成绩</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//定义函数实现电脑随机出拳</span></div><div class="line"><span class="comment">//生成随机数实现出拳</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeimg</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">var</span> r = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">3</span>);</div><div class="line">	computer.src = <span class="built_in">list</span>[r].src;</div><div class="line">	<span class="comment">//通过绑定自定义的value属性，追踪图片结果，方便之后判定结果</span></div><div class="line">	<span class="comment">//自定义属性无法直接使用.value访问，需要通过getAttribute获取</span></div><div class="line">	computer.value = <span class="built_in">list</span>[r].getAttribute(<span class="string">"value"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//设置定时器让电脑出拳滚动显示</span></div><div class="line"><span class="built_in">var</span> timer = setInterval(changeimg, <span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="comment">//设置鼠标点击图片效果</span></div><div class="line"><span class="built_in">var</span> lis = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</div><div class="line"><span class="keyword">for</span>(<span class="built_in">var</span> i = <span class="number">0</span>; i&lt;<span class="built_in">list</span>.length; i++)&#123;</div><div class="line">	lis[i].index = i;</div><div class="line">	lis[i].onmousedown = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		lis[<span class="keyword">this</span>.index].style.boxShadow = <span class="string">"0 0 10px 0 rgba(0,0,0,0.6)"</span>;</div><div class="line">	&#125;</div><div class="line">	lis[i].onmouseover = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		lis[<span class="keyword">this</span>.index].style.boxShadow = <span class="string">"0 0 3px 0 rgba(0,0,0,0.3)"</span>;</div><div class="line">	&#125;</div><div class="line">	lis[i].onmouseout = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		lis[<span class="keyword">this</span>.index].style.boxShadow = <span class="string">"0 0 0 0 #fff"</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//定义函数实现点击选择后，user出拳显示在上方区域</span></div><div class="line"><span class="keyword">for</span>(<span class="built_in">var</span> i = <span class="number">0</span>; i&lt;<span class="built_in">list</span>.length; i++)&#123;</div><div class="line">	<span class="built_in">list</span>[i].index = i;</div><div class="line">	<span class="built_in">list</span>[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		user.src = <span class="built_in">list</span>[<span class="keyword">this</span>.index].src;</div><div class="line">		<span class="comment">//通过绑定自定义的value属性，追踪图片结果，方便之后判定结果</span></div><div class="line">		user.value = <span class="built_in">list</span>[<span class="keyword">this</span>.index].getAttribute(<span class="string">"value"</span>);</div><div class="line">		<span class="comment">//console.log(user.value);</span></div><div class="line">		<span class="comment">//用户点击提交后，清空定时器，使电脑出拳停止滚动</span></div><div class="line">		clearInterval(timer);</div><div class="line">		<span class="comment">//设置定时器实现先显示用户选择，再执行比较；否则先比较，后显示用户选择</span></div><div class="line">		<span class="built_in">var</span> timer1 = setTimeout(judge, <span class="number">100</span>);</div><div class="line">		<span class="comment">//判断完毕，重新让电脑出拳开始滚动</span></div><div class="line">		timer = setInterval(changeimg, <span class="number">20</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//定义函数判定胜负</span></div><div class="line"><span class="comment">//通过前面获取到的图片的value值作比较，判断胜负</span></div><div class="line"><span class="comment">//value=1,对应"石头"; value = 2对应"剪刀"; value = 3对应"布"</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">judge</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">var</span> comr = computer.value;</div><div class="line">	<span class="built_in">var</span> usrr = user.value;</div><div class="line">	<span class="comment">// console.log(comr);</span></div><div class="line">	<span class="comment">// console.log(usrr);</span></div><div class="line">	<span class="keyword">if</span>(comr == <span class="string">"1"</span>)&#123;</div><div class="line">		<span class="keyword">switch</span>(usrr) &#123;</div><div class="line">			<span class="keyword">case</span> <span class="string">"1"</span>:</div><div class="line">				even += <span class="number">1</span>;</div><div class="line">				evencount.innerText = even;</div><div class="line">				alert(<span class="string">"打平了！"</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			<span class="keyword">case</span> <span class="string">"2"</span>:</div><div class="line">				lose += <span class="number">1</span>;</div><div class="line">				losecount.innerText = lose;</div><div class="line">				alert(<span class="string">"你输了！"</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			<span class="attribute">default</span>:</div><div class="line">				win += <span class="number">1</span>;</div><div class="line">				wincount.innerText = win;</div><div class="line">				alert(<span class="string">"你赢了！"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(comr == <span class="string">"2"</span>)&#123;</div><div class="line">		<span class="keyword">switch</span>(usrr) &#123;</div><div class="line">			<span class="keyword">case</span> <span class="string">"1"</span>:</div><div class="line">				win += <span class="number">1</span>;</div><div class="line">				wincount.innerText = win;</div><div class="line">				alert(<span class="string">"你赢了！"</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			<span class="keyword">case</span> <span class="string">"2"</span>:</div><div class="line">				even += <span class="number">1</span>;</div><div class="line">				evencount.innerText = even;</div><div class="line">				alert(<span class="string">"打平了！"</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			<span class="attribute">default</span>:</div><div class="line">				lose += <span class="number">1</span>;</div><div class="line">				losecount.innerText = lose;</div><div class="line">				alert(<span class="string">"你输了！"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="title">else</span>&#123;</div><div class="line">		<span class="keyword">switch</span>(usrr) &#123;</div><div class="line">			<span class="keyword">case</span> <span class="string">"1"</span>:</div><div class="line">				lose += <span class="number">1</span>;</div><div class="line">				losecount.innerText = lose;</div><div class="line">				alert(<span class="string">"你输了！"</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			<span class="keyword">case</span> <span class="string">"2"</span>:</div><div class="line">				win += <span class="number">1</span>;</div><div class="line">				wincount.innerText = win;</div><div class="line">				alert(<span class="string">"你赢了！"</span>);</div><div class="line">				<span class="keyword">break</span>;</div><div class="line">			<span class="attribute">default</span>:</div><div class="line">				even += <span class="number">1</span>;</div><div class="line">				evencount.innerText = even;</div><div class="line">				alert(<span class="string">"打平了！"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//判定结束，将user上一轮的图片清空，准备下一轮</span></div><div class="line">	user.src = <span class="string">""</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>至此，一个简单的猜拳小游戏就诞生了。</p>
+<p>关于我写的这个猜拳小游戏，演示地址在下方：</p>
+<p><a href="https://www.jiangding.me/finger-guessing/finger-guessing.html" target="_blank" rel="external">在线演示demo地址</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/js游戏/" rel="tag"># js游戏</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/29/CSS元素居中方法汇总/" rel="prev" title="CSS元素居中方法汇总">
+                CSS元素居中方法汇总 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Jiang Ding" />
+          <p class="site-author-name" itemprop="name">Jiang Ding</p>
+           
+              <p class="site-description motion-element" itemprop="description">爱前端、爱分享、爱互联网</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JiangDing1990" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/jdjiangding" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.jiangding.me" title="一页繁华的博客" target="_blank">一页繁华的博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构思"><span class="nav-text">构思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面结构"><span class="nav-text">页面结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css样式"><span class="nav-text">css样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript部分"><span class="nav-text">JavaScript部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-text">写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-balance-scale"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiang Ding</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
