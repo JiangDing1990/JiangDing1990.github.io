@@ -96,6 +96,7 @@
 <meta property="og:url" content="http://JiangDing1990.github.io/index.html">
 <meta property="og:site_name" content="春风十里">
 <meta property="og:description" content="爱前端、爱分享、爱互联网">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春风十里">
 <meta name="twitter:description" content="爱前端、爱分享、爱互联网">
@@ -692,7 +693,7 @@
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.wrapper</span>&#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> 当块级元素宽度未知时，也可以利用定位先让其向右移动其父元素高度的一半，然后再向左移动自身宽度的一半即可。</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">translateX</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p> 另外：请注意，<strong>不要使用<code>float</code>把一个元素居中</strong>！尽管，<a href="https://css-tricks.com/float-center/">这儿有个小技巧</a></p>
+<p> 另外：请注意，<strong>不要使用<code>float</code>把一个元素居中</strong>！尽管，<a href="https://css-tricks.com/float-center/" target="_blank" rel="external">这儿有个小技巧</a></p>
 </li>
 </ol>
           <!--noindex-->
@@ -990,7 +991,7 @@
       
         
           <h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>在使用边框时偶然发现当相邻边框颜色不同时，边框交接处出现了尖角形状。</p>
-<p>例如下面这段代码<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="string">&lt;div</span> <span class="string">style="</span></div><div class="line">	<span class="attr">width:50px;</span> </div><div class="line">	<span class="attr">height:50px;</span></div><div class="line">	<span class="attr">border-top:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f0f; </span></div><div class="line">	<span class="attr">border-right:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#0ff;</span></div><div class="line">	<span class="attr">border-bottom:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f00; </span></div><div class="line">	<span class="attr">border-left:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#ff0;</span></div><div class="line"> <span class="string">"&gt;		</div><div class="line">&lt;/div&gt;</span></div></pre></td></tr></table></figure></p>
+<p>例如下面这段代码<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="string">&lt;div</span> <span class="string">style="</span></div><div class="line">	<span class="attr">width:50px;</span> </div><div class="line">	<span class="attr">height:50px;</span></div><div class="line">	<span class="attr">border-top:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f0f; </span></div><div class="line">	<span class="attr">border-right:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#0ff;</span></div><div class="line">	<span class="attr">border-bottom:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f00; </span></div><div class="line">	<span class="attr">border-left:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#ff0;</span></div><div class="line"> <span class="string">"&gt;		</span></div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>实现效果如下图所示：</p>
 <p><img src="/images/2017-05-04 22.56.38.png" alt=""></p>
 <p>四周的四条边框每一条都是一个梯形，由此联想到了三角形的角。如果<code>div</code>内容尺寸设为0，无法撑开边框，那么边框就可以形成封闭图形了。</p>
@@ -1290,8 +1291,8 @@
 
       
         
-          <h2 id="关于Font-Awsome-字体图标"><a href="#关于Font-Awsome-字体图标" class="headerlink" title="关于Font Awsome 字体图标"></a>关于<a href="http://www.fontawesome.io">Font Awsome</a> 字体图标</h2><p><a href="http://www.fontawesome.io">Font Awsome</a>是一款开源的<strong>字体图标</strong>库，拥有大量简洁优雅的图标(Version 4.7.0已经拥有675个图标)，是一款强大、丰富、简单、好用的字体图标库。</p>
-<h2 id="Font-Awsome的特点"><a href="#Font-Awsome的特点" class="headerlink" title="Font Awsome的特点"></a><a href="http://www.fontawesome.io">Font Awsome</a>的特点</h2><ul>
+          <h2 id="关于Font-Awsome-字体图标"><a href="#关于Font-Awsome-字体图标" class="headerlink" title="关于Font Awsome 字体图标"></a>关于<a href="http://www.fontawesome.io" target="_blank" rel="external">Font Awsome</a> 字体图标</h2><p><a href="http://www.fontawesome.io" target="_blank" rel="external">Font Awsome</a>是一款开源的<strong>字体图标</strong>库，拥有大量简洁优雅的图标(Version 4.7.0已经拥有675个图标)，是一款强大、丰富、简单、好用的字体图标库。</p>
+<h2 id="Font-Awsome的特点"><a href="#Font-Awsome的特点" class="headerlink" title="Font Awsome的特点"></a><a href="http://www.fontawesome.io" target="_blank" rel="external">Font Awsome</a>的特点</h2><ul>
 <li>完全开源、免费</li>
 <li>字体库强大、丰富</li>
 <li>无需JavaScript支持</li>
@@ -1445,9 +1446,9 @@
 
       
         
-          <h2 id="Emmet插件介绍"><a href="#Emmet插件介绍" class="headerlink" title="Emmet插件介绍"></a><a href="http://www.emmet.io">Emmet</a>插件介绍</h2><p><a href="http://www.emmet.io">Emmet</a>插件(前身为Zen Coding)是一个能大幅度<strong>提高前端开发效率</strong>的一个工具。</p>
+          <h2 id="Emmet插件介绍"><a href="#Emmet插件介绍" class="headerlink" title="Emmet插件介绍"></a><a href="http://www.emmet.io" target="_blank" rel="external">Emmet</a>插件介绍</h2><p><a href="http://www.emmet.io" target="_blank" rel="external">Emmet</a>插件(前身为Zen Coding)是一个能大幅度<strong>提高前端开发效率</strong>的一个工具。</p>
 <p>基本上，大多数的文本编辑器都会允许你存储和重用一些代码块，我们称之为“片段”。虽然片段能很好地推动你得生产力，但大多数的实现都有这样一个<strong>缺点</strong>：你必须先定义你得代码片段，并且不能在运行时进行拓展。</p>
-<p><a href="http://www.emmet.io">Emmet</a>把片段这个概念提高到了一个新的层次：你可以设置<code>CSS</code>形式的能够动态被解析的表达式，然后根据你所输入的缩写来得到相应的内容。<a href="http://www.emmet.io">Emmet</a>是很成熟的并且非常适用于编写<code>HTML</code>/<code>XML</code>和<code>CSS</code>代码的前端开发人员，但也可以用于编程语言。</p>
+<p><a href="http://www.emmet.io" target="_blank" rel="external">Emmet</a>把片段这个概念提高到了一个新的层次：你可以设置<code>CSS</code>形式的能够动态被解析的表达式，然后根据你所输入的缩写来得到相应的内容。<a href="http://www.emmet.io" target="_blank" rel="external">Emmet</a>是很成熟的并且非常适用于编写<code>HTML</code>/<code>XML</code>和<code>CSS</code>代码的前端开发人员，但也可以用于编程语言。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/28/Emmet插件使用手册/#more" rel="contents">
@@ -1740,8 +1741,8 @@
 
       
         
-          <h2 id="Sublime-Text-3基本介绍"><a href="#Sublime-Text-3基本介绍" class="headerlink" title="Sublime Text 3基本介绍"></a><a href="http://www.sublimetext.com">Sublime Text 3</a>基本介绍</h2><p><a href="http://www.sublimetext.com">Sublime Text 3</a>是一款非常优秀的代码编辑器。它<em>界面优美</em>、<em>功能强悍</em>、<em>性能令人惊讶</em>。需要注意的是，它<em>并不是IDE</em>，而是一个<strong>单纯</strong>的<strong>文本编辑工具</strong>，但其<code>代码高亮显示</code>、<code>语法提示</code>、<code>自动完成且反应快速</code>，还有各种<code>丰富插件</code>的支持，使得文本编辑过程非常<strong>规范</strong>、<strong>快速高效</strong>。</p>
-<h2 id="Sublime-Text-3的优点"><a href="#Sublime-Text-3的优点" class="headerlink" title="Sublime Text 3的优点"></a><a href="http://www.sublimetext.com">Sublime Text 3</a>的优点</h2><ul>
+          <h2 id="Sublime-Text-3基本介绍"><a href="#Sublime-Text-3基本介绍" class="headerlink" title="Sublime Text 3基本介绍"></a><a href="http://www.sublimetext.com" target="_blank" rel="external">Sublime Text 3</a>基本介绍</h2><p><a href="http://www.sublimetext.com" target="_blank" rel="external">Sublime Text 3</a>是一款非常优秀的代码编辑器。它<em>界面优美</em>、<em>功能强悍</em>、<em>性能令人惊讶</em>。需要注意的是，它<em>并不是IDE</em>，而是一个<strong>单纯</strong>的<strong>文本编辑工具</strong>，但其<code>代码高亮显示</code>、<code>语法提示</code>、<code>自动完成且反应快速</code>，还有各种<code>丰富插件</code>的支持，使得文本编辑过程非常<strong>规范</strong>、<strong>快速高效</strong>。</p>
+<h2 id="Sublime-Text-3的优点"><a href="#Sublime-Text-3的优点" class="headerlink" title="Sublime Text 3的优点"></a><a href="http://www.sublimetext.com" target="_blank" rel="external">Sublime Text 3</a>的优点</h2><ul>
 <li>跨平台，无论是Windows、Mac以及Linux均可使用，无需担心因为换平台而找不到熟悉合适的编辑器</li>
 <li>丰富的插件，各种各样的插件大大扩充了Sublime的功能，使用合适的插件可以使工作效率大大提升</li>
 <li>编辑环境，命令行环境和界面环境互补，操纵体验非常好</li>
