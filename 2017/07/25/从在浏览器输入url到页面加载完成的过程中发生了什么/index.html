@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://jiangding1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/images/TCP.png">
 <meta property="og:image" content="http://jiangding1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/images/DOM.png">
 <meta property="og:image" content="http://jiangding1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/images/CSSOM.png">
-<meta property="og:updated_time" content="2017-07-25T13:23:37.000Z">
+<meta property="og:updated_time" content="2017-07-25T13:24:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从在浏览器输入url到页面加载完成的过程中都发生了什么(前端角度)">
 <meta name="twitter:description" content="当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程： 在浏览器的地址栏输入URL并按下回车;  浏览器首先会检查本地是否存在当前请求页面的缓存，并查看缓存是否过期；   如果存在该请求页面的缓存且缓存未过期，则直接加载缓存； 如果不存在该请求页面的缓存或者缓存已过期，则进入步骤3    DNS根据输入的URL地址解析对应的服务器IP地址；  根据获取的IP地址建">
@@ -383,7 +383,8 @@
 </li>
 <li><p>DNS根据输入的URL地址解析对应的服务器IP地址；</p>
 </li>
-<li><p>根据获取的IP地址建立TCP连接（三次握手）；<br> <img src="images/TCP.png" alt="TCP">    </p>
+<li><p>根据获取的IP地址建立TCP连接（三次握手）；<br> <img src="images/TCP.png" alt="TCP"></p>
+<a id="more"></a>
 <blockquote>
 <p>在通过DNS实现域名解析后，获取到了服务器的IP地址。在获取到IP地址后，便会开始建立一次连接，这是由TCP协议完成的，主要通过三次握手进行连接，三次握手过程大致如上图所示。<br>　　1. 第一次握手：建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；<br>　　2. 第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>　　3. 第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。<br>　　完成三次握手，客户端与服务器开始传送数据。</p>
 </blockquote>
