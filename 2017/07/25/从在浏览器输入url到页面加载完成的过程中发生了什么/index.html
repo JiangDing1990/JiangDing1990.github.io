@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,markdown,博客," />
+  <meta name="keywords" content="前端, 春风十里, 互联网, 博客" />
 
 
 
@@ -90,22 +90,21 @@
 
 
 
-<meta name="description" content="缘起最近使用Hexo搭建了自己的博客，使用了简洁而强大的NexT主题。在写博客的过程中发现主页文章显示为全文模式，看起来很不美观。从网络上搜集了几种方法，今天做个总结分享出来。 方法分享这里介绍一下NexT主题下设置在首页只显示文章的摘要的方法。 1. 在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断在写博客的时候在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断,如下图所示：">
-<meta name="keywords" content="Hexo,markdown,博客">
+<meta name="description" content="当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程： 在浏览器的地址栏输入URL并按下回车;  浏览器首先会检查本地是否存在当前请求页面的缓存，并查看缓存是否过期；  如果存在该请求页面的缓存且缓存未过期，则直接加载缓存； 如果不存在该请求页面的缓存或者缓存已过期，则进入步骤3   DNS根据输入的URL地址解析对应的服务器IP地址；  根据获取的IP地址建立T">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo使用NexT主题设置主页显示文章摘要方法">
-<meta property="og:url" content="http://JiangDing1990.github.io/2017/04/25/Hexo使用NexT主题设置主页显示文章摘要方法/index.html">
+<meta property="og:title" content="从在浏览器输入url到页面加载完成的过程中都发生了什么(前端角度)">
+<meta property="og:url" content="http://JiangDing1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/index.html">
 <meta property="og:site_name" content="春风十里">
-<meta property="og:description" content="缘起最近使用Hexo搭建了自己的博客，使用了简洁而强大的NexT主题。在写博客的过程中发现主页文章显示为全文模式，看起来很不美观。从网络上搜集了几种方法，今天做个总结分享出来。 方法分享这里介绍一下NexT主题下设置在首页只显示文章的摘要的方法。 1. 在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断在写博客的时候在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断,如下图所示：">
+<meta property="og:description" content="当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程： 在浏览器的地址栏输入URL并按下回车;  浏览器首先会检查本地是否存在当前请求页面的缓存，并查看缓存是否过期；  如果存在该请求页面的缓存且缓存未过期，则直接加载缓存； 如果不存在该请求页面的缓存或者缓存已过期，则进入步骤3   DNS根据输入的URL地址解析对应的服务器IP地址；  根据获取的IP地址建立T">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://jiangding1990.github.io/images/2017-04-25%2021.18.01.png">
-<meta property="og:image" content="http://jiangding1990.github.io/images/2017-04-25%2021.15.13.png">
-<meta property="og:image" content="http://jiangding1990.github.io/images/front-matter.png">
-<meta property="og:updated_time" content="2017-04-28T08:36:24.000Z">
+<meta property="og:image" content="http://jiangding1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/images/TCP.png">
+<meta property="og:image" content="http://jiangding1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/images/DOM.png">
+<meta property="og:image" content="http://jiangding1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/images/CSSOM.png">
+<meta property="og:updated_time" content="2017-07-25T13:14:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo使用NexT主题设置主页显示文章摘要方法">
-<meta name="twitter:description" content="缘起最近使用Hexo搭建了自己的博客，使用了简洁而强大的NexT主题。在写博客的过程中发现主页文章显示为全文模式，看起来很不美观。从网络上搜集了几种方法，今天做个总结分享出来。 方法分享这里介绍一下NexT主题下设置在首页只显示文章的摘要的方法。 1. 在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断在写博客的时候在文章中使用&amp;lt;!--more--&amp;gt;进行手动截断,如下图所示：">
-<meta name="twitter:image" content="http://jiangding1990.github.io/images/2017-04-25%2021.18.01.png">
+<meta name="twitter:title" content="从在浏览器输入url到页面加载完成的过程中都发生了什么(前端角度)">
+<meta name="twitter:description" content="当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程： 在浏览器的地址栏输入URL并按下回车;  浏览器首先会检查本地是否存在当前请求页面的缓存，并查看缓存是否过期；  如果存在该请求页面的缓存且缓存未过期，则直接加载缓存； 如果不存在该请求页面的缓存或者缓存已过期，则进入步骤3   DNS根据输入的URL地址解析对应的服务器IP地址；  根据获取的IP地址建立T">
+<meta name="twitter:image" content="http://jiangding1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/images/TCP.png">
 
 
 
@@ -133,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://JiangDing1990.github.io/2017/04/25/Hexo使用NexT主题设置主页显示文章摘要方法/"/>
+  <link rel="canonical" href="http://JiangDing1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/"/>
 
 
 
 
 
-  <title>Hexo使用NexT主题设置主页显示文章摘要方法 | 春风十里</title>
+  <title>从在浏览器输入url到页面加载完成的过程中都发生了什么(前端角度) | 春风十里</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/04/25/Hexo使用NexT主题设置主页显示文章摘要方法/">
+    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/07/25/从在浏览器输入url到页面加载完成的过程中发生了什么/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -299,7 +298,7 @@
             
             
               
-                Hexo使用NexT主题设置主页显示文章摘要方法
+                从在浏览器输入url到页面加载完成的过程中都发生了什么(前端角度)
               
             
           </h1>
@@ -314,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T20:37:46+08:00">
-                2017-04-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T21:01:52+08:00">
+                2017-07-25
               </time>
             
 
@@ -337,8 +336,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -371,22 +370,36 @@
       
 
       
-        <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>最近使用<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>搭建了自己的博客，使用了简洁而强大的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>主题。在写博客的过程中发现主页文章显示为全文模式，看起来很不美观。从网络上搜集了几种方法，今天做个总结分享出来。</p>
-<h2 id="方法分享"><a href="#方法分享" class="headerlink" title="方法分享"></a>方法分享</h2><p>这里介绍一下<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>主题下设置在首页只显示文章的摘要的方法。</p>
-<h3 id="1-在文章中使用-lt-more-gt-进行手动截断"><a href="#1-在文章中使用-lt-more-gt-进行手动截断" class="headerlink" title="1. 在文章中使用&lt;!--more--&gt;进行手动截断"></a>1. 在文章中使用&lt;!--more--&gt;进行手动截断</h3><p>在写博客的时候在文章中使用&lt;!--more--&gt;进行手动截断,如下图所示：</p>
-<a id="more"></a>
-<p><img src="/images/2017-04-25 21.18.01.png" alt=""></p>
-<p>这样可以实现只显示摘要的效果，并且在摘要下方生成一个<strong>阅读全文</strong>的链接。</p>
-<p>实现的效果如下图所示：</p>
-<p><img src="/images/2017-04-25 21.15.13.png" alt=""></p>
-<h3 id="2-在文章中的front-matter中添加description，并提供文章摘要"><a href="#2-在文章中的front-matter中添加description，并提供文章摘要" class="headerlink" title="2. 在文章中的front-matter中添加description，并提供文章摘要"></a>2. 在文章中的<code>front-matter</code>中添加<code>description</code>，并提供文章摘要</h3><p>这种方式只会在首页列表中显示文章的摘要内容，进入文章详情后不会再显示。使用这种方法也可以实现首页文章部分显示的效果。</p>
-<p>方法如下图所示：</p>
-<p><img src="/images/front-matter.png" alt=""></p>
-<h3 id="3-自动生成摘要"><a href="#3-自动生成摘要" class="headerlink" title="3. 自动生成摘要"></a>3. 自动生成摘要</h3><p>想要自动生成文章摘要，需在<code>主题配置</code>文件中添加以下代码：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">auto_excerpt:</span></div><div class="line"><span class="attr">  enable:</span> <span class="literal">true</span></div><div class="line"><span class="attr">  length:</span> <span class="number">150</span></div></pre></td></tr></table></figure>
-<p>其中的<code>length</code>值为摘要所截取的字符长度。</p>
-<p>使用这种方法就可以实现自动生成文章摘要。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>Hexo建议使用<code>&lt;!-- more --&gt;</code>(即第一种方式)，这样除了可以<strong>精确控制需要显示的摘要内容</strong>以外，也可以让<strong>Hexo</strong>中的插件更好的识别。</p>
+        <h4 id="当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程："><a href="#当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程：" class="headerlink" title="当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程："></a>当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程：</h4><ol>
+<li><p>在浏览器的地址栏输入URL并按下回车;</p>
+</li>
+<li><p>浏览器首先会检查本地是否存在当前请求页面的缓存，并查看缓存是否过期；</p>
+<ol>
+<li>如果存在该请求页面的缓存且缓存未过期，则直接加载缓存；</li>
+<li>如果不存在该请求页面的缓存或者缓存已过期，则进入步骤3</li>
+</ol>
+</li>
+<li><p>DNS根据输入的URL地址解析对应的服务器IP地址；</p>
+</li>
+<li><p>根据获取的IP地址建立TCP连接（三次握手）；<br> <img src="images/TCP.png" alt="TCP"><br> 在通过DNS实现域名解析后，获取到了服务器的IP地址。在获取到IP地址后，便会开始建立一次连接，这是由TCP协议完成的，主要通过三次握手进行连接，三次握手过程大致如上图所示。<br>　　1. 第一次握手：建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；<br>　　2. 第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>　　3. 第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。<br>　　完成三次握手，客户端与服务器开始传送数据。</p>
+</li>
+<li><p>TCP连接建立成功后，浏览器向服务器发出HTTP请求；<br> HTTP请求一般包含请求起始行、请求头和请求体三个部分。常见的请求有GET和POST两种，其中GET请求一般只包含请求起始行和请求头，而POST请求包含请求起始行、请求头和请求体。</p>
+</li>
+<li><p>服务器接收到HTTP请求，处理请求，并向浏览器作出响应，返回相应的数据到浏览器；<br> 服务器在收到浏览器发送的HTTP请求之后，会将收到的HTTP报文封装成HTTP的Request对象，并通过不同的Web服务器进行处理，处理完的结果以HTTP的Response对象返回，响应内容主要包括状态码，响应头，响应报文三个部分。</p>
+</li>
+<li><p>浏览器收到响应，根据响应数据进行页面的构建和渲染，主要过程如下：</p>
+<ol>
+<li>浏览器根据返回数据读取HTML文件并解析HTML结构；</li>
+<li>开始根据HTML结构构建DOM树；<br><img src="images/DOM.png" alt="DOM"></li>
+<li>构建过程中遇到图片等资源需要再次向服务器发出请求以获取相关资源；</li>
+<li>DOM树构建完成，开始加载CSS文件，准备构建CSSOM树；</li>
+<li>构建CSSOM树，将样式对应到DOM树相应的节点；<br><img src="images/CSSOM.png" alt="CSSOM"></li>
+<li>进行页面渲染，完成页面显示，页面加载完成。</li>
+</ol>
+</li>
+<li><p>断开与服务器的TCP连接。</p>
+</li>
+</ol>
 
       
     </div>
@@ -414,16 +427,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-          
-            <a href="/tags/markdown/" rel="tag"># markdown</a>
-          
-            <a href="/tags/博客/" rel="tag"># 博客</a>
-          
-        </div>
-      
 
       
         
@@ -433,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/markdown语法学习/" rel="next" title="Markdown语法学习">
-                <i class="fa fa-chevron-left"></i> Markdown语法学习
+              <a href="/2017/06/23/写了个简单的H5视频播放器/" rel="next" title="写了个简单的H5视频播放器">
+                <i class="fa fa-chevron-left"></i> 写了个简单的H5视频播放器
               </a>
             
           </div>
@@ -442,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/26/Sublime-Text-3 编辑器学习笔记/" rel="prev" title="Sublime Text 3 编辑器学习笔记">
-                Sublime Text 3 编辑器学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -608,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法分享"><span class="nav-text">方法分享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在文章中使用-lt-more-gt-进行手动截断"><span class="nav-text">1. 在文章中使用<!--more-->进行手动截断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在文章中的front-matter中添加description，并提供文章摘要"><span class="nav-text">2. 在文章中的front-matter中添加description，并提供文章摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-自动生成摘要"><span class="nav-text">3. 自动生成摘要</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程："><span class="nav-text">当我们在浏览器输入url地址并按下回车键以后，从前端角度讲，大概会经历下面几个处理过程：</span></a></li></ol></div>
             
 
           </div>
