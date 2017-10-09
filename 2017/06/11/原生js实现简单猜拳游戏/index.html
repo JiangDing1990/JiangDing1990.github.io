@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="缘起学习JavaScript已经有一段时间了，基本上算是入门了，一直寻思着做一个小游戏练练手。可是前一阵子忙于学习，这事儿一拖再拖，直到今天才有时间兑现。 构思我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。">
+<meta name="description" content="构思这是一个简单的练手demo。我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。  首先，将三种出拳的图片列出，获取元素到数组； 然后生成一个随机数，使用随机数作为数组下标，获取电脑出拳结果； 设置定时器让电">
 <meta name="keywords" content="javascript,js游戏">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原生js实现简单猜拳游戏">
 <meta property="og:url" content="http://JiangDing1990.github.io/2017/06/11/原生js实现简单猜拳游戏/index.html">
 <meta property="og:site_name" content="春风十里">
-<meta property="og:description" content="缘起学习JavaScript已经有一段时间了，基本上算是入门了，一直寻思着做一个小游戏练练手。可是前一阵子忙于学习，这事儿一拖再拖，直到今天才有时间兑现。 构思我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。">
+<meta property="og:description" content="构思这是一个简单的练手demo。我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。  首先，将三种出拳的图片列出，获取元素到数组； 然后生成一个随机数，使用随机数作为数组下标，获取电脑出拳结果； 设置定时器让电">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-06-11T13:25:35.000Z">
+<meta property="og:updated_time" content="2017-10-09T02:16:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原生js实现简单猜拳游戏">
-<meta name="twitter:description" content="缘起学习JavaScript已经有一段时间了，基本上算是入门了，一直寻思着做一个小游戏练练手。可是前一阵子忙于学习，这事儿一拖再拖，直到今天才有时间兑现。 构思我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。">
+<meta name="twitter:description" content="构思这是一个简单的练手demo。我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。  首先，将三种出拳的图片列出，获取元素到数组； 然后生成一个随机数，使用随机数作为数组下标，获取电脑出拳结果； 设置定时器让电">
 
 
 
@@ -367,8 +367,7 @@
       
 
       
-        <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>学习JavaScript已经有一段时间了，基本上算是入门了，一直寻思着做一个小游戏练练手。可是前一阵子忙于学习，这事儿一拖再拖，直到今天才有时间兑现。</p>
-<h2 id="构思"><a href="#构思" class="headerlink" title="构思"></a>构思</h2><p>我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。</p>
+        <h2 id="构思"><a href="#构思" class="headerlink" title="构思"></a>构思</h2><p>这是一个简单的练手demo。我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。</p>
 <p>其实要实现的效果很简单，直接说我的思路吧。</p>
 <ol>
 <li>首先，将三种出拳的图片列出，获取元素到数组；</li>
@@ -611,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构思"><span class="nav-text">构思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面结构"><span class="nav-text">页面结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css样式"><span class="nav-text">css样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript部分"><span class="nav-text">JavaScript部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-text">写在最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#构思"><span class="nav-text">构思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面结构"><span class="nav-text">页面结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css样式"><span class="nav-text">css样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript部分"><span class="nav-text">JavaScript部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-text">写在最后</span></a></li></ol></div>
             
 
           </div>
