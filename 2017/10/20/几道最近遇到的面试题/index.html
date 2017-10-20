@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="春风十里">
 <meta property="og:description" content="最近面试，遇到了几道题，当时没有回答好。这里记录一下，方便以后参考查阅！ 数组相关1. 在不使用遍历方法的情况下，计算数组 [1,2,3,4,5,6,7] 所有元素的平均值、获取到数组中的最大值。当时第一眼看到这个题目的时候，还以为是要考我某个数组的api，思前想后并没有一点头绪。中间比较接近了已经，我想到了数组的join()方法。。。后来查阅资料，发现了面试官想要的答案。使用eval()方法以及">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-20T12:52:24.000Z">
+<meta property="og:updated_time" content="2017-10-20T12:54:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几道最近遇到的面试题">
 <meta name="twitter:description" content="最近面试，遇到了几道题，当时没有回答好。这里记录一下，方便以后参考查阅！ 数组相关1. 在不使用遍历方法的情况下，计算数组 [1,2,3,4,5,6,7] 所有元素的平均值、获取到数组中的最大值。当时第一眼看到这个题目的时候，还以为是要考我某个数组的api，思前想后并没有一点头绪。中间比较接近了已经，我想到了数组的join()方法。。。后来查阅资料，发现了面试官想要的答案。使用eval()方法以及">
@@ -378,7 +378,7 @@
 </blockquote>
 <p>如果需要兼容低版本IE浏览器，也可以<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="external">点击这里看看MDN页面下方</a>介绍的方法。</p>
 <h3 id="字符串相关"><a href="#字符串相关" class="headerlink" title="字符串相关"></a>字符串相关</h3><p><strong>1. 在不使用遍历方法的情况下，计算以下字符串中字符串”_”出现的次数。</strong><br>随便写一个字符串，例如：”_skll! d<em>hos &amp;</em>+_*(“ sjo-_9w7”<br>当时第一眼看到这个题目的时候，一时间没想到方法，其实这题真的超级简单啊。。面试完了再一想的时候，一下子就明白了，恨自己当时的弱智表现啊！！<br>其实这一道题只需要用到字符串的<code>split()</code>方法就可以得到答案了。<br>上代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var str = "_skll! d_hos &amp;__*(" sjo-_9w7";</div><div class="line">// 利用split()方法将字符串转换为数组，以查询字符为分隔</div><div class="line">var arr = str.split('_');</div><div class="line">// 由于数组是以字符"_"为分界点拆开组成的，所以字符"_"出现的次数就是 arr.length - 1</div><div class="line">console.log('字符串"_"出现的次数是：' + arr.length-1 + '次！');</div></pre></td></tr></table></figure></p>
-<p>由于数组是以字符”<em>“为分界拆开的，所以字符”</em>“出现的次数就是数组长度减去1。真的很简单啊啊啊。<br>就先写到这里吧，后边有的话还会再更新的。</p>
+<p>由于数组是以字符<code>_</code>为分界拆开的，所以字符<code>_</code>出现的次数就是数组长度减去1。真的很简单啊啊啊。<br>就先写到这里吧，后边有的话还会再更新的。</p>
 
       
     </div>
