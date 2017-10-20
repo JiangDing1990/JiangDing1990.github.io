@@ -274,6 +274,168 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/10/20/几道最近遇到的面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiang Ding">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/20/几道最近遇到的面试题/" itemprop="url">
+                  几道最近遇到的面试题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T19:47:03+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近面试，遇到了几道题，当时没有回答好。这里记录一下，方便以后参考查阅！</p>
+<h3 id="数组相关"><a href="#数组相关" class="headerlink" title="数组相关"></a>数组相关</h3><ol>
+<li>在不使用遍历方法的情况下，计算数组[1,2,3,4,5,6,7]所有元素的平均值、获取到数组中的最大值。<br>当时第一眼看到这个题目的时候，还以为是要考我某个数组的<code>api</code>，思前想后并没有一点头绪。中间比较接近了已经，我想到了数组的<code>join()</code>方法。。。后来查阅资料，发现了面试官想要的答案。使用<code>eval()</code>方法以及<code>Math</code>方法。。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</div><div class="line"><span class="comment">// 求平均值先要求出数组所有元素之和，需要用到eval()方法</span></div><div class="line"><span class="comment">// eval()方法可以返回一个字符串表达式的计算结果</span></div><div class="line"><span class="comment">// 所以先要将数组转换成为表达式，这里需要用'+'把数组所有元素连接起来，这里就要用数组的join()方法</span></div><div class="line"><span class="keyword">var</span> sum = <span class="built_in">eval</span>(arr.join(<span class="string">'+'</span>));</div><div class="line"><span class="keyword">var</span> average = sum/arr.length;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'数组中所有元素的平均值为：'</span> + average);</div><div class="line"></div><div class="line"><span class="comment">// 获取最大值</span></div><div class="line"><span class="keyword">var</span> maxNum = <span class="built_in">Math</span>.max.call(<span class="literal">null</span>, arr);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'数组中的最大值为：'</span> + maxNum)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>看到上边这样的方法之后，在不使用便利的情况下，还可以对数组进行其他的各种运算，这里就不一一写出了。</p>
+<ol>
+<li>如何将js中的arguments对象转换为数组？（或者是如何将类数组对象转换为数组对象？）<br>这一道题的答案在MDN文档的Array部分讲slice()方法时有专门的介绍，感兴趣的可以<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="external">点击这里去看看</a></li>
+</ol>
+<p>直接上代码：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">list</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">  <span class="comment">// 这里也可以写成 [].slice.call(arguments)</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> arrayLike = list(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</div><div class="line"><span class="keyword">var</span> newArr = <span class="built_in">Array</span>.prototype.slice.call(arrayLike);</div><div class="line"><span class="built_in">console</span>.log(arrayLike <span class="keyword">instanceof</span> <span class="built_in">Array</span>);    <span class="comment">// false</span></div><div class="line"><span class="built_in">console</span>.log(arrayLike <span class="keyword">instanceof</span> <span class="built_in">Object</span>);   <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(newArr);    <span class="comment">// [1,2,3,4,5]</span></div><div class="line"><span class="built_in">console</span>.log(newArr <span class="keyword">instanceof</span> <span class="built_in">Array</span>);   <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>这里借用了数组原型上的<code>slice</code>方法。需要注意的是，这个方法不兼容IE9以下的浏览器。MDN上的解释是这样的：</p>
+<blockquote>
+<p>根据规范，使用 Array.prototype.slice 转换宿主对象（如 DOM 对象）时不必遵循 Mozilla 的默认行为，即可以转化任何符合条件的伪数组宿主对象为数组，IE &lt; 9 没有遵循，而 IE9 + 遵循这个行为。</p>
+</blockquote>
+<h3 id="字符串相关"><a href="#字符串相关" class="headerlink" title="字符串相关"></a>字符串相关</h3><ol>
+<li>在不使用遍历方法的情况下，计算以下字符串中字符串”_”出现的次数。<br>随便写一个字符串，例如：”_skll! d_hos &amp;__*(“ sjo-_9w7”<br>当时第一眼看到这个题目的时候，一时间没想到方法，其实这题真的超级简单啊。。面试完了再一想的时候，一下子就明白了，恨自己当时的弱智表现啊！！<br>其实这一道题只需要用到字符串的<code>split()</code>方法就可以得到答案了。<br>上代码：<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var str = "_skll! d_hos &amp;__*(" sjo-_9w7";</div><div class="line">var arr = str.split('_');</div><div class="line">console.log('字符串"_"出现的次数是：' + arr.length-1 + '次！')；</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>由于数组是以字符’<em>‘为分界拆开的，所以字符’</em>‘出现的次数就是数组长度减去1。真的很简单啊啊啊。</p>
+<p>就先写到这里吧，后边有的话还会再更新的。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/09/11/关于数组去重/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1677,157 +1839,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/05/04/巧用css边框border绘制三角形/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiang Ding">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="春风十里">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/04/巧用css边框border绘制三角形/" itemprop="url">
-                  巧用css边框border绘制三角形
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-04T22:39:25+08:00">
-                2017-05-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>在使用边框时偶然发现当相邻边框颜色不同时，边框交接处出现了尖角形状。</p>
-<p>例如下面这段代码<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="string">&lt;div</span> <span class="string">style="</span></div><div class="line">	<span class="attr">width:50px;</span> </div><div class="line">	<span class="attr">height:50px;</span></div><div class="line">	<span class="attr">border-top:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f0f; </span></div><div class="line">	<span class="attr">border-right:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#0ff;</span></div><div class="line">	<span class="attr">border-bottom:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f00; </span></div><div class="line">	<span class="attr">border-left:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#ff0;</span></div><div class="line"> <span class="string">"&gt;		</span></div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
-<p>实现效果如下图所示：</p>
-<p><img src="/images/2017-05-04 22.56.38.png" alt=""></p>
-<p>四周的四条边框每一条都是一个梯形，由此联想到了三角形的角。如果<code>div</code>内容尺寸设为0，无法撑开边框，那么边框就可以形成封闭图形了。</p>
-<p>经过自己的尝试以及在网上搜索，发现了用border绘制三角形的几种方法。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/04/巧用css边框border绘制三角形/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1877,7 +1888,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1899,7 +1910,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
