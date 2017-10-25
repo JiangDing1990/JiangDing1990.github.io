@@ -99,7 +99,7 @@
 <meta property="og:description" content="前言数组去重方法老生常谈，面试中经常会被问到。很多人面试时被问到时，可能只记得几种最简单的方法。其实，数组去重的方法有好几种。今天我们就一起来总结一下数组去重的方法。 双层循环我们首先想到的方法，很可能是使用 indexOf 来循环判断一遍，但在这个方法之前，让我们先看看最原始的方法： 1234567891011121314151617181920var array = [1, 1, &apos;1&apos;, &apos;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://jiangding1990.github.io/images/array%20unique%2001.png">
-<meta property="og:updated_time" content="2017-10-25T04:33:51.000Z">
+<meta property="og:updated_time" content="2017-10-25T04:39:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于数组去重（转）">
 <meta name="twitter:description" content="前言数组去重方法老生常谈，面试中经常会被问到。很多人面试时被问到时，可能只记得几种最简单的方法。其实，数组去重的方法有好几种。今天我们就一起来总结一下数组去重的方法。 双层循环我们首先想到的方法，很可能是使用 indexOf 来循环判断一遍，但在这个方法之前，让我们先看看最原始的方法： 1234567891011121314151617181920var array = [1, 1, &apos;1&apos;, &apos;">
@@ -425,7 +425,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// demo2</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(array));</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(unique([<span class="literal">NaN</span>, <span class="literal">NaN</span>])) <span class="comment">// [NaN]</span></div></pre></td></tr></table></figure>
 <p>Set 认为尽管 NaN === NaN 为 false，但是这两个元素是重复的。</p>
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>虽然去重的结果有所不同，但更重要的是让我们知道在合适的场景要选择合适的方法。</p>
-<p><strong>文章来自Github</strong><br><a href="https://github.com/mqyqingfeng/Blog/issues/27" target="_blank" rel="external">点击这里查看原文</a></p>
+<p><strong>文章来自掘金 冴羽 的文章，Github用户 mqyqingfeng </strong><br><a href="https://github.com/mqyqingfeng/Blog/issues/27" target="_blank" rel="external">点击这里查看冴羽原文</a></p>
 
       
     </div>
