@@ -6,18 +6,18 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -35,7 +35,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -69,21 +69,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="CentOS,Git," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="CentOS,Git,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -129,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="http://JiangDing1990.github.io/2017/08/08/CentOS-7-安装最新版本Git方法步骤/"/>
+  <link rel="canonical" href="http://JiangDing1990.github.io/2017/08/08/CentOS-7-安装最新版本Git方法步骤/">
 
 
 
@@ -169,7 +169,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">春风十里</span>
         <span class="logo-line-after"><i></i></span>
@@ -199,7 +199,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -209,7 +209,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -219,7 +219,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -229,7 +229,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -239,7 +239,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -278,7 +278,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -321,7 +321,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -380,14 +380,22 @@
 </li>
 <li><p>卸载旧版本的Git。运行下面的命令：<br><code>$ yum remove git</code></p>
 </li>
-<li>下载最新版Git到服务器<br><code>$ wget https://github.com/git/git/archive/v2.14.0.tar.gz</code></li>
-<li>解压文件，进入文件夹<br><code>$ tar zxvf v2.14.0.tar.gz</code><br><code>$ cd git-2.14.0</code></li>
-<li>编译安装<br><code>$ make configure</code><br><code>$ ./configure --prefix=/usr/local/git --with-iconv=/usr/local/libiconv</code><br><code>$ make all doc</code><br><code>$ sudo make install install-doc install-html</code></li>
-<li>修改环境变量，编辑/etc/profile文件<br><code>$ sudo vim /etc/profile</code></li>
-<li>在文件<strong>最后一行</strong>添加以下代码（按”i”进入编辑模式，输入）<br><code>$ export PATH=/usr/local/git/bin:$PATH</code><br>输入完成后，按<code>ESC</code>键退出编辑模式，然后输入<code>:wq</code> 并回车，保存生效</li>
-<li>输入下面这条命令<br><code>$ source /etc/profile</code></li>
-<li>查看是否安装成功，使用下面这条命令：<br><code>$ git --version</code></li>
-<li>如果显示 <code>git version 2.14.0</code>，说明<code>Git 2.14.0</code>安装成功</li>
+<li><p>下载最新版Git到服务器<br><code>$ wget https://github.com/git/git/archive/v2.14.0.tar.gz</code></p>
+</li>
+<li><p>解压文件，进入文件夹<br><code>$ tar zxvf v2.14.0.tar.gz</code><br><code>$ cd git-2.14.0</code></p>
+</li>
+<li><p>编译安装<br><code>$ make configure</code><br><code>$ ./configure --prefix=/usr/local/git --with-iconv=/usr/local/libiconv</code><br><code>$ make all doc</code><br><code>$ sudo make install install-doc install-html</code></p>
+</li>
+<li><p>修改环境变量，编辑/etc/profile文件<br><code>$ sudo vim /etc/profile</code></p>
+</li>
+<li><p>在文件<strong>最后一行</strong>添加以下代码（按”i”进入编辑模式，输入）<br><code>$ export PATH=/usr/local/git/bin:$PATH</code><br>输入完成后，按<code>ESC</code>键退出编辑模式，然后输入<code>:wq</code> 并回车，保存生效</p>
+</li>
+<li><p>输入下面这条命令<br><code>$ source /etc/profile</code></p>
+</li>
+<li><p>查看是否安装成功，使用下面这条命令：<br><code>$ git --version</code></p>
+</li>
+<li><p>如果显示 <code>git version 2.14.0</code>，说明<code>Git 2.14.0</code>安装成功</p>
+</li>
 </ol>
 
       
@@ -495,9 +503,7 @@
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="Jiang Ding" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Jiang Ding">
           <p class="site-author-name" itemprop="name">Jiang Ding</p>
            
               <p class="site-description motion-element" itemprop="description">爱前端、爱分享、爱互联网</p>
@@ -508,7 +514,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -603,10 +609,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-balance-scale"></i>
   </span>
