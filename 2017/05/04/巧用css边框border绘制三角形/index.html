@@ -98,10 +98,15 @@
 <meta property="og:site_name" content="春风十里">
 <meta property="og:description" content="缘起在使用边框时偶然发现当相邻边框颜色不同时，边框交接处出现了尖角形状。 例如下面这段代码 123456789&amp;lt;div style=&quot;	width:50px; 	height:50px;	border-top: 50px solid #f0f; 	border-right: 50px solid #0ff;	border-bottom: 50px solid #f00; 	border-le">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-05-04T15:44:14.000Z">
+<meta property="og:image" content="http://jiangding1990.github.io/images/2017-05-04-22.56.38.png">
+<meta property="og:image" content="http://jiangding1990.github.io/images/2017-05-04-23.15.22.png">
+<meta property="og:image" content="http://jiangding1990.github.io/images/2017-05-04-23.23.57.png">
+<meta property="og:image" content="http://jiangding1990.github.io/images/2017-05-04-23.31.53.png">
+<meta property="og:updated_time" content="2019-07-27T09:43:05.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="巧用css边框border绘制三角形">
 <meta name="twitter:description" content="缘起在使用边框时偶然发现当相邻边框颜色不同时，边框交接处出现了尖角形状。 例如下面这段代码 123456789&amp;lt;div style=&quot;	width:50px; 	height:50px;	border-top: 50px solid #f0f; 	border-right: 50px solid #0ff;	border-bottom: 50px solid #f00; 	border-le">
+<meta name="twitter:image" content="http://jiangding1990.github.io/images/2017-05-04-22.56.38.png">
 
 
 
@@ -372,7 +377,7 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;div</span> <span class="string">style="</span></span><br><span class="line">	<span class="attr">width:50px;</span> </span><br><span class="line">	<span class="attr">height:50px;</span></span><br><span class="line">	<span class="attr">border-top:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f0f; </span></span><br><span class="line">	<span class="attr">border-right:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#0ff;</span></span><br><span class="line">	<span class="attr">border-bottom:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f00; </span></span><br><span class="line">	<span class="attr">border-left:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#ff0;</span></span><br><span class="line"> <span class="string">"&gt;		</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>实现效果如下图所示：</p>
-<p>![](/images/2017-05-04 22.56.38.png)</p>
+<p><img src="/images/2017-05-04-22.56.38.png" alt></p>
 <p>四周的四条边框每一条都是一个梯形，由此联想到了三角形的角。如果<code>div</code>内容尺寸设为0，无法撑开边框，那么边框就可以形成封闭图形了。</p>
 <p>经过自己的尝试以及在网上搜索，发现了用border绘制三角形的几种方法。</p>
 <a id="more"></a>
@@ -382,7 +387,7 @@
 <p>  代码如下：</p>
   <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;div</span> <span class="string">style="</span></span><br><span class="line">	<span class="attr">width:0;</span> </span><br><span class="line">	<span class="attr">height:0;</span></span><br><span class="line">	<span class="attr">border:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#fff; </span></span><br><span class="line">	<span class="attr">border-bottom:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#afe; </span></span><br><span class="line"> <span class="string">"&gt;</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>  实现效果如下图所示：<br>  ![](/images/2017-05-04 23.15.22.png)</p>
+<p>  实现效果如下图所示：<br>  <img src="/images/2017-05-04-23.15.22.png" alt></p>
 <p>  不难发现，这里是通过设置其他边框颜色与背景色相同来造成只显示三角形部分的，实际上整个图大小仍然是一个正方形。如果这里其他边和底边给的宽度不一致，则可以生成非等腰直角三角形的其他等腰三角形。</p>
 <p>  通过改变有颜色的边框的方位即可实现上下左右每个方向朝向的三角形。</p>
 </li>
@@ -391,7 +396,7 @@
 <p>  例如以下这段代码</p>
   <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;div</span> <span class="string">style="</span></span><br><span class="line">	<span class="attr">width:0;</span> </span><br><span class="line">	<span class="attr">height:0;</span></span><br><span class="line">	<span class="attr">border:</span> <span class="number">200</span><span class="string">px</span> <span class="string">solid</span> <span class="string">transparent;</span></span><br><span class="line">	<span class="attr">border-bottom:</span> <span class="number">200</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f00; </span></span><br><span class="line"> <span class="string">"&gt;</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>  实现效果如下图所示：<br>  ![](/images/2017-05-04 23.23.57.png)</p>
+<p>  实现效果如下图所示：<br>  <img src="/images/2017-05-04-23.23.57.png" alt></p>
 <p>  这样同样可以绘制出等腰三角形，只不过此时的边框为透明色，仅显示三角形底边所在边框的颜色。</p>
 <p>  这种方法的原理本质上和第一种方法是一样的。</p>
 </li>
@@ -400,7 +405,7 @@
 <p>例如以下这段代码</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;div</span> <span class="string">style="</span></span><br><span class="line">	<span class="attr">width:0;</span> </span><br><span class="line">	<span class="attr">height:0;</span></span><br><span class="line">	<span class="attr">border:</span> <span class="number">100</span><span class="string">px</span> <span class="string">solid</span> <span class="string">transparent;</span></span><br><span class="line">	<span class="attr">border-bottom:</span> <span class="number">150</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f00; </span></span><br><span class="line"> <span class="string">"&gt;</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;div style="</span></span><br><span class="line">	<span class="attr">width:0;</span> </span><br><span class="line">	<span class="attr">height:0;</span></span><br><span class="line">	<span class="attr">border:</span> <span class="number">100</span><span class="string">px</span> <span class="string">solid</span> <span class="string">transparent;</span></span><br><span class="line">	<span class="attr">border-top:</span> <span class="number">150</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f00; </span></span><br><span class="line"> <span class="string">"&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>即可绘制下图所示的菱形，其实其本质是<strong>同底边的两个尺寸相同的等腰三角形</strong>。<br>![](/images/2017-05-04 23.31.53.png)</p>
+<p>即可绘制下图所示的菱形，其实其本质是<strong>同底边的两个尺寸相同的等腰三角形</strong>。<br><img src="/images/2017-05-04-23.31.53.png" alt></p>
 <p>相应的，也可以发散到其他有规律图形的绘制，例如新闻列表前的方块列表图标等等。这里就不再继续举例子了。</p>
 
       
