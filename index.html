@@ -274,6 +274,318 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2018/04/15/Web前端地图开发指北/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiang Ding">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/15/Web前端地图开发指北/" itemprop="url">
+                  Web前端地图开发指北
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T11:24:08+08:00">
+                2018-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/经验分享/" itemprop="url" rel="index">
+                    <span itemprop="name">经验分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>地图服务在前端页面的某些场景下，尤其是交通和旅游相关业务中会经常见到。前端在进行地图相关业务的开发时，会遇到各种各样的问题，今天我结合一下自己之前业务开发中所遇到的一些地图相关的问题，跟大家分享一下前端地图开发过程中的一些经验。这里会省略掉一部分地图基础知识的介绍，有需要的小伙伴可以自行查阅一下相关资料。</p>
+<h4 id="一、选择哪个地图服务"><a href="#一、选择哪个地图服务" class="headerlink" title="一、选择哪个地图服务"></a>一、选择哪个地图服务</h4><p>前端进行地图相关业务开发时，需要根据具体的业务需求选择地图服务商。</p>
+<p>对于某些地图属性需求较弱的地方，比如单纯展示一个地点在地图上的定位点，可以考虑使用静态的地图图片进行展示，这样可以直接调用地图服务的接口获取静态图片，而无需为此启用一整个地图服务。</p>
+<p>具体选择哪一家地图服务商，可以大致参照下面的方法进行选择。</p>
+<ol>
+<li><p>如果地图业务需要在APP原生页面运行，APP内已经有很成熟的解决方案了，直接参考APP内的实现方案进行选择；</p>
+</li>
+<li><p>如果为web端地图业务，需要进行具体的分析考虑，比如地图是不是涉及到海外数据信息的展示、业务的预估访问量、地图使用的成本等问题。</p>
+<ul>
+<li><p>如果地图需求涉及到海外地图服务，那么目前来看，可选择的就只剩下谷歌地图、百度地图，当然，高德地图和腾讯地图目前也提供海外地图服务，只是目前仍处于试用阶段。最好的选择当然是谷歌地图，只是谷歌地图还有一些其他限制，由于某些众所周知的原因，谷歌地图在国内只能走cn域名的接口，而且这个接口只能在http协议下才能调用，不能走https协议。</p>
+</li>
+<li><p>如果地图仅仅涉及到国内地图服务，那么直接选择百度地图或者高德地图；</p>
+</li>
+<li><p>关于使用费用问题，需要结合具体的业务访问量、收益等因素综合考量之后进行选择。</p>
+</li>
+</ul>
+</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/Web前端地图开发指北/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2018/03/10/利用blob和XMLHttpRequest实现web端跨域文件下载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiang Ding">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/10/利用blob和XMLHttpRequest实现web端跨域文件下载/" itemprop="url">
+                  利用blob和XMLHttpRequest实现web端跨域文件下载
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T21:33:50+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>之前在项目中遇到了需要实现文件下载的方法，在网络上查找资料后，发现了下面这种通过Blob和XMLHttpRequest实现文件下载的方法。</p>
+<h3 id="非跨域文件的下载"><a href="#非跨域文件的下载" class="headerlink" title="非跨域文件的下载"></a>非跨域文件的下载</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过 ajax 获取 Blob</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBlob</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">        xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</span><br><span class="line">        xhr.responseType = <span class="string">'blob'</span>;</span><br><span class="line">        xhr.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">                resolve(xhr.response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        xhr.send();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 保存重命名</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveAs</span>(<span class="params">blob, filename</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.navigator.msSaveOrOpenBlob) &#123;</span><br><span class="line">        navigator.msSaveBlob(blob, filename);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> link = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">        link.href = <span class="built_in">window</span>.URL.createObjectURL(blob);</span><br><span class="line">        link.download = filename;</span><br><span class="line">        link.click();</span><br><span class="line">        <span class="built_in">window</span>.URL.revokeObjectURL(link.href);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 封装保存方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params">url, filename</span>) </span>&#123;</span><br><span class="line">    getBlob(url).then(<span class="function"><span class="params">blob</span> =&gt;</span> &#123;</span><br><span class="line">        saveAs(blob, filename);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用例子</span></span><br><span class="line">download(<span class="string">'https://github.com/vuejs/vue-router'</span>, <span class="string">'vue-router.html'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上边这种方式可以解决非跨域文件的下载问题，但是遇到跨域文件时就无能为力了。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/10/利用blob和XMLHttpRequest实现web端跨域文件下载/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/10/20/几道最近遇到的面试题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -373,7 +685,7 @@
         
           <p>最近面试，遇到了几道题，当时没有回答好。这里记录一下，方便以后参考查阅！</p>
 <h3 id="数组相关"><a href="#数组相关" class="headerlink" title="数组相关"></a>数组相关</h3><p><strong>1. 在不使用遍历方法的情况下，计算数组 [1,2,3,4,5,6,7] 所有元素的平均值、获取到数组中的最大值。</strong><br>当时第一眼看到这个题目的时候，还以为是要考我某个数组的<code>api</code>，思前想后并没有一点头绪。中间比较接近了已经，我想到了数组的<code>join()</code>方法。。。后来查阅资料，发现了面试官想要的答案。使用<code>eval()</code>方法以及<code>Math</code>方法。。<br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line"><span class="comment">// 求平均值先要求出数组所有元素之和，需要用到eval()方法</span></span><br><span class="line"><span class="comment">// eval()方法可以返回一个字符串表达式的计算结果</span></span><br><span class="line"><span class="comment">// 所以先要将数组转换成为表达式，这里需要用'+'把数组所有元素连接起来，这里就要用数组的join()方法</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="built_in">eval</span>(arr.join(<span class="string">'+'</span>));</span><br><span class="line"><span class="keyword">var</span> average = sum/arr.length;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'数组中所有元素的平均值为：'</span> + average);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取最大值</span></span><br><span class="line"><span class="keyword">var</span> maxNum = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'数组中的最大值为：'</span> + maxNum)</span><br></pre></td></tr></table></figure></p>
-<p>看到上边这样的方法之后，在不使用便利的情况下，还可以对数组进行其他的各种运算，这里就不一一写出了。</p>
+<p>看到上边这样的方法之后，在不使用遍历方法的情况下，还可以对数组进行其他的各种运算，这里就不一一写出了。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/20/几道最近遇到的面试题/#more" rel="contents">
@@ -1526,323 +1838,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/05/29/CSS元素居中方法汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiang Ding">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="春风十里">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/29/CSS元素居中方法汇总/" itemprop="url">
-                  CSS元素居中方法汇总
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-29T22:37:04+08:00">
-                2017-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="写在前边"><a href="#写在前边" class="headerlink" title="写在前边"></a>写在前边</h2><p>在平时写页面布局的时候，我们经常会遇到设置元素水平居中或者垂直居中的情况，这时，我们就需要根据遇到的实际情况选择处相应的更为合适的设置元素居中的方法。经过查阅资料，集合自己的理解，特意把元素居中的内容整理出来，分享给大家。但愿可以对大家有所帮助。</p>
-<h2 id="一、水平居中"><a href="#一、水平居中" class="headerlink" title="一、水平居中"></a>一、水平居中</h2><ol>
-<li><p><code>inline</code>或者<code>inline-*</code>元素</p>
-<p> 对于父元素是块级元素的内联元素来说，你只需要这么做：</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.center-children</span> &#123;</span><br><span class="line">	<span class="attribute">text-align</span>:center</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>这种方法可以让 inline/inline-block/inline-table/inline/flex 等类型的元素实现居中。</strong></p>
-</li>
-<li><p>单个块级元素</p>
-<p> 当某个块级元素的宽度<code>width</code>已知的时候，可以通过设置其左外边距<code>margin-left</code>和右外边距<code>margin-right</code>值为<code>auto</code>来实现元素的水平居中。例如我们经常会使用的：</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> 当块级元素宽度未知时，也可以利用定位先让其向右移动其父元素高度的一半，然后再向左移动自身宽度的一半即可。</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">translateX</span>(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> 另外：请注意，<strong>不要使用<code>float</code>把一个元素居中</strong>！尽管，<a href="https://css-tricks.com/float-center/" target="_blank" rel="noopener">这儿有个小技巧</a></p>
-</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/29/CSS元素居中方法汇总/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/05/17/CSS选择器的权重与优先规则/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiang Ding">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="春风十里">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/17/CSS选择器的权重与优先规则/" itemprop="url">
-                  CSS选择器的权重与优先规则
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-17T21:24:00+08:00">
-                2017-05-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="CSS样式的分类"><a href="#CSS样式的分类" class="headerlink" title="CSS样式的分类"></a>CSS样式的分类</h2><p>我们都知道CSS样式分为三种，一种是直接写在标签上的<strong>行内样式</strong>，一种是写在页面头部<code>&lt;head&gt;&lt;/head&gt;</code>标签内部的<code>style</code>标签内部的<strong>内部样式</strong>，最后一种是单独写在CSS文件里需要在头部使用<code>link</code>标签引用的<strong>外部样式</strong>。而且这三种样式具有不同的优先级别，离标签最近的样式具有更高的优先级别，即三者的优先级别由高到低的顺序为：行内样式&gt;内部样式&gt;外部样式。</p>
-<h2 id="关于CSS样式覆盖"><a href="#关于CSS样式覆盖" class="headerlink" title="关于CSS样式覆盖"></a>关于CSS样式覆盖</h2><p>绝大多数时候我们使用的是外部样式。</p>
-<p>我们在使用CSS对网页元素定义样式时经常会遇到这种情况：要对一般元素应用一般样式，然后在更特殊的元素上添加新样式覆盖它们。<br>那么我们怎么样来保证我们所新定义的元素样式能覆盖目标元素上原有的样式呢？这就涉及到CSS样式的优先级别了。</p>
-<p>在CSS中，会根据选择器的特殊性来决定所定义的样式规则的次序，具有更特殊选择器的规则优先于具有一般选择器的规则，如果两个规则的特殊性相同，那么后定义的规则优先，会覆盖掉之前的同优先级别的样式。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/17/CSS选择器的权重与优先规则/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1885,7 +1885,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1896,7 +1896,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1907,7 +1907,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1983,7 +1983,7 @@
         <div class="copyright">
   
   &copy;  2017 - 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-balance-scale"></i>
   </span>
