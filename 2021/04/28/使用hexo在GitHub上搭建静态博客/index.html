@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="博客,hexo,">
+  <meta name="keywords" content="hexo,博客,">
 
 
 
@@ -90,18 +90,18 @@
 
 
 
-<meta name="description" content="在Github上搭建静态博客 Hexo和jekyll都可以在Github上搭建静态博客。二者都是基于GitHub Pages实现的。他们都可以把Github上的一个个人仓库编译成一个静态博客。并且可以通过${你的GitHub用户名}.github.io域名访问你的博客。  今天我们主要看看如何使用Hexo来在GitHub上快速地搭建一个我们自己的静态博客。  什么是Hexo Hexo是一个快速、简">
-<meta name="keywords" content="博客,hexo">
+<meta name="description" content="在Github上搭建静态博客 Hexo和jekyll都可以在Github上搭建静态博客。二者都是基于GitHub Pages实现的。他们都可以把Github上的一个个人仓库编译成一个静态博客。并且可以通过https://{你的GitHub用户名}.github.io域名访问你的博客。  今天我们主要看看如何使用Hexo来在GitHub上快速地搭建一个我们自己的静态博客。  什么是Hexo Hexo">
+<meta name="keywords" content="hexo,博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hexo在GitHub上搭建静态博客">
 <meta property="og:url" content="http://JiangDing1990.github.io/2021/04/28/使用hexo在GitHub上搭建静态博客/index.html">
 <meta property="og:site_name" content="春风十里">
-<meta property="og:description" content="在Github上搭建静态博客 Hexo和jekyll都可以在Github上搭建静态博客。二者都是基于GitHub Pages实现的。他们都可以把Github上的一个个人仓库编译成一个静态博客。并且可以通过${你的GitHub用户名}.github.io域名访问你的博客。  今天我们主要看看如何使用Hexo来在GitHub上快速地搭建一个我们自己的静态博客。  什么是Hexo Hexo是一个快速、简">
+<meta property="og:description" content="在Github上搭建静态博客 Hexo和jekyll都可以在Github上搭建静态博客。二者都是基于GitHub Pages实现的。他们都可以把Github上的一个个人仓库编译成一个静态博客。并且可以通过https://{你的GitHub用户名}.github.io域名访问你的博客。  今天我们主要看看如何使用Hexo来在GitHub上快速地搭建一个我们自己的静态博客。  什么是Hexo Hexo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-28T08:18:33.377Z">
+<meta property="og:updated_time" content="2021-04-28T08:40:34.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo在GitHub上搭建静态博客">
-<meta name="twitter:description" content="在Github上搭建静态博客 Hexo和jekyll都可以在Github上搭建静态博客。二者都是基于GitHub Pages实现的。他们都可以把Github上的一个个人仓库编译成一个静态博客。并且可以通过${你的GitHub用户名}.github.io域名访问你的博客。  今天我们主要看看如何使用Hexo来在GitHub上快速地搭建一个我们自己的静态博客。  什么是Hexo Hexo是一个快速、简">
+<meta name="twitter:description" content="在Github上搭建静态博客 Hexo和jekyll都可以在Github上搭建静态博客。二者都是基于GitHub Pages实现的。他们都可以把Github上的一个个人仓库编译成一个静态博客。并且可以通过https://{你的GitHub用户名}.github.io域名访问你的博客。  今天我们主要看看如何使用Hexo来在GitHub上快速地搭建一个我们自己的静态博客。  什么是Hexo Hexo">
 
 
 
@@ -368,7 +368,7 @@
 
       
         <h4 id="在Github上搭建静态博客"><a href="#在Github上搭建静态博客" class="headerlink" title="在Github上搭建静态博客"></a>在Github上搭建静态博客</h4><blockquote>
-<p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>和<a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">jekyll</a>都可以在Github上搭建静态博客。二者都是基于<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>实现的。他们都可以把Github上的一个个人仓库编译成一个静态博客。并且可以通过<code>${你的GitHub用户名}.github.io</code>域名访问你的博客。</p>
+<p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>和<a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">jekyll</a>都可以在Github上搭建静态博客。二者都是基于<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>实现的。他们都可以把Github上的一个个人仓库编译成一个静态博客。并且可以通过<code>https://{你的GitHub用户名}.github.io</code>域名访问你的博客。</p>
 </blockquote>
 <p>今天我们主要看看如何使用<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>来在GitHub上快速地搭建一个我们自己的静态博客。</p>
 <hr>
@@ -443,7 +443,8 @@
 <p>在<code>_config.yml</code>文件中配置一下GitHub相关设置</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:jiangding1990/jiangding1990.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
-<p>配置完之后，如果你的电脑已经配置过GitHub私钥可以正常向GitHub提交代码的话，直接运行<code>hexo d</code>命令，就可以把内容推送到GitHub了，推送完成后就可以直接访问你的博客进行查看了。<br>如果提示没有提交权限，请检查下GitHub的SSHkey的配置情况后再试。</p>
+<p>配置完之后，如果你的电脑已经配置过GitHub私钥可以正常向GitHub提交代码的话，直接运行<code>hexo d</code>命令，就可以把内容推送到GitHub了，推送完成后你的博客就更新完成了。</p>
+<p>如果部署的时候提示没有仓库提交权限，请检查下GitHub的SSHkey的配置情况后再试。</p>
 <p>发布命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 
@@ -484,9 +485,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/博客/" rel="tag"># 博客</a>
-          
             <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/博客/" rel="tag"># 博客</a>
           
         </div>
       
