@@ -93,7 +93,7 @@
 <meta name="description" content="爱前端、爱分享、爱互联网">
 <meta property="og:type" content="website">
 <meta property="og:title" content="春风十里">
-<meta property="og:url" content="http://JiangDing1990.github.io/page/2/index.html">
+<meta property="og:url" content="https://JiangDing1990.github.io/page/2/index.html">
 <meta property="og:site_name" content="春风十里">
 <meta property="og:description" content="爱前端、爱分享、爱互联网">
 <meta property="og:locale" content="zh-Hans">
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://JiangDing1990.github.io/page/2/">
+  <link rel="canonical" href="https://JiangDing1990.github.io/page/2/">
 
 
 
@@ -274,7 +274,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/07/13/从在浏览器输入url到页面加载完成的过程中发生了什么/">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/07/13/从在浏览器输入url到页面加载完成的过程中发生了什么/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -434,7 +434,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/06/23/写了个简单的H5视频播放器/">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/06/23/写了个简单的H5视频播放器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -589,7 +589,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/06/11/原生js实现简单猜拳游戏/">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/06/11/原生js实现简单猜拳游戏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -744,7 +744,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/05/29/CSS元素居中方法汇总/">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/05/29/CSS元素居中方法汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -845,16 +845,16 @@
 <h2 id="一、水平居中"><a href="#一、水平居中" class="headerlink" title="一、水平居中"></a>一、水平居中</h2><ol>
 <li><p><code>inline</code>或者<code>inline-*</code>元素</p>
 <p> 对于父元素是块级元素的内联元素来说，你只需要这么做：</p>
- <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.center-children</span> &#123;</span><br><span class="line">	<span class="attribute">text-align</span>:center</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.center-children &#123;</span><br><span class="line">	text-align:center</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p> <strong>这种方法可以让 inline/inline-block/inline-table/inline/flex 等类型的元素实现居中。</strong></p>
 </li>
 <li><p>单个块级元素</p>
 <p> 当某个块级元素的宽度<code>width</code>已知的时候，可以通过设置其左外边距<code>margin-left</code>和右外边距<code>margin-right</code>值为<code>auto</code>来实现元素的水平居中。例如我们经常会使用的：</p>
- <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.wrapper&#123;</span><br><span class="line">	margin: 0 auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p> 当块级元素宽度未知时，也可以利用定位先让其向右移动其父元素高度的一半，然后再向左移动自身宽度的一半即可。</p>
- <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">transform</span>: <span class="built_in">translateX</span>(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.parent &#123;</span><br><span class="line">	position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.child &#123;</span><br><span class="line">	position: absolute;</span><br><span class="line">	left: 50%;</span><br><span class="line">	transform: translateX(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p> 另外：请注意，<strong>不要使用<code>float</code>把一个元素居中</strong>！尽管，<a href="https://css-tricks.com/float-center/" target="_blank" rel="noopener">这儿有个小技巧</a></p>
 </li>
@@ -907,7 +907,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/05/17/CSS选择器的权重与优先规则/">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/05/17/CSS选择器的权重与优先规则/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -1056,160 +1056,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/05/04/巧用css边框border绘制三角形/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiang Ding">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="春风十里">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/04/巧用css边框border绘制三角形/" itemprop="url">
-                  巧用css边框border绘制三角形
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-04T22:39:25+08:00">
-                2017-05-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h3><p>在使用边框时偶然发现当相邻边框颜色不同时，边框交接处出现了尖角形状。</p>
-<p>例如下面这段代码</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">&lt;div</span> <span class="string">style="</span></span><br><span class="line">	<span class="attr">width:50px;</span> </span><br><span class="line">	<span class="attr">height:50px;</span></span><br><span class="line">	<span class="attr">border-top:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f0f; </span></span><br><span class="line">	<span class="attr">border-right:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#0ff;</span></span><br><span class="line">	<span class="attr">border-bottom:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#f00; </span></span><br><span class="line">	<span class="attr">border-left:</span> <span class="number">50</span><span class="string">px</span> <span class="string">solid</span> <span class="comment">#ff0;</span></span><br><span class="line"> <span class="string">"&gt;		</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>实现效果如下图所示：</p>
-<p><img src="/images/2017-05-04-22.56.38.png" alt></p>
-<p>四周的四条边框每一条都是一个梯形，由此联想到了三角形的角。如果<code>div</code>内容尺寸设为0，无法撑开边框，那么边框就可以形成封闭图形了。</p>
-<p>经过自己的尝试以及在网上搜索，发现了用border绘制三角形的几种方法。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/04/巧用css边框border绘制三角形/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/05/02/关于伪类、伪对象和定位/">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/05/02/关于伪类、伪对象和定位/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -1308,7 +1155,7 @@
         
           <h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>当一个容器中的所有元素都设置浮动后，一定要记得清除浮动。如果不清除浮动，会造成页面坍塌（即某些元素尺寸会消失）。</p>
 <p>常用清除浮动代码：</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="attribute">clear</span>:both;  <span class="comment">/*清除所有浮动*/</span></span><br><span class="line"><span class="attribute">clear</span>:left;  <span class="comment">/*清除左浮动*/</span></span><br><span class="line"><span class="attribute">clear</span>:right;  <span class="comment">/*清除右浮动*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">clear:both;  /*清除所有浮动*/</span><br><span class="line">clear:left;  /*清除左浮动*/</span><br><span class="line">clear:right;  /*清除右浮动*/</span><br></pre></td></tr></table></figure>
 
 <h2 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h2><p>CSS伪类是用来添加一些选择器的特殊效果的。</p>
 <h3 id="常用伪类"><a href="#常用伪类" class="headerlink" title="常用伪类"></a>常用伪类</h3><p><strong><code>a</code>标签的伪类</strong></p>
@@ -1361,7 +1208,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/04/28/Font-Awsome-字体图标使用初探/">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/04/28/Font-Awsome-字体图标使用初探/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -1516,7 +1363,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/04/28/Emmet插件使用手册/">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/04/28/Emmet插件使用手册/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -1664,7 +1511,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://JiangDing1990.github.io/2017/04/27/标签的文档流分类/">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/04/26/Sublime-Text-3 编辑器学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiang Ding">
@@ -1686,8 +1533,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/27/标签的文档流分类/" itemprop="url">
-                  标签的文档流分类
+                <a class="post-title-link" href="/2017/04/26/Sublime-Text-3 编辑器学习笔记/" itemprop="url">
+                  Sublime Text 3 编辑器学习笔记
                 </a>
               
             
@@ -1703,8 +1550,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T12:20:03+08:00">
-                2017-04-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T14:44:25+08:00">
+                2017-04-26
               </time>
             
 
@@ -1761,14 +1608,163 @@
 
       
         
-          <h2 id="标签的分类"><a href="#标签的分类" class="headerlink" title="标签的分类"></a>标签的分类</h2><h3 id="按照闭合方式分类"><a href="#按照闭合方式分类" class="headerlink" title="按照闭合方式分类"></a>按照闭合方式分类</h3><h4 id="双闭合标签"><a href="#双闭合标签" class="headerlink" title="双闭合标签"></a>双闭合标签</h4><p>如</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h4 id="单闭合标签"><a href="#单闭合标签" class="headerlink" title="单闭合标签"></a>单闭合标签</h4><p>如</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;img <span class="attribute">src</span>=<span class="string">"#"</span>&gt;</span><br><span class="line">&lt;input <span class="attribute">type</span>=<span class="string">""</span> <span class="attribute">name</span>=<span class="string">""</span>&gt;</span><br><span class="line"><span class="built_in">..</span>.</span><br></pre></td></tr></table></figure>
+          <h2 id="Sublime-Text-3基本介绍"><a href="#Sublime-Text-3基本介绍" class="headerlink" title="Sublime Text 3基本介绍"></a><a href="http://www.sublimetext.com" target="_blank" rel="noopener">Sublime Text 3</a>基本介绍</h2><p><a href="http://www.sublimetext.com" target="_blank" rel="noopener">Sublime Text 3</a>是一款非常优秀的代码编辑器。它<em>界面优美</em>、<em>功能强悍</em>、<em>性能令人惊讶</em>。需要注意的是，它<em>并不是IDE</em>，而是一个<strong>单纯</strong>的<strong>文本编辑工具</strong>，但其<code>代码高亮显示</code>、<code>语法提示</code>、<code>自动完成且反应快速</code>，还有各种<code>丰富插件</code>的支持，使得文本编辑过程非常<strong>规范</strong>、<strong>快速高效</strong>。</p>
+<h2 id="Sublime-Text-3的优点"><a href="#Sublime-Text-3的优点" class="headerlink" title="Sublime Text 3的优点"></a><a href="http://www.sublimetext.com" target="_blank" rel="noopener">Sublime Text 3</a>的优点</h2><ul>
+<li>跨平台，无论是Windows、Mac以及Linux均可使用，无需担心因为换平台而找不到熟悉合适的编辑器</li>
+<li>丰富的插件，各种各样的插件大大扩充了Sublime的功能，使用合适的插件可以使工作效率大大提升</li>
+<li>编辑环境，命令行环境和界面环境互补，操纵体验非常好</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/27/标签的文档流分类/#more" rel="contents">
+            <a class="btn" href="/2017/04/26/Sublime-Text-3 编辑器学习笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://JiangDing1990.github.io/2017/04/25/Hexo使用NexT主题设置主页显示文章摘要方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiang Ding">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Hexo使用NexT主题设置主页显示文章摘要方法/" itemprop="url">
+                  Hexo使用NexT主题设置主页显示文章摘要方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T20:37:46+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>最近使用<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>搭建了自己的博客，使用了简洁而强大的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT</a>主题。在写博客的过程中发现主页文章显示为全文模式，看起来很不美观。从网络上搜集了几种方法，今天做个总结分享出来。</p>
+<h2 id="方法分享"><a href="#方法分享" class="headerlink" title="方法分享"></a>方法分享</h2><p>这里介绍一下<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT</a>主题下设置在首页只显示文章的摘要的方法。</p>
+<h3 id="1-在文章中使用-lt-more-gt-进行手动截断"><a href="#1-在文章中使用-lt-more-gt-进行手动截断" class="headerlink" title="1. 在文章中使用&lt;!--more--&gt;进行手动截断"></a>1. 在文章中使用&lt;!--more--&gt;进行手动截断</h3><p>在写博客的时候在文章中使用&lt;!--more--&gt;进行手动截断,如下图所示：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/25/Hexo使用NexT主题设置主页显示文章摘要方法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1852,7 +1848,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1874,7 +1870,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
