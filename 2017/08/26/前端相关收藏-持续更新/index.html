@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangding1990.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"github","dark":"github-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat","show_result":true},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":150,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="最近更新日期：2017.10.25 1. JavaScript相关文章阮一峰JavaScript系列文章  undefined 与null 的区别 JavaScript内存泄漏教程 JavaScript 运行机制详解：再谈Event Loop 什么是 Event Loop？ http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2013&#x2F;10&#x2F;event_loop.html 浏览器的同源政">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端相关收藏(持续更新)">
+<meta property="og:url" content="https://jiangding1990.github.io/2017/08/26/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3%E6%94%B6%E8%97%8F-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/index.html">
+<meta property="og:site_name" content="春风十里">
+<meta property="og:description" content="最近更新日期：2017.10.25 1. JavaScript相关文章阮一峰JavaScript系列文章  undefined 与null 的区别 JavaScript内存泄漏教程 JavaScript 运行机制详解：再谈Event Loop 什么是 Event Loop？ http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2013&#x2F;10&#x2F;event_loop.html 浏览器的同源政">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-08-26T07:47:42.000Z">
+<meta property="article:modified_time" content="2021-04-29T03:43:00.000Z">
+<meta property="article:author" content="Jiang Ding">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="干货">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jiangding1990.github.io/2017/08/26/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3%E6%94%B6%E8%97%8F-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangding1990.github.io/2017/08/26/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3%E6%94%B6%E8%97%8F-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/","path":"2017/08/26/前端相关收藏-持续更新/","title":"前端相关收藏(持续更新)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>前端相关收藏(持续更新) | 春风十里</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">春风十里</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-JavaScript%E7%9B%B8%E5%85%B3%E6%96%87%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">1. JavaScript相关文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%95%99%E7%A8%8B%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">2. 教程类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%82%A8%E5%A4%87"><span class="nav-number">3.</span> <span class="nav-text">3. 相关知识储备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3"><span class="nav-number">4.</span> <span class="nav-text">4. 面试相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E7%AE%80%E5%8E%86%E7%9B%B8%E5%85%B3"><span class="nav-number">5.</span> <span class="nav-text">5. 简历相关</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiang Ding"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jiang Ding</p>
+  <div class="site-description" itemprop="description">即使是菜鸟，也要爱分享</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JiangDing1990" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JiangDing1990" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/jdjiangding" title="微博 → http:&#x2F;&#x2F;weibo.com&#x2F;jdjiangding" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangding1990.github.io/2017/08/26/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3%E6%94%B6%E8%97%8F-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jiang Ding">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+      <meta itemprop="description" content="即使是菜鸟，也要爱分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="前端相关收藏(持续更新) | 春风十里">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端相关收藏(持续更新)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-08-26 15:47:42" itemprop="dateCreated datePublished" datetime="2017-08-26T15:47:42+08:00">2017-08-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><strong>最近更新日期：2017.10.25</strong></p>
+<h4 id="1-JavaScript相关文章"><a href="#1-JavaScript相关文章" class="headerlink" title="1. JavaScript相关文章"></a>1. JavaScript相关文章</h4><p><strong>阮一峰JavaScript系列文章</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html"><code>undefined</code> 与<code>null</code> 的区别</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/04/memory-leak.html">JavaScript内存泄漏教程</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html">JavaScript 运行机制详解：再谈Event Loop</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2013/10/event_loop.html">什么是 Event Loop？</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/11/circular-dependency.html">http://www.ruanyifeng.com/blog/2013/10/event_loop.html</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html">浏览器的同源政策及其规避方法</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html">JavaScript严格模式详解</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html">Javascript异步编程的4种方法</a></li>
+</ol>
+<p><strong>张鑫旭的文章</strong></p>
+<ol>
+<li><a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/2017/07/js-window-self/">了解JS中的全局对象window.self和全局作用域self</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/">去除inline-block元素间间距的N种方法</a></li>
+<li>…待更新</li>
+</ol>
+<span id="more"></span>
+<p><strong>其他文章</strong></p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/es6-in-depth-arrow-functions">深入浅出ES6（七）：箭头函数 Arrow Functions</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010313101">《JavaScript语言精粹 修订版》 读书笔记</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.jstips.co/">JS Tips网站 (英文)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/wangfupeng1988/p/3977924.html">深入理解javascript原型和闭包 — 系列教程</a></p>
+</li>
+<li><p>深入理解 JavaScript 异步 — 系列文章</p>
+<p> <a target="_blank" rel="noopener" href="http://www.cnblogs.com/wangfupeng1988/p/6513070.html">1. 基础</a><br> <a target="_blank" rel="noopener" href="http://www.cnblogs.com/wangfupeng1988/p/6515779.html">2. jQuery的解决方案</a><br> <a target="_blank" rel="noopener" href="http://www.cnblogs.com/wangfupeng1988/p/6515855.html">3. ES6中的Promise</a><br> <a target="_blank" rel="noopener" href="http://www.cnblogs.com/wangfupeng1988/p/6532713.html">4. ES6 中的 Generator</a><br> <a target="_blank" rel="noopener" href="http://www.cnblogs.com/wangfupeng1988/p/6532734.html">5. ES7 中引入 async-await</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/d8fcd04864bb">数组扁平化、去重、排序</a></p>
+</li>
+<li><p>Vue.js渡劫系列文章</p>
+<p> <a target="_blank" rel="noopener" href="http://moweide.com/2017/09/02/vue_started/">1. 日常开发中必须掌握的细节（Keng）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/ghostwu/p/7499237.html">深入浅出Webpack教程系列</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/d8e09fe1b3b8">Node.js - 收藏集 —掘金</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/ffadd68affdf">从一个空文件夹到一个线上项目 —webpack</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.im/post/59afc6adf265da2485360168">JavaScript Event Loop 机制详解与 Vue.js 中实践应用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.im/post/5991549af265da3e345f6e6d">ES6 变量声明与赋值：值传递、浅拷贝与深拷贝详解</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011145364">前端常见跨域解决方案（全）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/libin-1/p/6878057.html">Vue组件中的data为什么是函数而不是直接用对象定义</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/xiaohuochai/p/7294208.html">Vue实例对象的数据选项</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000006921369">JavaScript十大经典排序算法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://web.jobbole.com/author/damonare/">Damonare的文章</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004034739">JavaScript的setTimeout和setInterval的深入理解</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.crimx.com/2016/05/12/understanding-this/">JavaScript This 的六道坎</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://dunizb.com/2016/10/25/JavaScript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E5%BD%92%E7%BA%B3/">JavaScript面向对象核心知识归纳</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.im/post/59e352f06fb9a0452935cc1a">从template到DOM(Vue.js源码角度看内部运行机制)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.csdn.net/liuyan19891230/article/details/50774439">JS实现继承的几种方式详述</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/libin-1/p/6069031.html">理解JS中的call、apply、bind方法</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/xuxiuyu/p/5989743.html">jQuery.extend()和jQuery.fn.extend()</a></p>
+</li>
+</ol>
+<h4 id="2-教程类"><a href="#2-教程类" class="headerlink" title="2. 教程类"></a>2. 教程类</h4><ol>
+<li><a target="_blank" rel="noopener" href="http://es6.ruanyifeng.com/">ECMAScript 6 入门 — 阮一峰</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html">测试框架Mocha实例教程 — 阮一峰</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/03/react.html">React入门实例教程 — 阮一峰</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html">React技术栈系列教程 — 阮一峰</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/11/javascript.html">JavaScript 全栈工程师培训教程 — 阮一峰</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/08/koa.html">Koa框架教程 — 阮一峰</a></li>
+<li><a target="_blank" rel="noopener" href="http://huziketang.com/books/react">React小书</a></li>
+<li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/">Vue官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.yiibai.com/mongodb/">MongoDB教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Git教程 — 廖雪峰</a></li>
+<li><a target="_blank" rel="noopener" href="http://billie66.github.io/TLCL/book/">Linux命令行</a></li>
+<li><a target="_blank" rel="noopener" href="http://deerchao.net/tutorials/regex/regex.htm">正则表达式30分钟入门</a></li>
+<li><a target="_blank" rel="noopener" href="http://liubin.org/promises-book/#chapter4-advanced-promise">JavaScript Promise迷你书</a></li>
+</ol>
+<h4 id="3-相关知识储备"><a href="#3-相关知识储备" class="headerlink" title="3. 相关知识储备"></a>3. 相关知识储备</h4><ol>
+<li><a target="_blank" rel="noopener" href="http://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21318658/answer/29414422">如何学习数据结构 – 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2017/06/tcp-protocol.html">TCP协议简介</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000000317146">关于前端开发的单元测试</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000006933557">前端单元测试探索</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.bijishequ.com/subject/37">前端自动化测试Mocha&amp;chai — 系列文章</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.bijishequ.com/subject/345">前端必备HTTP技能 系列文章</a></li>
+<li><a target="_blank" rel="noopener" href="https://pair-code.github.io/deeplearnjs/index.html">deeplearn.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010440054">不再碎片化学习，快速掌握 H5 直播技术</a></li>
+</ol>
+<h4 id="4-面试相关"><a href="#4-面试相关" class="headerlink" title="4. 面试相关"></a>4. 面试相关</h4><ol>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010869619">史上前端面试最全知识点（附答案）</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.bijishequ.com/authorarticle.html?author=Yangkeloff">慕课网《前端JavaScript面试技巧》学习笔记 — 系列文章</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/daijinxue/p/6640153.html">从输入url到页面加载完成发生了什么？— 前端角度</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010264187">慕课网JavaScript面试题学习笔记(ES6 标准) ——实时更新</a></li>
+<li><a target="_blank" rel="noopener" href="http://dunizb.com/2017/09/08/interview-questions-2017/">我遇到的前端面试题2017</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=2651550928&idx=1&sn=0912e56c7ccbb68cf36562e723e29da0&scene=1&srcid=0612ekFt6xkwpwwFhCDSPKnM#rd">也谈面试必备问题之 JavaScript 数组去重</a></li>
+<li><a target="_blank" rel="noopener" href="http://nickj.leanapp.cn/article/590ed476da2f60005355d89e">前端面试题目全整理</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25859524">前端面试指南 – 知乎</a></li>
+</ol>
+<h4 id="5-简历相关"><a href="#5-简历相关" class="headerlink" title="5. 简历相关"></a>5. 简历相关</h4><ol>
+<li><a target="_blank" rel="noopener" href="http://deercv.com/">简历工具DeerCV</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/geekcompany/ResumeSample/blob/master/web.md">Web前端简历模板</a></li>
+<li><a target="_blank" rel="noopener" href="http://get.ftqq.com/744.get">如何写好技术简历 实例、模板及工具</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/%E5%B9%B2%E8%B4%A7/" rel="tag"># 干货</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/08/08/CentOS-7-%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%ACGit%E6%96%B9%E6%B3%95%E6%AD%A5%E9%AA%A4/" rel="prev" title="CentOS 7 安装最新版本Git方法步骤">
+                  <i class="fa fa-angle-left"></i> CentOS 7 安装最新版本Git方法步骤
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/09/11/%E5%85%B3%E4%BA%8E%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" rel="next" title="关于数组去重（转）">
+                  关于数组去重（转） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-balance-scale"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">true</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangding1990.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"github","dark":"github-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat","show_result":true},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":150,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="地图服务在前端页面的某些场景下，尤其是交通和旅游相关业务中会经常见到。前端在进行地图相关业务的开发时，会遇到各种各样的问题，今天我结合一下自己之前业务开发中所遇到的一些地图相关的问题，跟大家分享一下前端地图开发过程中的一些经验。这里会省略掉一部分地图基础知识的介绍，有需要的小伙伴可以自行查阅一下相关资料。 一、选择哪个地图服务前端进行地图相关业务开发时，需要根据具体的业务需求选择地图服务商。 对于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web前端地图开发指北">
+<meta property="og:url" content="https://jiangding1990.github.io/2018/04/15/Web%E5%89%8D%E7%AB%AF%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E6%8C%87%E5%8C%97/index.html">
+<meta property="og:site_name" content="春风十里">
+<meta property="og:description" content="地图服务在前端页面的某些场景下，尤其是交通和旅游相关业务中会经常见到。前端在进行地图相关业务的开发时，会遇到各种各样的问题，今天我结合一下自己之前业务开发中所遇到的一些地图相关的问题，跟大家分享一下前端地图开发过程中的一些经验。这里会省略掉一部分地图基础知识的介绍，有需要的小伙伴可以自行查阅一下相关资料。 一、选择哪个地图服务前端进行地图相关业务开发时，需要根据具体的业务需求选择地图服务商。 对于">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://b1-q.mafengwo.net/s12/M00/F2/19/wKgED1vaoOaAeVHJAARZfQfvnA8695.png">
+<meta property="og:image" content="https://b1-q.mafengwo.net/s12/M00/F2/19/wKgED1vaoOaAeVHJAARZfQfvnA8695.png">
+<meta property="og:image" content="https://b1-q.mafengwo.net/s12/M00/F9/38/wKgED1vapZWALWHlAANFZPJW3a8784.png">
+<meta property="og:image" content="https://b1-q.mafengwo.net/s12/M00/F9/38/wKgED1vapZWALWHlAANFZPJW3a8784.png">
+<meta property="article:published_time" content="2018-04-15T03:24:08.000Z">
+<meta property="article:modified_time" content="2020-06-10T13:59:52.000Z">
+<meta property="article:author" content="Jiang Ding">
+<meta property="article:tag" content="Google地图">
+<meta property="article:tag" content="Web地图">
+<meta property="article:tag" content="地图开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://b1-q.mafengwo.net/s12/M00/F2/19/wKgED1vaoOaAeVHJAARZfQfvnA8695.png">
+
+
+<link rel="canonical" href="https://jiangding1990.github.io/2018/04/15/Web%E5%89%8D%E7%AB%AF%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E6%8C%87%E5%8C%97/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangding1990.github.io/2018/04/15/Web%E5%89%8D%E7%AB%AF%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E6%8C%87%E5%8C%97/","path":"2018/04/15/Web前端地图开发指北/","title":"Web前端地图开发指北"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Web前端地图开发指北 | 春风十里</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">春风十里</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%80%89%E6%8B%A9%E5%93%AA%E4%B8%AA%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">一、选择哪个地图服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%85%B3%E4%BA%8E%E5%9C%B0%E5%9B%BE%E7%9A%84%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">二、关于地图的坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%B0%B7%E6%AD%8C%E5%9C%B0%E5%9B%BE%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">三、谷歌地图使用的一些心得体会</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">4.</span> <span class="nav-text">四、写在最后</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiang Ding"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jiang Ding</p>
+  <div class="site-description" itemprop="description">即使是菜鸟，也要爱分享</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JiangDing1990" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JiangDing1990" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/jdjiangding" title="微博 → http:&#x2F;&#x2F;weibo.com&#x2F;jdjiangding" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangding1990.github.io/2018/04/15/Web%E5%89%8D%E7%AB%AF%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91%E6%8C%87%E5%8C%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jiang Ding">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+      <meta itemprop="description" content="即使是菜鸟，也要爱分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Web前端地图开发指北 | 春风十里">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Web前端地图开发指北
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-04-15 11:24:08" itemprop="dateCreated datePublished" datetime="2018-04-15T11:24:08+08:00">2018-04-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">经验分享</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>地图服务在前端页面的某些场景下，尤其是交通和旅游相关业务中会经常见到。前端在进行地图相关业务的开发时，会遇到各种各样的问题，今天我结合一下自己之前业务开发中所遇到的一些地图相关的问题，跟大家分享一下前端地图开发过程中的一些经验。这里会省略掉一部分地图基础知识的介绍，有需要的小伙伴可以自行查阅一下相关资料。</p>
+<h4 id="一、选择哪个地图服务"><a href="#一、选择哪个地图服务" class="headerlink" title="一、选择哪个地图服务"></a>一、选择哪个地图服务</h4><p>前端进行地图相关业务开发时，需要根据具体的业务需求选择地图服务商。</p>
+<p>对于某些地图属性需求较弱的地方，比如单纯展示一个地点在地图上的定位点，可以考虑使用静态的地图图片进行展示，这样可以直接调用地图服务的接口获取静态图片，而无需为此启用一整个地图服务。</p>
+<p>具体选择哪一家地图服务商，可以大致参照下面的方法进行选择。</p>
+<ol>
+<li><p>如果地图业务需要在APP原生页面运行，APP内已经有很成熟的解决方案了，直接参考APP内的实现方案进行选择；</p>
+</li>
+<li><p>如果为web端地图业务，需要进行具体的分析考虑，比如地图是不是涉及到海外数据信息的展示、业务的预估访问量、地图使用的成本等问题。</p>
+<ul>
+<li><p>如果地图需求涉及到海外地图服务，那么目前来看，可选择的就只剩下谷歌地图、百度地图，当然，高德地图和腾讯地图目前也提供海外地图服务，只是目前仍处于试用阶段。最好的选择当然是谷歌地图，只是谷歌地图还有一些其他限制，由于某些众所周知的原因，谷歌地图在国内只能走cn域名的接口，而且这个接口只能在http协议下才能调用，不能走https协议。</p>
+</li>
+<li><p>如果地图仅仅涉及到国内地图服务，那么直接选择百度地图或者高德地图；</p>
+</li>
+<li><p>关于使用费用问题，需要结合具体的业务访问量、收益等因素综合考量之后进行选择。</p>
+</li>
+</ul>
+</li>
+</ol>
+<span id="more"></span>      
+
+<h4 id="二、关于地图的坐标系"><a href="#二、关于地图的坐标系" class="headerlink" title="二、关于地图的坐标系"></a>二、关于地图的坐标系</h4><p>坐标系维护着经纬度与地点的对应关系，同一地点在不同坐标系下的经纬度可能不同。因此在调用地图服务时要明确当前地图的坐标系和经纬度数数据的坐标系，可以通过做坐标系转换逻辑一致化数据。在数据存储中，建议中国大陆及港澳地区使用GCJ-02坐标系，其他地区使用WGS-84坐标系，并且在每个数据单元中包含一个坐标系类型字段。常见的地图坐标系有以下几种：</p>
+<ol>
+<li><p><strong>WGS-84</strong></p>
+<p> 世界大地测量系统 (World Geodetic System, WGS) 是一种用于地图学，大地测量学和导航 (包括全球定位系统) 的大地测量系统标准。全球定位系统 (Global Positioning System, GPS) 使用的就是WGS-84参考系。Google和高德地图定位的的经纬度（国外）都是基于WGS－84坐标系的；但是在国内是不允许直接用WGS84坐标系标注的，必须经过加密后才能使用。</p>
+</li>
+<li><p><strong>GCJ-02</strong></p>
+<p> 又名“火星坐标系”，是我国国测局独创的坐标体系，由WGS－84加密而成，出于国家安全考虑，此坐标系所采用的混淆算法，会在经纬度中加入看似随机的偏移。在国内，必须至少使用GCJ－02坐标系，或者使用在GCJ－02加密后再进行加密的坐标系，如百度坐标系。高德和Google（.cn域名下的服务）在国内都是使用GCJ－02坐标系，另外高德地图、腾讯地图、搜狗地图都是使用的GCJ－02坐标系。可以说GCJ－02是国内最广泛使用的坐标系。</p>
+</li>
+<li><p><strong>BD-09</strong></p>
+<p> BD-09是百度地图使用的地理坐标系，百度坐标系是在GCJ－02坐标系的基础上再次加密偏移后形成的坐标系，只适用于百度地图。目前百度API提供了从其它坐标系转换为百度坐标系的API，但却没有从百度坐标系转为其他坐标系的API。</p>
+</li>
+</ol>
+<p>在使用地图服务的时候，一定要注意坐标系的问题，经纬度数据所属坐标系一定要与地图展示所需的坐标系相一致，比如在拿到手机定位信息的时候，拿到的其实是WGS-84坐标，如果目标坐标系不是WGS-84，比如百度地图（使用的是BD-09坐标系），还需要进行相应的坐标转换才能用于展示，否则展示出来的位置与地图上的实际位置会有偏差。</p>
+<h4 id="三、谷歌地图使用的一些心得体会"><a href="#三、谷歌地图使用的一些心得体会" class="headerlink" title="三、谷歌地图使用的一些心得体会"></a>三、谷歌地图使用的一些心得体会</h4><p>我在之前的项目里，使用过谷歌地图，下面结合我的实际使用情况，聊一下Vue项目里谷歌地图的使用。</p>
+<ol>
+<li><p>Vue项目下，可以使用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue2-google-maps">vue2-google-maps</a>这个包，使用示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="title class_">VueGoogleMaps</span> <span class="keyword">from</span> <span class="string">&#x27;vue2-google-maps&#x27;</span></span><br><span class="line">    </span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">VueGoogleMaps</span>,&#123;</span><br><span class="line">  <span class="attr">load</span>:&#123;</span><br><span class="line">    <span class="attr">key</span>: <span class="string">&#x27;AIzaSyD-*******************WkU49Bk53nQ&#x27;</span>,  <span class="comment">// 你的谷歌地图的key</span></span><br><span class="line">    <span class="attr">v</span>: <span class="string">&#x27;3.34&#x27;</span>,                <span class="comment">// 你希望使用的API版本</span></span><br><span class="line">    <span class="attr">libraries</span>: <span class="string">&#x27;geometry&#x27;</span>,    <span class="comment">// 你需要使用的库，地图初始化时加载</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">loadCn</span>: <span class="literal">true</span>,    <span class="comment">// 写在这里才可以请求cn域名下的谷歌地图</span></span><br><span class="line">  <span class="attr">disableDefaultUI</span>: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>这样的话在template里就可以使用组件方式进行开发了。具体代码示例可以参考<a target="_blank" rel="noopener" href="https://github.com/xkjyeah/vue-google-maps">github上的ReadMe文档</a> ，还可以结合谷歌地图的官方文档进行使用。</p>
+<ol start="2">
+<li>关于地图实例初始化</li>
+</ol>
+<p>地图初始化的时候，一定要记住不能设置地图的所在元素隐藏，这样会造成地图初始化时候瓦片的加载。地图隐藏相当于大小为0，这个时候地瓦片无法正常渲染，会影响地图的正常展示。</p>
+<ol start="3">
+<li>关于导航线路</li>
+</ol>
+<p>谷歌地图的<code>Javascript API</code>支持实现导航线路的绘制，只是非付费用户，导航线路上的控制点（就是指定起点终点后要求中途必须经过的点）数量有限制。如果你的控制点比较多，不能只画一条线来绘制出导航线路，这时候可以通过下边的方式解决：</p>
+<p>后台使用谷歌地图<strong>Web Service</strong> 下的 <code>Direction Service API</code>获取导航线路数据，然后存起来，统一传给前端，前端一段段的绘制在地图上，这样还可以对每一段polyline进行单独的控制，比如颜色、线宽等等。</p>
+<p>后台使用谷歌地图<strong>Web Service</strong>获取导航线路数据，返给前端做线路渲染，前端使用谷歌地图Javascript API是无法直接渲染导航线路的，这个时候只需要拿到结果里的<strong>overview_polyline</strong>下的<strong>points</strong>字段，然后前端使用 <code>google.maps.geometry.encoding.decodePath()</code>方法解析points字段可以获取到一系列坐标点，最后前端直接调用polyline方法可以把这些点绘制成导航线路，这样就可以一段一段地把导航线路画到地图上了。</p>
+<p>当你的线路是固定的时候，这样存储起来可以大大减少地图服务的请求次数。</p>
+<ol start="4">
+<li><p>自定义类似infowindow的popup层</p>
+<p> <img src="https://b1-q.mafengwo.net/s12/M00/F2/19/wKgED1vaoOaAeVHJAARZfQfvnA8695.png"><img src="https://b1-q.mafengwo.net/s12/M00/F2/19/wKgED1vaoOaAeVHJAARZfQfvnA8695.png"></p>
+</li>
+</ol>
+<p>如果你想在地图上画出这样的popup层，你可以参考谷歌地图的<a target="_blank" rel="noopener" href="https://developers.google.cn/maps/documentation/javascript/examples/overlay-popup">官方示例</a> ，自定义一下实现这种popup层的方法，写好之后，你只需要在代码里把需要的dom写好，然后调用方法，就可以实现这种popup层了。</p>
+<ol start="5">
+<li>关于谷歌地图的样式定制</li>
+</ol>
+<p>当你的地图样式需要高度定制的时候，你可以在地图组件上通过 style 属性春如地图的展示样式，这个style属性值是一个数组，可以设置很多地图的属性样式。</p>
+<p>下边是一段示例：</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">styles</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="attr">featureType</span>: <span class="string">&#x27;administrative.locality&#x27;</span>,</span><br><span class="line">       <span class="attr">elementType</span>: <span class="string">&#x27;labels.text.fill&#x27;</span>,</span><br><span class="line">       <span class="attr">stylers</span>: [&#123;<span class="attr">color</span>: <span class="string">&#x27;#d59563&#x27;</span>&#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="attr">featureType</span>: <span class="string">&#x27;poi&#x27;</span>,</span><br><span class="line">       <span class="attr">elementType</span>: <span class="string">&#x27;labels.text.fill&#x27;</span>,</span><br><span class="line">       <span class="attr">stylers</span>: [&#123;<span class="attr">color</span>: <span class="string">&#x27;#d59563&#x27;</span>&#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="attr">featureType</span>: <span class="string">&#x27;road&#x27;</span>,</span><br><span class="line">       <span class="attr">elementType</span>: <span class="string">&#x27;geometry&#x27;</span>,</span><br><span class="line">       <span class="attr">stylers</span>: [&#123;<span class="attr">color</span>: <span class="string">&#x27;#38414e&#x27;</span>&#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="attr">featureType</span>: <span class="string">&#x27;road&#x27;</span>,</span><br><span class="line">       <span class="attr">elementType</span>: <span class="string">&#x27;geometry.stroke&#x27;</span>,</span><br><span class="line">       <span class="attr">stylers</span>: [&#123;<span class="attr">color</span>: <span class="string">&#x27;#212a37&#x27;</span>&#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="attr">featureType</span>: <span class="string">&#x27;road.highway&#x27;</span>,</span><br><span class="line">       <span class="attr">elementType</span>: <span class="string">&#x27;geometry.stroke&#x27;</span>,</span><br><span class="line">       <span class="attr">stylers</span>: [&#123;<span class="attr">color</span>: <span class="string">&#x27;#1f2835&#x27;</span>&#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="attr">featureType</span>: <span class="string">&#x27;road.highway&#x27;</span>,</span><br><span class="line">       <span class="attr">elementType</span>: <span class="string">&#x27;labels.text.fill&#x27;</span>,</span><br><span class="line">       <span class="attr">stylers</span>: [&#123;<span class="attr">color</span>: <span class="string">&#x27;#f3d19c&#x27;</span>&#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="attr">featureType</span>: <span class="string">&#x27;transit&#x27;</span>,</span><br><span class="line">       <span class="attr">elementType</span>: <span class="string">&#x27;geometry&#x27;</span>,</span><br><span class="line">       <span class="attr">stylers</span>: [&#123;<span class="attr">color</span>: <span class="string">&#x27;#2f3948&#x27;</span>&#125;]</span><br><span class="line">    &#125;</span><br><span class="line">   ]</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>通过这个属性的设置，你可以定制地图的展示样子，道路颜色粗细、各种级别道路的展示与否，POI类型的展示与否等等很多东西你都可以自定义，从而实现地图的高度定制化。具体的使用请看<a target="_blank" rel="noopener" href="https://developers.google.cn/maps/documentation/javascript/styling">官方示例</a>，另外可以看<a target="_blank" rel="noopener" href="https://developers.google.cn/maps/documentation/javascript/reference/map#MapTypeStyle">官方文档</a>。另外这里介绍一个<a target="_blank" rel="noopener" href="https://snazzymaps.com/">很有用的网站</a>，有很多谷歌地图的样式，喜欢哪个可以直接复制代码使用。</p>
+<ol start="6">
+<li><p>自定义谷歌地图的marker</p>
+<p><img src="https://b1-q.mafengwo.net/s12/M00/F9/38/wKgED1vapZWALWHlAANFZPJW3a8784.png"><img src="https://b1-q.mafengwo.net/s12/M00/F9/38/wKgED1vapZWALWHlAANFZPJW3a8784.png"></p>
+<p>如果你需要自定义marker（一般都会，默认的样子设计师应该不会喜欢），你就需要自己画。对于那些很不规则的形状，使用简单的css很难实现。这种情况下，你可以试试下边这种方案。你可以找设计师要icon的svg格式图片，然后查看源码里的path，自己根据这个path去画icon。</p>
+<p>例如，在我的项目中，需要实现上图中这样的marker，示例代码是这样的</p>
+<p>map组件上<code>:icon = icon</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// icon变量定义</span></span><br><span class="line">icon = &#123;</span><br><span class="line">      <span class="attr">path</span>:<span class="string">&quot;m26.5,1.5l-22.5,0c-1.38071,0 -2.5,1.11929 -2.5,2.5l0,23l6,-4.5l16.5,0c1.38071,0 2.5,-1.11929 2.5,-2.5l0,-18.5z&quot;</span>,                    <span class="comment">// icon的path信息</span></span><br><span class="line">      <span class="attr">fillColor</span>: <span class="string">&quot;#ff5b4d&quot;</span>,       <span class="comment">// 填充颜色</span></span><br><span class="line">      <span class="attr">fillOpacity</span>: <span class="number">1</span>,             <span class="comment">// 填充透明度</span></span><br><span class="line">      <span class="attr">scale</span>: <span class="number">1</span>,                   <span class="comment">// 缩放倍数</span></span><br><span class="line">      <span class="attr">strokeColor</span>: <span class="string">&quot;#ff5b4d&quot;</span>,     <span class="comment">// 描边颜色</span></span><br><span class="line">      <span class="attr">strokeWeight</span>: <span class="number">3</span>,            <span class="comment">// 描边线宽</span></span><br><span class="line">      <span class="attr">labelOrigin</span>: &#123;<span class="attr">x</span>:<span class="number">14</span>,<span class="attr">y</span>:<span class="number">12</span>&#125;,   <span class="comment">// 设置label中心位置，使数字在icon内居中</span></span><br><span class="line">      <span class="attr">anchor</span>:&#123;<span class="attr">x</span>:<span class="number">0</span>,<span class="attr">y</span>:<span class="number">34</span>&#125;,          <span class="comment">// 定位marker的左下角位置到坐标点</span></span><br><span class="line">      <span class="attr">zIndex</span>: <span class="number">200</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>marker底图是画上去的marker，数字序号是画上去的label，label的代码是这样的：</p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 地图上 :label = label</span></span><br><span class="line">label = &#123;</span><br><span class="line">  <span class="attr">text</span>: i ,                     <span class="comment">//序号</span></span><br><span class="line">  <span class="attr">fontSize</span>: <span class="string">&#x27;14px&#x27;</span>,             <span class="comment">// 字号</span></span><br><span class="line">  <span class="attr">fontFamily</span>:<span class="string">&#x27;Din-bold&#x27;</span>,        <span class="comment">// 字体</span></span><br><span class="line">  <span class="attr">color</span>: <span class="string">&#x27;#ffffff&#x27;</span>              <span class="comment">// 颜色</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="7">
+<li>地图事件监听</li>
+</ol>
+<p>当你使用<code>vue2-goole-maps</code> 时，你可能会用到下面这些事件监听。</p>
+<ul>
+<li><p>1.google地图对象可用（地图初始化完成）</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _map = <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">myMap</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听map加载完成的promise，执行需要的操作</span></span><br><span class="line">_map.<span class="property">$mapPromise</span>.<span class="title function_">then</span>(<span class="function">(<span class="params">map</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// do something here</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.地图瓦片加载完成事件监听</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">google.<span class="property">maps</span>.<span class="property">event</span>.<span class="title function_">addListenerOnce</span>(map,<span class="string">&quot;tilesloaded&quot;</span>,<span class="keyword">function</span>(<span class="params">event</span>)&#123;</span><br><span class="line">    <span class="comment">// do something here</span></span><br><span class="line">    <span class="comment">// 一般在这里加载数据更新地图视图</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.地图缩放、移动完成后闲置状态</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">google.<span class="property">maps</span>.<span class="property">event</span>.<span class="title function_">addListenerOnce</span>(map,<span class="string">&quot;idle&quot;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    <span class="comment">// addListenerOnce 表示只监听第一次       </span></span><br><span class="line">    <span class="comment">// do something here</span></span><br><span class="line">    <span class="comment">// 上一次地图操作完成，可以进行下一次变换了</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">google.<span class="property">maps</span>.<span class="property">event</span>.<span class="title function_">addListener</span>(map,<span class="string">&quot;idle&quot;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    <span class="comment">// do something here</span></span><br><span class="line">    <span class="comment">// 上一次地图操作完成，可以进行下一次变换了</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.地图缩放比例发生变化</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">google.<span class="property">maps</span>.<span class="property">event</span>.<span class="title function_">addListener</span>(map,<span class="string">&quot;zoom_changed&quot;</span>,<span class="keyword">function</span>(<span class="params">zoom</span>)&#123;</span><br><span class="line">    <span class="comment">// do something here</span></span><br><span class="line">    <span class="comment">// 地图缩放比例发生变化了</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用地图组件的话，也可以调用组件内的方法</span></span><br><span class="line"><span class="comment">// 监听zoom_changed事件</span></span><br><span class="line">_map.$on(<span class="string">&#x27;zoom_changed&#x27;</span>, <span class="function">(<span class="params">zoom</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">if</span>(zoom &gt; <span class="number">16</span>)&#123;</span><br><span class="line">      _map.<span class="property">$mapObject</span>.<span class="title function_">setZoom</span>(<span class="number">12</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>这里还有很多，就不一一举例子了，具体请查看官方的文档。</p>
+<ol start="8">
+<li><p>谷歌地图使用的注意事项</p>
+<ul>
+<li><p>1.谷歌地图不要轻易设置<code>display:none</code>，因为地图大小为0*0的时候，你无法对地图进行各种操作，相应的，你也不能在初始化的时候在地图组件上设置v-show隐藏它，这样你的地图刚开始是加载不出来的。如果某些情况下你实在要隐藏地图，试试设置透明度为0。</p>
+</li>
+<li><p>2.谷歌地图的<code>fitBounds()</code> 方法有时候不太好使，可以试试 <code>settimeout</code> 异步操作吧，这个通常是有效的。</p>
+</li>
+<li><p>3.地图上的marker使用图片（例如2倍图&#x2F;3倍图）会造成marker偏大，而且比较模糊，最好的实践是使用svg的path画上去，这样marker会比较清晰，设计师不会因为这个找你麻烦。</p>
+</li>
+<li><p>4.<strong>谷歌地图在国内只能走cn域名的接口，而且只能走http协议</strong>，这一点很麻烦，目前我们的额项目基本上都是走的https协议，所以目前的话不到万不得已web前端的地图最好别走谷歌地图。后续需要看看公司统一的地图服务平台能不能很好地解决这个问题。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="四、写在最后"><a href="#四、写在最后" class="headerlink" title="四、写在最后"></a>四、写在最后</h4><p>这里只是介绍了一下谷歌地图使用的一些经验，不过地图服务的API都很相似，熟悉一个地图后开发其他地图应该可以很快上手。web地图开发中的坑比较多，遇到问题的时候可能需要花费很长的时间才能解决。遇到问题的时候可以去Google，还有查阅官方的文档，仔细阅读官方文档真的可以帮忙解决很多问题。实在没找到很好的解决方案，可以去问一下公司其他用过地图服务的小伙伴们有没有遇到类似的问题。</p>
+<p>能力有限，只能写到这里了，但愿这篇文章能够对你的地图开发有一丢丢的帮助。好了不说了，又来新需求了，我要去写代码了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9C%B0%E5%9B%BE%E5%BC%80%E5%8F%91/" rel="tag"># 地图开发</a>
+              <a href="/tags/Google%E5%9C%B0%E5%9B%BE/" rel="tag"># Google地图</a>
+              <a href="/tags/Web%E5%9C%B0%E5%9B%BE/" rel="tag"># Web地图</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/03/10/%E5%88%A9%E7%94%A8blob%E5%92%8CXMLHttpRequest%E5%AE%9E%E7%8E%B0web%E7%AB%AF%E8%B7%A8%E5%9F%9F%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" rel="prev" title="利用blob和XMLHttpRequest实现web端跨域文件下载">
+                  <i class="fa fa-angle-left"></i> 利用blob和XMLHttpRequest实现web端跨域文件下载
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/06/17/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%A4%E9%81%93%E7%BC%96%E7%A8%8B%E9%A2%98/" rel="next" title="记录一下字节面试遇到的两道编程题">
+                  记录一下字节面试遇到的两道编程题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-balance-scale"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">true</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

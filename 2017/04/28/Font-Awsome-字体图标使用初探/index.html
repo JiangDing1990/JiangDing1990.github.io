@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangding1990.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"github","dark":"github-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat","show_result":true},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":150,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="关于Font Awsome 字体图标Font Awsome是一款开源的字体图标库，拥有大量简洁优雅的图标(Version 4.7.0已经拥有675个图标)，是一款强大、丰富、简单、好用的字体图标库。 Font Awsome的特点 完全开源、免费 字体库强大、丰富 无需JavaScript支持 矢量图标可缩放，扩展性强 css控制，使用方便 完美兼容Retina屏 兼容所有框架、兼容桌面级应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Font Awsome 字体图标使用初探">
+<meta property="og:url" content="https://jiangding1990.github.io/2017/04/28/Font-Awsome-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E4%BD%BF%E7%94%A8%E5%88%9D%E6%8E%A2/index.html">
+<meta property="og:site_name" content="春风十里">
+<meta property="og:description" content="关于Font Awsome 字体图标Font Awsome是一款开源的字体图标库，拥有大量简洁优雅的图标(Version 4.7.0已经拥有675个图标)，是一款强大、丰富、简单、好用的字体图标库。 Font Awsome的特点 完全开源、免费 字体库强大、丰富 无需JavaScript支持 矢量图标可缩放，扩展性强 css控制，使用方便 完美兼容Retina屏 兼容所有框架、兼容桌面级应用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jiangding1990.github.io/images/2017-04-28-23.24.37.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/2017-04-28-23.24.21.png">
+<meta property="article:published_time" content="2017-04-28T14:38:08.000Z">
+<meta property="article:modified_time" content="2019-07-27T09:44:35.000Z">
+<meta property="article:author" content="Jiang Ding">
+<meta property="article:tag" content="Font Awsome">
+<meta property="article:tag" content="字体图标">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jiangding1990.github.io/images/2017-04-28-23.24.37.png">
+
+
+<link rel="canonical" href="https://jiangding1990.github.io/2017/04/28/Font-Awsome-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E4%BD%BF%E7%94%A8%E5%88%9D%E6%8E%A2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangding1990.github.io/2017/04/28/Font-Awsome-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E4%BD%BF%E7%94%A8%E5%88%9D%E6%8E%A2/","path":"2017/04/28/Font-Awsome-字体图标使用初探/","title":"Font Awsome 字体图标使用初探"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Font Awsome 字体图标使用初探 | 春风十里</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">春风十里</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EFont-Awsome-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">关于Font Awsome 字体图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Font-Awsome%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">Font Awsome的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Font-Awsome%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">Font Awsome的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BC%95%E5%85%A5%E5%AD%97%E4%BD%93%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">1. 引入字体库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BC%95%E7%94%A8%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87"><span class="nav-number">3.2.</span> <span class="nav-text">2. 引用字体图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%9B%BE%E6%A0%87%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.3.</span> <span class="nav-text">3. 图标的设置</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiang Ding"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jiang Ding</p>
+  <div class="site-description" itemprop="description">即使是菜鸟，也要爱分享</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JiangDing1990" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JiangDing1990" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/jdjiangding" title="微博 → http:&#x2F;&#x2F;weibo.com&#x2F;jdjiangding" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangding1990.github.io/2017/04/28/Font-Awsome-%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E4%BD%BF%E7%94%A8%E5%88%9D%E6%8E%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jiang Ding">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+      <meta itemprop="description" content="即使是菜鸟，也要爱分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Font Awsome 字体图标使用初探 | 春风十里">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Font Awsome 字体图标使用初探
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-28 22:38:08" itemprop="dateCreated datePublished" datetime="2017-04-28T22:38:08+08:00">2017-04-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="关于Font-Awsome-字体图标"><a href="#关于Font-Awsome-字体图标" class="headerlink" title="关于Font Awsome 字体图标"></a>关于<a target="_blank" rel="noopener" href="http://www.fontawesome.io/">Font Awsome</a> 字体图标</h2><p><a target="_blank" rel="noopener" href="http://www.fontawesome.io/">Font Awsome</a>是一款开源的<strong>字体图标</strong>库，拥有大量简洁优雅的图标(Version 4.7.0已经拥有675个图标)，是一款强大、丰富、简单、好用的字体图标库。</p>
+<h2 id="Font-Awsome的特点"><a href="#Font-Awsome的特点" class="headerlink" title="Font Awsome的特点"></a><a target="_blank" rel="noopener" href="http://www.fontawesome.io/">Font Awsome</a>的特点</h2><ul>
+<li>完全开源、免费</li>
+<li>字体库强大、丰富</li>
+<li>无需JavaScript支持</li>
+<li>矢量图标可缩放，扩展性强</li>
+<li>css控制，使用方便</li>
+<li>完美兼容Retina屏</li>
+<li>兼容所有框架、兼容桌面级应用</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="Font-Awsome的使用"><a href="#Font-Awsome的使用" class="headerlink" title="Font Awsome的使用"></a><a target="_blank" rel="noopener" href="http://www.fontawesome.io/">Font Awsome</a>的使用</h2><h3 id="1-引入字体库"><a href="#1-引入字体库" class="headerlink" title="1. 引入字体库"></a>1. 引入字体库</h3><ul>
+<li><p>通过CDN引入</p>
+<p>  可以通过CDN引入<a target="_blank" rel="noopener" href="http://www.fontawesome.io/">Font Awsome</a>到项目代码，只需将下列代码加入到html的<code>&lt;head&gt;</code>标签内部即可。</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=&quot;https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载到本地引人</p>
+<p>  也可以手动下载<a target="_blank" rel="noopener" href="http://www.fontawesome.io/">Font Awsome</a>源码到本地，解压后将源码放到自己的项目内，然后在项目的HTML文件里引入</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/css/font-awesome.min.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>  <strong>注意</strong>：源码的font文件夹要跟存放其<code>.css</code>文件的文件夹在同一个目录下。</p>
+<p>  例如<code>.css</code>文件存放在css文件夹内，则font文件夹就应该放在和css文件夹相同的文件夹内。此时的引用路径即为：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/font-awesome.min.css&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-引用字体图标"><a href="#2-引用字体图标" class="headerlink" title="2. 引用字体图标"></a>2. 引用字体图标</h3><p>引入源码之后，我们就可以在Font Awesome的<a target="_blank" rel="noopener" href="http://fontawesome.io/icons/">icons</a>界面搜索我们想要的图标。</p>
+<p>找到我们想要的图标后，按照相应图标下的说明将对应的标签插入到html代码对应的位置即可。</p>
+<p>例如，如果需要引用<a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/icons/phone/"><code>phone</code></a>这个图标，则只需按照图标下方的格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;i class=&quot;fa fa-phone&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure>
+<p>将这段代码插入到需要引用的位置即可。</p>
+<h3 id="3-图标的设置"><a href="#3-图标的设置" class="headerlink" title="3. 图标的设置"></a>3. 图标的设置</h3><p>可以通过设置CSS前缀fa和图标的具体名称，来把图标放在任意位置。Font Awesome 被设计为用于行内元素。</p>
+<ol>
+<li><p>设置尺寸</p>
+<p> 使用<code>fa-lg</code> (33% 递增), <code>fa-2x</code>, <code>fa-3x</code>, <code>fa-4x</code>, 或 <code>fa-5x</code>可以将图标大小扩大到原来的133%, 2倍，3倍，4倍和5倍。<br> 例如引用不同尺寸的<code>camera-retro</code>图标</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;i class=&quot;fa fa-camera-retro fa-lg&quot;&gt;&lt;/i&gt; fa-lg</span><br><span class="line">&lt;i class=&quot;fa fa-camera-retro fa-2x&quot;&gt;&lt;/i&gt; fa-2x</span><br><span class="line">&lt;i class=&quot;fa fa-camera-retro fa-3x&quot;&gt;&lt;/i&gt; fa-3x</span><br><span class="line">&lt;i class=&quot;fa fa-camera-retro fa-4x&quot;&gt;&lt;/i&gt; fa-4x</span><br><span class="line">&lt;i class=&quot;fa fa-camera-retro fa-5x&quot;&gt;&lt;/i&gt; fa-5x</span><br></pre></td></tr></table></figure></li>
+<li><p>固定宽度</p>
+<p> 通过<code>fa-fw</code>给图标一个固定宽度。当要使不同宽度的图标对齐时很管用，特别是在设计导航组和列表组的时候</p>
+<p> 例如下列代码</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  &lt;div class=&quot;list-group&quot;&gt;</span><br><span class="line">  &lt;a class=&quot;list-group-item&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-home fa-fw&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp; 首页&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;list-group-item&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-book fa-fw&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp; 关于我们&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;list-group-item&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-pencil fa-fw&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp; 后台应用编辑&lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;list-group-item&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-cog fa-fw&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&amp;nbsp; 系统设置&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p> 效果如下图所示<br> <img src="/images/2017-04-28-23.24.37.png"></p>
+</li>
+<li><p>用于列表的图标</p>
+<p> 用<code>fa-ul</code>和<code>fa-li</code>可以方便的替换掉ul列表的默认样式</p>
+<p> 例如以下代码</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;fa-ul&quot;&gt;</span><br><span class="line">  &lt;li&gt;&lt;i class=&quot;fa-li fa fa-check-square&quot;&gt;&lt;/i&gt;使用列表类图标&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;i class=&quot;fa-li fa fa-check-square&quot;&gt;&lt;/i&gt;轻松的替换&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;i class=&quot;fa-li fa fa-spinner fa-spin&quot;&gt;&lt;/i&gt;无序列表&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;i class=&quot;fa-li fa fa-square&quot;&gt;&lt;/i&gt;中的默认图标&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p> 即可实现下图效果<br> <img src="/images/2017-04-28-23.24.21.png"></p>
+</li>
+<li><p>边框和排版</p>
+</li>
+</ol>
+<p>用<code>fa-border</code>，<code>pull-right</code>, <code>pull-left</code> 方便的排列用于引用或文字开头的图标(首字下沉效果)。</p>
+<p><a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/examples/">具体使用方法详见</a></p>
+<ol start="5">
+<li>动画</li>
+</ol>
+<p><code>fa-spin</code>和<code>fa-pulse</code>可以让图标旋转，两个有区别，第一个应该是不间断的旋转，第二个是以8步动画旋转的，可以自己实现看下，我这里可能描述的不准确。经常跟<code>fa fa-spinner</code>, <code>fa fa-refresh</code>, <code>fa fa-cog</code>一起使用。</p>
+<p><a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/examples/">具体使用方法详见</a></p>
+<ol start="6">
+<li>旋转和翻转</li>
+</ol>
+<p><code>fa-rotate-90</code>, <code>fa-rotate-180</code>, <code>fa-rotate-270</code>分别让icon旋转90°，180°， 270°；<code>fa-flip-horizontal</code>, <code>fa-flip-vertical</code>分别让icon水平翻转和垂直翻转。</p>
+<p><a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/examples/">具体使用方法详见</a></p>
+<ol start="7">
+<li>组合</li>
+</ol>
+<p>组合图标要在父级标签加上<code>fa-stack</code>类，正常大小的图标用<code>fa-stack-1x</code>, 2倍正常大小的用<code>fa-stack-2x</code>(即用来做背景icon), 可以用<code>fa-inverse</code>翻转图标颜色，叠加的顺序就是标签的顺序，在父级添加<code>fa-lg</code>这类控制图标大小的类可以控制整个组合图标的大小。</p>
+<p><a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/examples/">具体使用方法详见</a></p>
+<ol start="8">
+<li>配合<a target="_blank" rel="noopener" href="http://getbootstrap.com/2.3.2/">Bootstrap</a>使用</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="http://www.fontawesome.io/">Font Awsome</a>可以很好的跟Bootstrap一起工作，完全兼容<a target="_blank" rel="noopener" href="http://getbootstrap.com/2.3.2/">Bootstrap</a>的所有组件。使用方法跟<a target="_blank" rel="noopener" href="http://getbootstrap.com/2.3.2/">Bootstrap</a>的<a target="_blank" rel="noopener" href="http://glyphicons.com/">Glyphicons</a>也基本相同，但是可以控制的项更多。</p>
+<p><a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/examples/">具体使用方法详见</a></p>
+<p><strong>参考文章</strong></p>
+<p>本文参考了<a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/">Font Awsome中文网</a>的具体介绍。更多使用方法和说明详见<a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/">Font Awsome中文网</a>和<a target="_blank" rel="noopener" href="http://www.fontawesome.io/">Font Awsome官网</a>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Font-Awsome/" rel="tag"># Font Awsome</a>
+              <a href="/tags/%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87/" rel="tag"># 字体图标</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/04/28/Emmet%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" rel="prev" title="Emmet插件使用手册">
+                  <i class="fa fa-angle-left"></i> Emmet插件使用手册
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/05/02/%E5%85%B3%E4%BA%8E%E4%BC%AA%E7%B1%BB%E3%80%81%E4%BC%AA%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%AE%9A%E4%BD%8D/" rel="next" title="关于伪类、伪对象和定位">
+                  关于伪类、伪对象和定位 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-balance-scale"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">true</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangding1990.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"github","dark":"github-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat","show_result":true},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":150,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="构思这是一个简单的练手demo。我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。  首先，将三种出拳的图片列出，获取元素到数组； 然后生成一个随机数，使用随机数作为数组下标，获取电脑出拳结果； 设置定时器让电">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生js实现简单猜拳游戏">
+<meta property="og:url" content="https://jiangding1990.github.io/2017/06/11/%E5%8E%9F%E7%94%9Fjs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/index.html">
+<meta property="og:site_name" content="春风十里">
+<meta property="og:description" content="构思这是一个简单的练手demo。我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。 其实要实现的效果很简单，直接说我的思路吧。  首先，将三种出拳的图片列出，获取元素到数组； 然后生成一个随机数，使用随机数作为数组下标，获取电脑出拳结果； 设置定时器让电">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-06-11T12:40:37.000Z">
+<meta property="article:modified_time" content="2021-04-29T03:50:33.000Z">
+<meta property="article:author" content="Jiang Ding">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="js游戏">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://jiangding1990.github.io/2017/06/11/%E5%8E%9F%E7%94%9Fjs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangding1990.github.io/2017/06/11/%E5%8E%9F%E7%94%9Fjs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/","path":"2017/06/11/原生js实现简单猜拳游戏/","title":"原生js实现简单猜拳游戏"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>原生js实现简单猜拳游戏 | 春风十里</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">春风十里</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E6%80%9D"><span class="nav-number">1.</span> <span class="nav-text">构思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">页面结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css%E6%A0%B7%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">css样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript%E9%83%A8%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">JavaScript部分</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiang Ding"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jiang Ding</p>
+  <div class="site-description" itemprop="description">即使是菜鸟，也要爱分享</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JiangDing1990" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JiangDing1990" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/jdjiangding" title="微博 → http:&#x2F;&#x2F;weibo.com&#x2F;jdjiangding" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangding1990.github.io/2017/06/11/%E5%8E%9F%E7%94%9Fjs%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jiang Ding">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+      <meta itemprop="description" content="即使是菜鸟，也要爱分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="原生js实现简单猜拳游戏 | 春风十里">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          原生js实现简单猜拳游戏
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-06-11 20:40:37" itemprop="dateCreated datePublished" datetime="2017-06-11T20:40:37+08:00">2017-06-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8E%9F%E5%88%9B%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">原创教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="构思"><a href="#构思" class="headerlink" title="构思"></a>构思</h2><p>这是一个简单的练手demo。我要实现的是一个简单的猜拳游戏，游戏双方分别为用户和电脑（严格来说是浏览器，暂且这么叫吧），电脑出拳随机，用户选择出拳后，电脑停止滚动，同时显示电脑和用户出拳结果，判断胜负关系，同时统计用户成绩。</p>
+<p>其实要实现的效果很简单，直接说我的思路吧。</p>
+<ol>
+<li>首先，将三种出拳的图片列出，获取元素到数组；</li>
+<li>然后生成一个随机数，使用随机数作为数组下标，获取电脑出拳结果；</li>
+<li>设置定时器让电脑快速出拳并滚动显示；</li>
+<li>定义函数实现用户点击出拳，并将结果显示在出拳显示区域；</li>
+<li>获取双方出拳结果，定义函数，判定胜负关系；</li>
+<li>统计胜负关系，重置游戏至下一轮。</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="页面结构"><a href="#页面结构" class="headerlink" title="页面结构"></a>页面结构</h2><p>页面结构布局我设计的很简单，最上方显示双方出拳结果，中间区域显示用户成绩，最下方为用户出拳选择区域。</p>
+<p>具体的html代码如下：</p>
+<pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;</span><br><span class="line">&lt;title&gt;猜拳游戏&lt;/title&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/main.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;box&quot;&gt;</span><br><span class="line">      &lt;h1&gt;猜拳游戏&lt;/h1&gt;</span><br><span class="line">      &lt;div id=&quot;showarea&quot; class=&quot;clearFix&quot;&gt;&lt;!-- 出拳显示区域开始 --&gt;</span><br><span class="line">      	&lt;div class=&quot;fl&quot;&gt;</span><br><span class="line">      		&lt;img id=&quot;computer&quot; src=&quot;images/paper.jpg&quot;&gt;</span><br><span class="line">      		&lt;h3&gt;电脑的选择&lt;/h3&gt;</span><br><span class="line">      	&lt;/div&gt;</span><br><span class="line">      	&lt;div class=&quot;vs fl&quot;&gt;</span><br><span class="line">      		&lt;h1&gt;VS&lt;/h1&gt;</span><br><span class="line">      	&lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;fl&quot;&gt;</span><br><span class="line">        &lt;img id=&quot;user&quot; src=&quot;&quot;&gt;</span><br><span class="line">        &lt;h3&gt;你的选择&lt;/h3&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;&lt;!-- 出拳显示区域结束 --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;section id=&quot;scores&quot;&gt;&lt;!-- 比分结果部分开始 --&gt;</span><br><span class="line">      &lt;span class=&quot;tit&quot;&gt;你的成绩:&lt;/span&gt;</span><br><span class="line">      &lt;span&gt;胜&lt;/span&gt;&lt;span id=&quot;wincount&quot;&gt;0&lt;/span&gt;</span><br><span class="line">      &lt;span&gt;平&lt;/span&gt;&lt;span id=&quot;evencount&quot;&gt;0&lt;/span&gt;</span><br><span class="line">      &lt;span&gt;负&lt;/span&gt;&lt;span id=&quot;losecount&quot;&gt;0&lt;/span&gt;</span><br><span class="line">    &lt;/section&gt;&lt;!-- 比分结果部分结束 --&gt;</span><br><span class="line"></span><br><span class="line">      &lt;div id=&quot;options&quot;&gt;&lt;!-- 选项部分开始 --&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">          &lt;li&gt;</span><br><span class="line">            &lt;img src=&quot;images/rock.jpg&quot; alt=&quot;石头&quot; value=&quot;1&quot;&gt;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">          &lt;li&gt;</span><br><span class="line">            &lt;img src=&quot;images/scissor.jpg&quot; alt=&quot;剪刀&quot; value=&quot;2&quot;&gt;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">          &lt;li&gt;</span><br><span class="line">            &lt;img src=&quot;images/paper.jpg&quot; alt=&quot;布&quot; value=&quot;3&quot;&gt;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;h3&gt;请点击图片选择你本轮应战的武器&lt;/h3&gt;</span><br><span class="line">    &lt;/div&gt;&lt;!-- 选项部分结束 --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;js/main.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="css样式"><a href="#css样式" class="headerlink" title="css样式"></a>css样式</h2><p>整个游戏的css样式也比较简单，只是做了简单的居中。</p>
+<p>具体的css代码如下：</p>
+<pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">@charset &quot;UTF-8&quot;;</span><br><span class="line">body,ul,li,h1&#123;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li&#123;</span><br><span class="line">  list-style: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.fl&#123;</span><br><span class="line">  float: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.clearFix:after&#123;</span><br><span class="line">  content: &#x27;&#x27;;</span><br><span class="line">  display: block;</span><br><span class="line">  clear: both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ul&#123;</span><br><span class="line">  margin: 20px auto;</span><br><span class="line">  height: 120px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 150px;</span><br><span class="line">  margin: 10px;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">img&#123;</span><br><span class="line">  vertical-align: top;</span><br><span class="line">  width: 200px;</span><br><span class="line">  height: 132px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#box&#123;</span><br><span class="line">  width: 800px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  padding: 60px 0;</span><br><span class="line">  text-align: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#showarea&#123;</span><br><span class="line">  width: 600px;</span><br><span class="line">  margin: 50px auto 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.vs&#123;</span><br><span class="line">  width: 150px;</span><br><span class="line">  height: 132px;</span><br><span class="line">  font-size: 40px;</span><br><span class="line">  line-height: 132px;</span><br><span class="line">  margin-top: 10px;</span><br><span class="line">  margin-right: 40px;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#options&#123;</span><br><span class="line">  width: 520px;</span><br><span class="line">  height: 120px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#options img&#123;</span><br><span class="line">  width: 150px;</span><br><span class="line">  height: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#scores&#123;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: 40px;</span><br><span class="line">  margin: 40px 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">span&#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: 30px;</span><br><span class="line">  font-size: 24px;</span><br><span class="line">  line-height: 40px;</span><br><span class="line">  text-align: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">span.tit&#123;</span><br><span class="line">  width: 120px;</span><br><span class="line">  padding-right: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#wincount,</span><br><span class="line">#evencount,</span><br><span class="line">#losecount&#123;</span><br><span class="line">  width: 60px;</span><br><span class="line">  font-size: 24px;</span><br><span class="line">  line-height: 40px;</span><br><span class="line">  margin-right: 20px;</span><br><span class="line">  color: #f60;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">h3&#123;</span><br><span class="line">  text-align: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="JavaScript部分"><a href="#JavaScript部分" class="headerlink" title="JavaScript部分"></a>JavaScript部分</h2><p>游戏最关键的JavaScript部分，其实总体比较简单。最关键的是解决<strong>如何通过获取双方出拳的图片来判断胜负</strong>。我这里是这样实现的：我在写出拳选项部分的时候，给每张图片都添加了一个<code>value</code>值，相当于给三张图片都添加了一个<code>value</code>属性，双方出拳的时候，都会把<code>value</code>值传递给出拳结果，最后获取出拳结果的<code>value</code>值进行比较，即可判定胜负关系。</p>
+<p>另外一个需要注意的是，在调用判定胜负函数来判定结果时，需要使用<code>setTimeout</code>定时器来适当延迟胜负判定，否则会先显示判定结果，后显示用户出拳结果图片（这个我尝试过）。</p>
+<p>具体的思路上边说过，这里不再重复叙述了。下面是详细的JavaScript代码：</p>
+<pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">//获取所需元素</span><br><span class="line">var computer = document.getElementById(&quot;computer&quot;);</span><br><span class="line">var user = document.getElementById(&quot;user&quot;);</span><br><span class="line">var options = document.getElementById(&quot;options&quot;);</span><br><span class="line">var list = options.getElementsByTagName(&quot;img&quot;);</span><br><span class="line">var wincount = document.getElementById(&quot;wincount&quot;);</span><br><span class="line">var evencount = document.getElementById(&quot;evencount&quot;);</span><br><span class="line">var losecount = document.getElementById(&quot;losecount&quot;);</span><br><span class="line">var win = 0, even = 0, lose = 0;  //定义三个变量用于存储成绩</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//定义函数实现电脑随机出拳</span><br><span class="line">//生成随机数实现出拳</span><br><span class="line">function changeimg()&#123;</span><br><span class="line">  var r = Math.floor(Math.random()*3);</span><br><span class="line">  computer.src = list[r].src;</span><br><span class="line">  //通过绑定自定义的value属性，追踪图片结果，方便之后判定结果</span><br><span class="line">  //自定义属性无法直接使用.value访问，需要通过getAttribute获取</span><br><span class="line">  computer.value = list[r].getAttribute(&quot;value&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//设置定时器让电脑出拳滚动显示</span><br><span class="line">var timer = setInterval(changeimg, 10);</span><br><span class="line"></span><br><span class="line">//设置鼠标点击图片效果</span><br><span class="line">var lis = document.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">for(var i = 0; i&lt;list.length; i++)&#123;</span><br><span class="line">  lis[i].index = i;</span><br><span class="line">  lis[i].onmousedown = function()&#123;</span><br><span class="line">    lis[this.index].style.boxShadow = &quot;0 0 10px 0 rgba(0,0,0,0.6)&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  lis[i].onmouseover = function()&#123;</span><br><span class="line">    lis[this.index].style.boxShadow = &quot;0 0 3px 0 rgba(0,0,0,0.3)&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  lis[i].onmouseout = function()&#123;</span><br><span class="line">    lis[this.index].style.boxShadow = &quot;0 0 0 0 #fff&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//定义函数实现点击选择后，user出拳显示在上方区域</span><br><span class="line">for(var i = 0; i&lt;list.length; i++)&#123;</span><br><span class="line">  list[i].index = i;</span><br><span class="line">  list[i].onclick = function()&#123;</span><br><span class="line">    user.src = list[this.index].src;</span><br><span class="line">    //通过绑定自定义的value属性，追踪图片结果，方便之后判定结果</span><br><span class="line">    user.value = list[this.index].getAttribute(&quot;value&quot;);</span><br><span class="line">    //console.log(user.value);</span><br><span class="line">    //用户点击提交后，清空定时器，使电脑出拳停止滚动</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">    //设置定时器实现先显示用户选择，再执行比较；否则先比较，后显示用户选择</span><br><span class="line">    var timer1 = setTimeout(judge, 100);</span><br><span class="line">    //判断完毕，重新让电脑出拳开始滚动</span><br><span class="line">    timer = setInterval(changeimg, 20);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//定义函数判定胜负</span><br><span class="line">//通过前面获取到的图片的value值作比较，判断胜负</span><br><span class="line">//value=1,对应&quot;石头&quot;; value = 2对应&quot;剪刀&quot;; value = 3对应&quot;布&quot;</span><br><span class="line">function judge()&#123;</span><br><span class="line">  var comr = computer.value;</span><br><span class="line">  var usrr = user.value;</span><br><span class="line">  // console.log(comr);</span><br><span class="line">  // console.log(usrr);</span><br><span class="line">  if(comr == &quot;1&quot;)&#123;</span><br><span class="line">    switch(usrr) &#123;</span><br><span class="line">      case &quot;1&quot;:</span><br><span class="line">        even += 1;</span><br><span class="line">        evencount.innerText = even;</span><br><span class="line">        alert(&quot;打平了！&quot;);</span><br><span class="line">        break;</span><br><span class="line">      case &quot;2&quot;:</span><br><span class="line">        lose += 1;</span><br><span class="line">        losecount.innerText = lose;</span><br><span class="line">        alert(&quot;你输了！&quot;);</span><br><span class="line">        break;</span><br><span class="line">      default:</span><br><span class="line">        win += 1;</span><br><span class="line">        wincount.innerText = win;</span><br><span class="line">        alert(&quot;你赢了！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  else if(comr == &quot;2&quot;)&#123;</span><br><span class="line">    switch(usrr) &#123;</span><br><span class="line">      case &quot;1&quot;:</span><br><span class="line">        win += 1;</span><br><span class="line">        wincount.innerText = win;</span><br><span class="line">        alert(&quot;你赢了！&quot;);</span><br><span class="line">        break;</span><br><span class="line">      case &quot;2&quot;:</span><br><span class="line">        even += 1;</span><br><span class="line">        evencount.innerText = even;</span><br><span class="line">        alert(&quot;打平了！&quot;);</span><br><span class="line">        break;</span><br><span class="line">      default:</span><br><span class="line">        lose += 1;</span><br><span class="line">        losecount.innerText = lose;</span><br><span class="line">        alert(&quot;你输了！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  else&#123;</span><br><span class="line">    switch(usrr) &#123;</span><br><span class="line">      case &quot;1&quot;:</span><br><span class="line">        lose += 1;</span><br><span class="line">        losecount.innerText = lose;</span><br><span class="line">        alert(&quot;你输了！&quot;);</span><br><span class="line">        break;</span><br><span class="line">      case &quot;2&quot;:</span><br><span class="line">        win += 1;</span><br><span class="line">        wincount.innerText = win;</span><br><span class="line">        alert(&quot;你赢了！&quot;);</span><br><span class="line">        break;</span><br><span class="line">      default:</span><br><span class="line">        even += 1;</span><br><span class="line">        evencount.innerText = even;</span><br><span class="line">        alert(&quot;打平了！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  //判定结束，将user上一轮的图片清空，准备下一轮</span><br><span class="line">  user.src = &quot;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+              <a href="/tags/js%E6%B8%B8%E6%88%8F/" rel="tag"># js游戏</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/05/29/CSS%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" rel="prev" title="CSS元素居中方法汇总">
+                  <i class="fa fa-angle-left"></i> CSS元素居中方法汇总
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/06/23/%E5%86%99%E4%BA%86%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84H5%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/" rel="next" title="写了个简单的H5视频播放器">
+                  写了个简单的H5视频播放器 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-balance-scale"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">true</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
