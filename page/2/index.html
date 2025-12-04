@@ -146,7 +146,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -157,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -182,6 +182,113 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jiangding1990.github.io/2017/08/08/CentOS-7-%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%ACGit%E6%96%B9%E6%B3%95%E6%AD%A5%E9%AA%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jiang Ding">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+      <meta itemprop="description" content="即使是菜鸟，也要爱分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 春风十里">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/08/08/CentOS-7-%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%ACGit%E6%96%B9%E6%B3%95%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">CentOS 7 安装最新版本Git方法步骤</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-08-08 14:05:27" itemprop="dateCreated datePublished" datetime="2017-08-08T14:05:27+08:00">2017-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8E%9F%E5%88%9B%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">原创教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>说明</strong>：</p>
+<blockquote>
+<ol>
+<li>CentOS 7 自带的有Git，只是版本较低，好像是版本1.8.3.1，这里介绍最新版本的安装方法，如果你想更新到最新版本，可以参考这篇文档；</li>
+<li>以下所有代码均为在命令行输入的命令，$符号后的为一条完整命令，依次输入即可；</li>
+<li>在连接到服务器之后，从用户根目录开始执行下面的操作。</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>安装依赖库。依次运行下列命令:<br><code>$ yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</code><br><code>$ yum install  gcc perl-ExtUtils-MakeMaker</code><br><code>$ yum -y groupinstall &quot;Development Tools&quot;</code></p>
+</li>
+<li><p>卸载旧版本的Git。运行下面的命令：<br><code>$ yum remove git</code></p>
+</li>
+<li><p>下载最新版Git到服务器<br><code>$ wget https://github.com/git/git/archive/v2.14.0.tar.gz</code></p>
+</li>
+<li><p>解压文件，进入文件夹<br><code>$ tar zxvf v2.14.0.tar.gz</code><br><code>$ cd git-2.14.0</code></p>
+</li>
+<li><p>编译安装<br><code>$ make configure</code><br><code>$ ./configure --prefix=/usr/local/git --with-iconv=/usr/local/libiconv</code><br><code>$ make all doc</code><br><code>$ sudo make install install-doc install-html</code></p>
+</li>
+<li><p>修改环境变量，编辑&#x2F;etc&#x2F;profile文件<br><code>$ sudo vim /etc/profile</code></p>
+</li>
+<li><p>在文件<strong>最后一行</strong>添加以下代码（按”i”进入编辑模式，输入）<br><code>$ export PATH=/usr/local/git/bin:$PATH</code><br>输入完成后，按<code>ESC</code>键退出编辑模式，然后输入<code>:wq</code> 并回车，保存生效</p>
+</li>
+<li><p>输入下面这条命令<br><code>$ source /etc/profile</code></p>
+</li>
+<li><p>查看是否安装成功，使用下面这条命令：<br><code>$ git --version</code></p>
+</li>
+<li><p>如果显示 <code>git version 2.14.0</code>，说明<code>Git 2.14.0 </code>安装成功</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1009,96 +1116,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2017/04/28/Emmet%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://jiangding1990.github.io/2017/04/26/Sublime-Text-3%20%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Jiang Ding">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="春风十里">
-      <meta itemprop="description" content="即使是菜鸟，也要爱分享">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 春风十里">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/04/26/Sublime-Text-3%20%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Sublime Text 3 编辑器学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-04-26 14:44:25" itemprop="dateCreated datePublished" datetime="2017-04-26T14:44:25+08:00">2017-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Sublime-Text-3基本介绍"><a href="#Sublime-Text-3基本介绍" class="headerlink" title="Sublime Text 3基本介绍"></a><a target="_blank" rel="noopener" href="http://www.sublimetext.com/">Sublime Text 3</a>基本介绍</h2><p><a target="_blank" rel="noopener" href="http://www.sublimetext.com/">Sublime Text 3</a>是一款非常优秀的代码编辑器。它<em>界面优美</em>、<em>功能强悍</em>、<em>性能令人惊讶</em>。需要注意的是，它<em>并不是IDE</em>，而是一个<strong>单纯</strong>的<strong>文本编辑工具</strong>，但其<code>代码高亮显示</code>、<code>语法提示</code>、<code>自动完成且反应快速</code>，还有各种<code>丰富插件</code>的支持，使得文本编辑过程非常<strong>规范</strong>、<strong>快速高效</strong>。</p>
-<h2 id="Sublime-Text-3的优点"><a href="#Sublime-Text-3的优点" class="headerlink" title="Sublime Text 3的优点"></a><a target="_blank" rel="noopener" href="http://www.sublimetext.com/">Sublime Text 3</a>的优点</h2><ul>
-<li>跨平台，无论是Windows、Mac以及Linux均可使用，无需担心因为换平台而找不到熟悉合适的编辑器</li>
-<li>丰富的插件，各种各样的插件大大扩充了Sublime的功能，使用合适的插件可以使工作效率大大提升</li>
-<li>编辑环境，命令行环境和界面环境互补，操纵体验非常好</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/04/26/Sublime-Text-3%20%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

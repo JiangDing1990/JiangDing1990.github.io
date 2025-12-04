@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jiangding1990.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"github","dark":"github-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat","show_result":true},"fold":{"enable":false,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":150,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Figma前几天推出了Remote Mcp Server，与之前只能在本地Figma客户端内使用的本地MCP不同，这次可以调用远程Figma MCP Server来进行开发了。不过Figma 的远程 MCP 服务同样还是需要Pro以上会员用户才能使用，如果你没有会员的话中国暗网“闲鱼”会帮你解决。 下面给大家介绍一下安装和使用方法，以及分享一下我自己结合真实设计稿的组件开发尝试。 安装Figma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Claude Code + Figma MCP的组件开发尝试">
+<meta property="og:url" content="https://jiangding1990.github.io/2025/11/13/%E5%9F%BA%E4%BA%8EClaude%20Code%20+%20Figma%20MCP%E7%9A%84%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B0%9D%E8%AF%95/index.html">
+<meta property="og:site_name" content="春风十里">
+<meta property="og:description" content="Figma前几天推出了Remote Mcp Server，与之前只能在本地Figma客户端内使用的本地MCP不同，这次可以调用远程Figma MCP Server来进行开发了。不过Figma 的远程 MCP 服务同样还是需要Pro以上会员用户才能使用，如果你没有会员的话中国暗网“闲鱼”会帮你解决。 下面给大家介绍一下安装和使用方法，以及分享一下我自己结合真实设计稿的组件开发尝试。 安装Figma">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jiangding1990.github.io/images/image-3.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/image-2.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/image-1.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-25%20at%2020.56.10@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-25%20at%2020.59.28@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-25%20at%2021.00.06@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-25%20at%2021.01.08.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-25%20at%2021.02.23@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/image.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2010.56.14@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2016.16.03.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2013.18.48@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2013.17.31@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2013.20.22@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2013.22.53@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2013.23.17@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2013.26.14@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2013.26.52@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2013.58.59@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2014.00.05@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2014.03.38@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2014.15.28.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2014.50.02@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2014.41.46@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2014.27.53@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2015.19.42@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2015.23.33@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2015.23.52@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2015.26.19@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2015.37.42@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2015.39.38@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2015.57.49@2x.png">
+<meta property="og:image" content="https://jiangding1990.github.io/images/CleanShot%202025-09-26%20at%2015.59.01@2x.png">
+<meta property="article:published_time" content="2025-11-13T07:53:21.000Z">
+<meta property="article:modified_time" content="2025-12-04T07:14:29.452Z">
+<meta property="article:author" content="Jiang Ding">
+<meta property="article:tag" content="AI辅助开发">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="Figma MCP">
+<meta property="article:tag" content="Vibe Coding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jiangding1990.github.io/images/image-3.png">
+
+
+<link rel="canonical" href="https://jiangding1990.github.io/2025/11/13/%E5%9F%BA%E4%BA%8EClaude%20Code%20+%20Figma%20MCP%E7%9A%84%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B0%9D%E8%AF%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://jiangding1990.github.io/2025/11/13/%E5%9F%BA%E4%BA%8EClaude%20Code%20+%20Figma%20MCP%E7%9A%84%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B0%9D%E8%AF%95/","path":"2025/11/13/基于Claude Code + Figma MCP的组件开发尝试/","title":"基于Claude Code + Figma MCP的组件开发尝试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>基于Claude Code + Figma MCP的组件开发尝试 | 春风十里</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">春风十里</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Figma-Remote-MCP"><span class="nav-number">1.</span> <span class="nav-text">安装Figma Remote MCP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Claude-Code"><span class="nav-number">1.1.</span> <span class="nav-text">1. Claude Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Cursor"><span class="nav-number">1.2.</span> <span class="nav-text">2. Cursor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8MCP"><span class="nav-number">2.</span> <span class="nav-text">使用MCP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E5%B0%9D%E8%AF%95%E5%A4%B1%E8%B4%A5%EF%BC%8C%E6%B2%A1%E4%BC%9A%E5%91%98"><span class="nav-number">2.1.</span> <span class="nav-text">初次尝试失败，没会员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%BC%9A%E5%91%98%E9%97%AE%E9%A2%98%E5%90%8E%E5%86%8D%E6%AC%A1%E5%B0%9D%E8%AF%95"><span class="nav-number">2.2.</span> <span class="nav-text">解决会员问题后再次尝试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%94%9F%E6%88%90"><span class="nav-number">2.2.1.</span> <span class="nav-text">第一次生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E7%94%9F%E6%88%90"><span class="nav-number">2.2.2.</span> <span class="nav-text">第二次生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E7%94%9F%E6%88%90%E7%BB%93%E6%9E%9C"><span class="nav-number">2.2.3.</span> <span class="nav-text">二次生成结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E6%96%87%E4%BB%B6%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">示例文件代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#README-md"><span class="nav-number">2.2.3.3.</span> <span class="nav-text">README.md</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%AF%B9%E6%AF%94"><span class="nav-number">2.2.4.</span> <span class="nav-text">效果对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E7%A8%BF%E6%95%88%E6%9E%9C"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">设计稿效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E7%BB%84%E4%BB%B6%E6%95%88%E6%9E%9C"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">生成组件效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E8%AE%BE%E8%AE%A1%E7%A8%BF%E8%87%AA%E5%B7%B1%E5%BC%80%E5%8F%91%E7%9A%84%E6%95%88%E6%9E%9C"><span class="nav-number">2.2.4.3.</span> <span class="nav-text">按照设计稿自己开发的效果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E8%BF%9B%E4%B8%80%E6%AD%A5%E4%BF%AE%E6%94%B9"><span class="nav-number">2.3.</span> <span class="nav-text">尝试进一步修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E6%84%9F%E5%8F%97"><span class="nav-number">2.4.</span> <span class="nav-text">整体感受</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E7%9A%84%E8%AE%A1%E5%88%92"><span class="nav-number">3.</span> <span class="nav-text">后续的计划</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%84%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E7%9A%84%E4%BC%98%E5%8C%96%E5%BB%BA%E8%AE%AE"><span class="nav-number">4.1.</span> <span class="nav-text">官方的优化建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BC%98%E5%8C%96-Figma-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E4%BB%A5%E6%8F%90%E5%8D%87%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%EF%BC%88%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%85%B3%E6%B3%A8%EF%BC%89"><span class="nav-number">4.1.1.</span> <span class="nav-text">1. 优化 Figma 文件结构以提升代码质量（设计师关注）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E7%BC%96%E5%86%99%E6%9C%89%E6%95%88%E7%9A%84%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%9D%A5%E5%BC%95%E5%AF%BCAI"><span class="nav-number">4.1.2.</span> <span class="nav-text">2.2 编写有效的提示词来引导AI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E6%A0%B9%E6%8D%AE%E9%9C%80%E8%A6%81%E8%A7%A6%E5%8F%91%E7%89%B9%E5%AE%9A%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="nav-number">4.1.3.</span> <span class="nav-text">2.3 根据需要触发特定的工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="nav-number">4.1.4.</span> <span class="nav-text">2.4 添加自定义规则和说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E9%81%BF%E5%85%8D%E9%80%89%E6%8B%A9%E5%A4%AA%E5%A4%9A%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%81%E5%9B%BE%E5%B1%82"><span class="nav-number">4.1.5.</span> <span class="nav-text">2.5 避免选择太多的内容、图层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MCP%E6%8F%90%E4%BE%9B%E7%9A%84%E5%B7%A5%E5%85%B7%E5%92%8C%E6%8F%90%E7%A4%BA%E8%AF%8D"><span class="nav-number">4.2.</span> <span class="nav-text">MCP提供的工具和提示词</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jiang Ding"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Jiang Ding</p>
+  <div class="site-description" itemprop="description">即使是菜鸟，也要爱分享</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/JiangDing1990" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;JiangDing1990" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://weibo.com/jdjiangding" title="微博 → http:&#x2F;&#x2F;weibo.com&#x2F;jdjiangding" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jiangding1990.github.io/2025/11/13/%E5%9F%BA%E4%BA%8EClaude%20Code%20+%20Figma%20MCP%E7%9A%84%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B0%9D%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Jiang Ding">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="春风十里">
+      <meta itemprop="description" content="即使是菜鸟，也要爱分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="基于Claude Code + Figma MCP的组件开发尝试 | 春风十里">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基于Claude Code + Figma MCP的组件开发尝试
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-11-13 15:53:21" itemprop="dateCreated datePublished" datetime="2025-11-13T15:53:21+08:00">2025-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">经验分享</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Figma前几天推出了Remote Mcp Server，与之前只能在本地Figma客户端内使用的本地MCP不同，这次可以调用远程Figma MCP Server来进行开发了。不过Figma 的远程 MCP 服务同样还是需要Pro以上会员用户才能使用，如果你没有会员的话中国暗网“闲鱼”会帮你解决。</p>
+<p>下面给大家介绍一下安装和使用方法，以及分享一下我自己结合真实设计稿的组件开发尝试。</p>
+<h1 id="安装Figma-Remote-MCP"><a href="#安装Figma-Remote-MCP" class="headerlink" title="安装Figma Remote MCP"></a>安装Figma Remote MCP</h1><h2 id="1-Claude-Code"><a href="#1-Claude-Code" class="headerlink" title="1. Claude Code"></a>1. Claude Code</h2><p>对于已经安装了 Claude 的小伙伴来说，直接一条命令即可安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 官方的Claude命令</span></span><br><span class="line">claude mcp add --transport http figma-remote-mcp https://mcp.figma.com/mcp</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后，需要进入Claude后完成账户连接</p>
+<span id="more"></span>
+
+<p>找一个目录，进入后执行Claude命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 官方的Claude命令</span></span><br><span class="line">claude</span><br></pre></td></tr></table></figure>
+
+<p>然后输入 &#x2F;mcp 命令，选择Manage MCP servers命令，然后可以看到所有可用的工具，选择figma-remote-mcp后回车，会打开Figma网站链接账号授权，同意即可成功后就可以正常连接了</p>
+<p><img src="/images/image-3.png"></p>
+<p>选择figma-remote-mcp工具，回车会跳转到Figma网站进行连接授权，同意后会显示连接成功</p>
+<p><img src="/images/image-2.png"></p>
+<p><img src="/images/image-1.png"></p>
+<h2 id="2-Cursor"><a href="#2-Cursor" class="headerlink" title="2. Cursor"></a>2. Cursor</h2><p>直接在Cursor打开右上角⚙️设置按钮，选择MCP配置</p>
+<p><img src="/images/CleanShot%202025-09-25%20at%2020.56.10@2x.png"></p>
+<p>点击下方New MCP Server，会打开MCP配置文件，直接在json文件最后添加下面的代码配置，添加完保存文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;mcpServers&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// ...省略其他MCP配置，下面是需要新增的</span></span><br><span class="line">    <span class="string">&quot;figmaRemoteMcp&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://mcp.figma.com/mcp&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CleanShot%202025-09-25%20at%2020.59.28@2x.png"></p>
+<p>保存成功后，MCP Tools下会新增一个服务，点击右侧connect按钮打开Figma网站链接账户登录授权</p>
+<p><img src="/images/CleanShot%202025-09-25%20at%2021.00.06@2x.png"></p>
+<p><img src="/images/CleanShot%202025-09-25%20at%2021.01.08.png"></p>
+<p>授权成功后再回到编辑器就可以看到已经可用了</p>
+<p><img src="/images/CleanShot%202025-09-25%20at%2021.02.23@2x.png"></p>
+<p>其他安装参考官方教程：</p>
+<h1 id="使用MCP"><a href="#使用MCP" class="headerlink" title="使用MCP"></a>使用MCP</h1><p>MCP 服务器引入了一套工具，帮助 LLMs 翻译 Figma 中的设计。连接后，您可以提示您的 MCP 客户端访问特定的设计节点。</p>
+<p>远程服务器是基于链接的。使用方法如下：</p>
+<ol>
+<li><p>复制 Figma 中画框或图层的链接</p>
+</li>
+<li><p>在你的客户端内粘贴输入提示词帮助您实现所选 URL 的设计</p>
+</li>
+</ol>
+<p><img src="/images/image.png"></p>
+<blockquote>
+<p>注意：您的客户端无法导航到所选 URL，但会提取 MCP 服务器识别需要返回信息的对象所需的节点 ID。</p>
+</blockquote>
+<h2 id="初次尝试失败，没会员"><a href="#初次尝试失败，没会员" class="headerlink" title="初次尝试失败，没会员"></a>初次尝试失败，没会员</h2><p>试了一下，貌似功能需要Figma付费用户才能使用，我去闲鱼安排一个试试看</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2010.56.14@2x.png"></p>
+<p>查看了下官方文档，原来是因为现在是公开测试阶段，需要会员才能用</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2016.16.03.png"></p>
+<blockquote>
+<p>此处省略去闲鱼安排教育会员的过程，下面接着进行功能测试</p>
+</blockquote>
+<h2 id="解决会员问题后再次尝试"><a href="#解决会员问题后再次尝试" class="headerlink" title="解决会员问题后再次尝试"></a>解决会员问题后再次尝试</h2><h3 id="第一次生成"><a href="#第一次生成" class="headerlink" title="第一次生成"></a>第一次生成</h3><p>我把设计稿里的一个部分的图层按照官网教程复制了选区对应的link地址</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2013.18.48@2x.png"></p>
+<p>然后继续在Claude会话中尝试，这次不报错了，可以正常使用mcp服务了</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是一个自定义的Tab组件Figma设计稿，</span><br><span class="line">https://www.figma.com/design/Yl7HaQa4NXWlZbZ6laS70X/%E7%9C%8B%E6%9D%BF?node-id=1-727&amp;t=TtEexVQGtTamdSdS-4，</span><br><span class="line">请你帮我使用React Hooks实现一个函数式的Tab组件</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CleanShot%202025-09-26%20at%2013.17.31@2x.png"></p>
+<p>Claude Code在自行规划任务</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2013.20.22@2x.png"></p>
+<p>接着代码就生成了，提示是否允许编辑，确认</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2013.22.53@2x.png"></p>
+<p>确认继续编辑之后，Claude Code又继续其他任务了，包括ts接口定义、实现组件主体逻辑以及创建使用示例文档等</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2013.23.17@2x.png"></p>
+<p>最终任务完成，Claude Code输出了任务总结</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2013.26.14@2x.png"></p>
+<p>打开文件夹看了下，成功输出了所有文件</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2013.26.52@2x.png"></p>
+<h3 id="第二次生成"><a href="#第二次生成" class="headerlink" title="第二次生成"></a>第二次生成</h3><p>看了下代码，我发现组件样式是使用Tailwind风格实现的，我让他帮我改成单独的less文件，让Claude Code又重新开始了任务</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请帮我去掉tailwind css写法，请改为使用less文件编写样式</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CleanShot%202025-09-26%20at%2013.58.59@2x.png"></p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2014.00.05@2x.png"></p>
+<p>最后同样输出了我们要的文件，README.md文件内容也更新了</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2014.03.38@2x.png"></p>
+<h3 id="二次生成结果"><a href="#二次生成结果" class="headerlink" title="二次生成结果"></a>二次生成结果</h3><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>组件代码和对应的样式文件</p>
+<h4 id="示例文件代码"><a href="#示例文件代码" class="headerlink" title="示例文件代码"></a>示例文件代码</h4><p>示例组件和对应的样式文件</p>
+<h4 id="README-md"><a href="#README-md" class="headerlink" title="README.md"></a>README.md</h4><p>文件拷贝到项目文件夹下，发现有React相关提示，组件在最开始未引入React，加上React引入后错误提示消失</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2014.15.28.png"></p>
+<h3 id="效果对比"><a href="#效果对比" class="headerlink" title="效果对比"></a>效果对比</h3><h4 id="设计稿效果"><a href="#设计稿效果" class="headerlink" title="设计稿效果"></a>设计稿效果</h4><p><img src="/images/CleanShot%202025-09-26%20at%2014.50.02@2x.png"></p>
+<h4 id="生成组件效果"><a href="#生成组件效果" class="headerlink" title="生成组件效果"></a>生成组件效果</h4><p>手写一份mock数据，Claude Code生成的组件展示效果如下</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2014.41.46@2x.png"></p>
+<h4 id="按照设计稿自己开发的效果"><a href="#按照设计稿自己开发的效果" class="headerlink" title="按照设计稿自己开发的效果"></a>按照设计稿自己开发的效果</h4><p>这是自己开发实现的效果，产品未要求按照数量进行颜色区分标记，选中态产品要求使用蓝色样式，实现效果如下</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2014.27.53@2x.png"></p>
+<blockquote>
+<p>对比设计稿来看，使用Figma MCP自动生成的组件有下面几个小问题</p>
+<ol>
+<li><p>有个很明显的问题是Tab选中态的小三角形未实现</p>
+</li>
+<li><p>另外背景色和边框色不匹配，</p>
+</li>
+<li><p>中间阶段之间的右箭头未增加圆形边框，且水平方向上不居中</p>
+</li>
+<li><p>卡片宽度有些小问题，设计稿未固定宽度，AI实现的为自适应宽度</p>
+</li>
+</ol>
+</blockquote>
+<p>整体上来看，组件的结构和功能都基本没有问题，完成度很高，稍微改一下小问题就基本能用了，另外组件的使用文档也很详细，整体质量还不错。</p>
+<h2 id="尝试进一步修改"><a href="#尝试进一步修改" class="headerlink" title="尝试进一步修改"></a>尝试进一步修改</h2><p>继续输入提示词让Claude Code修改</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当前的选中态指示器样式不正确，请仔细查看设计稿效果，为向下的三角箭头，边框与卡片边框无缝连接过度，请帮我修改这部分实现</span><br></pre></td></tr></table></figure>
+
+<p>修改完成后我又把最新的组件拷贝到项目里试了下效果</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2015.19.42@2x.png"></p>
+<p>效果依然不对，我试了下把效果截图贴给他，让他再修改（图片是截图之后，使用<strong>ctrl+v</strong>粘贴到命令行的，注意别用错了）</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Image #1]现在的效果不对，请你参考我上传的图片，仔细检查下图片内的选中指示器三角形</span><br></pre></td></tr></table></figure>
+
+<p>继续修改</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2015.23.33@2x.png"></p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2015.23.52@2x.png"></p>
+<p>再把文件拷进项目试一下</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2015.26.19@2x.png"></p>
+<p>这次有点像了，继续截图要求修改</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Image #1]请仔细检查我的截图，现在效果是这样的，与设计稿效果不一致，小三角底部边框颜色需要为卡片背景色#f2f6fd，另外三角形边框线宽需要与卡片边框一致，为1px，请继续修改</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CleanShot%202025-09-26%20at%2015.37.42@2x.png"></p>
+<p>由于Claude Code使用的svg实现指示器的小三角形的，逻辑相对麻烦，所以这里修改次数多了一些，这次效果还是不好，我让他改成css实现三角形效果</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2015.39.38@2x.png"></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">指示器的三角形你可以考虑改为使用正方形旋转45度实现，卡片内部的边框颜色为#f2f6fd，但是其他两条边框为选中卡片的边框颜色#0052D9，你需要精确计算正方形大小实现完美融合。你现在实现的三角形底部边框与卡片边框效果很突兀，你看图片[Image #1]</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/CleanShot%202025-09-26%20at%2015.57.49@2x.png"></p>
+<p>这次的效果真的可以了</p>
+<p><img src="/images/CleanShot%202025-09-26%20at%2015.59.01@2x.png"></p>
+<h2 id="整体感受"><a href="#整体感受" class="headerlink" title="整体感受"></a>整体感受</h2><blockquote>
+<p>目前单看这个效果可能离设计还差一些，不过整个开发工作流变得更简单了，如果设计师按照官方的最佳实践进行设计，我们可以结合落兵台的接口文档生成接口定义，再加上我们优化后的提示词，我觉得不久之后这条开发路径可能真的可以大大提高我们的开发效率。</p>
+<p>目前的现状，我认为非组件库实现的页面，如果有Figma设计稿，可以尝试使用MCP直接生成代码，可以一定程度上减少部分工作量。例如C端定制的页面初步搭建，一次性的活动页面等。真正结合内部组件库进行开发还需要限制上下文之类的，可能还需要做很多工作。</p>
+</blockquote>
+<p>有条件的话，建议大家可以自己动手试一试，看看能不能发现其他亮点，目前暂时需要会员，可闲鱼解决。</p>
+<h1 id="后续的计划"><a href="#后续的计划" class="headerlink" title="后续的计划"></a>后续的计划</h1><p>后边我会好好看看官方的最佳实践，抽时间针对性地做一些优化尝试，顺便编写一些提示词，再试试看效果，看看能不能有一些收获。</p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="官方的优化建议"><a href="#官方的优化建议" class="headerlink" title="官方的优化建议"></a>官方的优化建议</h2><h3 id="1-优化-Figma-文件结构以提升代码质量（设计师关注）"><a href="#1-优化-Figma-文件结构以提升代码质量（设计师关注）" class="headerlink" title="1. 优化 Figma 文件结构以提升代码质量（设计师关注）"></a>1. 优化 Figma 文件结构以提升代码质量（设计师关注）</h3><h3 id="2-2-编写有效的提示词来引导AI"><a href="#2-2-编写有效的提示词来引导AI" class="headerlink" title="2.2 编写有效的提示词来引导AI"></a>2.2 编写有效的提示词来引导AI</h3><p>为获得最佳输出效果，官方建议设置规则来引导智能体。官方还提供了一些实用的示例规则。</p>
+<h3 id="2-3-根据需要触发特定的工具"><a href="#2-3-根据需要触发特定的工具" class="headerlink" title="2.3 根据需要触发特定的工具"></a>2.3 根据需要触发特定的工具</h3><h3 id="2-4-添加自定义规则和说明"><a href="#2-4-添加自定义规则和说明" class="headerlink" title="2.4 添加自定义规则和说明"></a>2.4 添加自定义规则和说明</h3><h3 id="2-5-避免选择太多的内容、图层"><a href="#2-5-避免选择太多的内容、图层" class="headerlink" title="2.5 避免选择太多的内容、图层"></a>2.5 避免选择太多的内容、图层</h3><p>将屏幕拆分为更小的部分（如组件或逻辑块），以获得更快、更可靠的结果。</p>
+<h2 id="MCP提供的工具和提示词"><a href="#MCP提供的工具和提示词" class="headerlink" title="MCP提供的工具和提示词"></a>MCP提供的工具和提示词</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Claude-Code/" rel="tag"># Claude Code</a>
+              <a href="/tags/Figma-MCP/" rel="tag"># Figma MCP</a>
+              <a href="/tags/Vibe-Coding/" rel="tag"># Vibe Coding</a>
+              <a href="/tags/AI%E8%BE%85%E5%8A%A9%E5%BC%80%E5%8F%91/" rel="tag"># AI辅助开发</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/04/30/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E6%9C%80%E7%88%B1%E8%80%83%E7%9A%8464%E9%81%93%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%88JS%EF%BC%89%E7%89%88/" rel="prev" title="字节跳动最爱考的64道算法题（JS）版">
+                  <i class="fa fa-angle-left"></i> 字节跳动最爱考的64道算法题（JS）版
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-balance-scale"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">true</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
